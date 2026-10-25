@@ -1,0 +1,151 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Gull e Gulzar Luxury Theme",
+    "theme_version": "1.0.0",
+    "theme_author": "Gull e Gulzar Design Studio",
+    "theme_documentation_url": "https://github.com/ArqamNisar/gullegulzar-website-shopify",
+    "theme_support_url": "https://wa.me/923204967079"
+  },
+  {
+    "name": "Brand & WhatsApp Settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_name",
+        "label": "Store Name",
+        "default": "Gull e Gulzar Home Trolley"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number_primary",
+        "label": "Primary WhatsApp Number (No + sign)",
+        "default": "923204967079",
+        "info": "Used for floating icon, main header, and product order inquiries"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number_primary_display",
+        "label": "Primary WhatsApp Display Text",
+        "default": "+923204967079"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number_secondary",
+        "label": "Secondary WhatsApp Number (No + sign)",
+        "default": "923004055876",
+        "info": "Used in contact page, footer, and support links"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number_secondary_display",
+        "label": "Secondary WhatsApp Display Text",
+        "default": "+923004055876"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_default_message",
+        "label": "Default WhatsApp Welcome Message",
+        "default": "Hello Gull e Gulzar Home Trolley, I would like to inquire about your luxury home trolleys and tables."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_floating_whatsapp",
+        "label": "Enable Floating WhatsApp Widget",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Light Theme Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_bg_main",
+        "label": "Main Background Color",
+        "default": "#FAF8F5"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_card",
+        "label": "Card & Section Surface Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_accent",
+        "label": "Soft Warm Beige / Stone Accent",
+        "default": "#F3EFEA"
+      },
+      {
+        "type": "color",
+        "id": "color_primary_gold",
+        "label": "Champagne Gold / Brass Accent",
+        "default": "#B89053"
+      },
+      {
+        "type": "color",
+        "id": "color_gold_hover",
+        "label": "Gold Hover Accent",
+        "default": "#A0793D"
+      },
+      {
+        "type": "color",
+        "id": "color_text_heading",
+        "label": "Heading Text Color",
+        "default": "#1C1917"
+      },
+      {
+        "type": "color",
+        "id": "color_text_body",
+        "label": "Body Text Color",
+        "default": "#44403C"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted / Subtitle Text Color",
+        "default": "#78716C"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border / Divider Color",
+        "default": "#E7E2DA"
+      },
+      {
+        "type": "color",
+        "id": "color_whatsapp",
+        "label": "WhatsApp Green",
+        "default": "#25D366"
+      }
+    ]
+  },
+  {
+    "name": "Typography & Styling",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "playfair_display_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "plus_jakarta_sans_n4"
+      },
+      {
+        "type": "range",
+        "id": "border_radius",
+        "min": 0,
+        "max": 24,
+        "step": 2,
+        "unit": "px",
+        "label": "Corner Radius",
+        "default": 12
+      }
+    ]
+  }
+]

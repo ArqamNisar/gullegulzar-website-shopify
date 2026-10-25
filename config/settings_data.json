@@ -1,0 +1,22 @@
+{
+  "current": {
+    "store_name": "Gull e Gulzar Home Trolley",
+    "whatsapp_number_primary": "923204967079",
+    "whatsapp_number_primary_display": "+923204967079",
+    "whatsapp_number_secondary": "923004055876",
+    "whatsapp_number_secondary_display": "+923004055876",
+    "whatsapp_default_message": "Hello Gull e Gulzar Home Trolley, I would like to inquire about your luxury home trolleys and tables.",
+    "enable_floating_whatsapp": true,
+    "color_bg_main": "#FAF8F5",
+    "color_bg_card": "#FFFFFF",
+    "color_bg_accent": "#F3EFEA",
+    "color_primary_gold": "#B89053",
+    "color_gold_hover": "#A0793D",
+    "color_text_heading": "#1C1917",
+    "color_text_body": "#44403C",
+    "color_text_muted": "#78716C",
+    "color_border": "#E7E2DA",
+    "color_whatsapp": "#25D366",
+    "border_radius": 12
+  }
+}

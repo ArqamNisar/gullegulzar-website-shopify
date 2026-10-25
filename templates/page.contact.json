@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main_contact": {
+      "type": "main-contact",
+      "settings": {}
+    },
+    "faq_accordion": {
+      "type": "faq-accordion",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main_contact",
+    "faq_accordion"
+  ]
+}

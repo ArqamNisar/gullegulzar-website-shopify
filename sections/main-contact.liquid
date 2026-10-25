@@ -1,0 +1,157 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
+{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
+{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
+
+<div class="contact-hero">
+  <div class="container">
+    <span class="subheading">Direct Assistance & Concierge</span>
+    <h1 style="font-size: 3rem; margin-bottom: 0.75rem;">Get in Touch With Gull e Gulzar</h1>
+    <p style="max-width: 650px; margin: 0 auto; color: var(--color-body); font-size: 1.1rem;">
+      Whether you need assistance choosing a tea trolley, inquiring about custom dimensions, or placing an order, our team is ready to assist you.
+    </p>
+  </div>
+</div>
+
+<div class="container" style="padding-bottom: 5rem;">
+  <!-- Direct WhatsApp Click Cards -->
+  <div class="contact-cards-grid">
+    <!-- Card 1: Primary WhatsApp -->
+    <div class="contact-card-item">
+      <div class="contact-icon-pill">
+        {% render 'icon-whatsapp' %}
+      </div>
+      <h3>Primary Orders & WhatsApp</h3>
+      <p>Direct chat for instant inquiries, catalog photos, and immediate orders.</p>
+      
+      <!-- Clicking this number redirects directly to WhatsApp -->
+      <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I am contacting you from your website regarding an order.' | url_encode }}" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="contact-number-link whatsapp-redirect">
+        {% render 'icon-whatsapp' %}
+        <span>{{ wa_primary_display }}</span>
+      </a>
+
+      <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I am contacting you from your website regarding an order.' | url_encode }}" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn btn-whatsapp btn-block">
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <!-- Card 2: Secondary WhatsApp & Sales -->
+    <div class="contact-card-item">
+      <div class="contact-icon-pill">
+        {% render 'icon-phone' %}
+      </div>
+      <h3>Support & Sales Hotline</h3>
+      <p>Alternate line for bulk orders, custom interior projects, and delivery tracking.</p>
+
+      <!-- Clicking this number redirects directly to WhatsApp -->
+      <a href="https://wa.me/{{ wa_secondary }}?text={{ 'Hello Gull e Gulzar, I am contacting you from your website regarding customer support / sales.' | url_encode }}" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="contact-number-link whatsapp-redirect">
+        {% render 'icon-whatsapp' %}
+        <span>{{ wa_secondary_display }}</span>
+      </a>
+
+      <a href="https://wa.me/{{ wa_secondary }}?text={{ 'Hello Gull e Gulzar, I am contacting you from your website regarding customer support / sales.' | url_encode }}" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+         class="btn btn-whatsapp btn-block">
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Contact Form & Info Grid -->
+  <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; background: #FFFFFF; padding: 3rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); margin-top: 1rem;">
+    <!-- Form Side -->
+    <div>
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Send Us a Message</h3>
+      <p style="color: var(--color-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+        Fill out the form below and our team will get back to you promptly on WhatsApp or Email.
+      </p>
+
+      {% form 'contact' %}
+        {%- if form.posted_successfully? -%}
+          <div style="background: #D1E7DD; color: #0F5132; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+            Thank you for contacting Gull e Gulzar! We have received your message and will respond shortly.
+          </div>
+        {%- endif -%}
+
+        {%- if form.errors -%}
+          <div style="background: #F8D7DA; color: #842029; padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem;">
+            {{ form.errors | default_errors }}
+          </div>
+        {%- endif -%}
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--color-heading);">Your Name *</label>
+            <input type="text" name="contact[name]" required placeholder="e.g. Fatima Ali" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; outline: none;">
+          </div>
+          <div>
+            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--color-heading);">Phone / WhatsApp Number *</label>
+            <input type="tel" name="contact[phone]" required placeholder="e.g. 0320 1234567" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; outline: none;">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.25rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--color-heading);">Email Address (Optional)</label>
+          <input type="email" name="contact[email]" placeholder="you@example.com" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; outline: none;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--color-heading);">Which Product or Custom Size are you interested in? *</label>
+          <textarea name="contact[body]" rows="5" required placeholder="Tell us about the design, category (e.g. Tea Trolley, Nesting Set, Center Table), preferred finish (Gold/Black/Marble), and your city." style="width: 100%; padding: 0.85rem 1rem; border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.95rem; outline: none;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Send Message
+        </button>
+      {% endform %}
+    </div>
+
+    <!-- Info Side -->
+    <div style="background: var(--color-bg-accent); padding: 2rem; border-radius: var(--radius-md); display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <h4 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--color-heading);">Workshop & Delivery Desk</h4>
+        
+        <div style="margin-bottom: 1.5rem;">
+          <strong style="display: block; font-size: 0.9rem; color: var(--color-heading);">Operating Hours:</strong>
+          <p style="font-size: 0.88rem; color: var(--color-muted);">Monday – Saturday: 10:00 AM – 9:00 PM (PKT)<br>Sunday: Available via WhatsApp</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <strong style="display: block; font-size: 0.9rem; color: var(--color-heading);">Nationwide Delivery:</strong>
+          <p style="font-size: 0.88rem; color: var(--color-muted);">Delivering safely to Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, Multan, Gujranwala, Sialkot, Peshawar, Quetta, and all surrounding areas.</p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <strong style="display: block; font-size: 0.9rem; color: var(--color-heading);">Custom Orders:</strong>
+          <p style="font-size: 0.88rem; color: var(--color-muted);">We accept custom design drawings, architect references, and tailor-made dimensional requests.</p>
+        </div>
+      </div>
+
+      <div style="padding-top: 1.5rem; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 0.8rem;">
+          Prefer instant response? Click below to chat directly:
+        </p>
+        <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your products.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
+          {% render 'icon-whatsapp' %} Instant WhatsApp Chat
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": []
+}
+{% endschema %}

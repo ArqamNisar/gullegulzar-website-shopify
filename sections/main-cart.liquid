@@ -1,0 +1,61 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+
+<div class="section-spacing" style="background: var(--color-bg-body);">
+  <div class="container" style="max-width: 850px;">
+    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+      <span class="subheading">Shopping Basket</span>
+      <h1 style="font-size: 2.5rem;">Your Selected Pieces</h1>
+    </div>
+
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" id="cart">
+        <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 1.5rem; margin-bottom: 2rem;">
+          {%- for item in cart.items -%}
+            <div style="display: flex; gap: 1.5rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--color-border);">
+              <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm);">
+              <div style="flex: 1;">
+                <h4 style="font-size: 1.1rem; margin-bottom: 0.25rem;">{{ item.product.title }}</h4>
+                <div style="font-size: 0.85rem; color: var(--color-muted);">{{ item.variant.title }}</div>
+                <div style="font-weight: 700; color: var(--color-gold); margin-top: 0.25rem;">{{ item.final_price | money }}</div>
+              </div>
+              <div>
+                <span>Qty: {{ item.quantity }}</span>
+              </div>
+            </div>
+          {%- endfor -%}
+
+          <div style="padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: baseline;">
+            <span style="font-size: 1.2rem; font-weight: 600;">Total Amount:</span>
+            <span style="font-size: 1.5rem; font-weight: 700; color: var(--color-heading);">{{ cart.total_price | money }}</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button type="submit" name="checkout" class="btn btn-primary" style="flex: 1;">
+            Proceed to Checkout
+          </button>
+          <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I have items in my cart and would like to finalize my order directly on WhatsApp.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="flex: 1;">
+            {% render 'icon-whatsapp' %} Complete Order on WhatsApp
+          </a>
+        </div>
+      </form>
+    {%- else -%}
+      <div style="background: #FFFFFF; padding: 3rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); text-align: center;">
+        <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Your Cart is Currently Empty</h3>
+        <p style="color: var(--color-muted); margin-bottom: 2rem;">
+          Explore our signature tea trolleys, nesting tables, and living room collections.
+        </p>
+        <a href="/collections/all" class="btn btn-primary">
+          Explore All Furniture
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": []
+}
+{% endschema %}

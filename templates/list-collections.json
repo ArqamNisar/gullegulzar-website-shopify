@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "category_grid": {
+      "type": "category-grid",
+      "settings": {}
+    }
+  },
+  "order": [
+    "category_grid"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "general": {
+    "store_name": "Gull e Gulzar Home Trolley",
+    "tagline": "Luxury Home Trolleys & Designer Living Tables",
+    "search": "Search luxury tables & trolleys...",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "menu": "Menu",
+    "close": "Close",
+    "whatsapp_us": "Chat on WhatsApp",
+    "whatsapp_help": "Need help or custom size? Chat on WhatsApp",
+    "contact_direct": "Direct Call / WhatsApp"
+  },
+  "header": {
+    "announcement": "✦ Handcrafted Luxury Furniture | Custom Designs Available | Fast Nationwide Delivery across Pakistan ✦",
+    "phone_primary": "+923204967079",
+    "phone_secondary": "+923004055876"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "order_whatsapp": "Order via WhatsApp",
+      "custom_inquiry": "Inquire Custom Size / Finish",
+      "price": "Price",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "quantity": "Quantity",
+      "view_details": "View Details",
+      "quick_view": "Quick View",
+      "specifications": "Product Specifications",
+      "dimensions": "Dimensions & Details",
+      "delivery_info": "Delivery & Packaging",
+      "care_guide": "Care Instructions"
+    }
+  },
+  "contact": {
+    "title": "Contact Gull e Gulzar",
+    "subtitle": "We are here to assist you with inquiries, custom orders, and design consultations.",
+    "phone_primary_label": "Direct WhatsApp & Inquiries",
+    "phone_secondary_label": "Customer Support & Sales",
+    "send_message": "Send Message",
+    "name": "Your Name",
+    "phone": "Phone / WhatsApp Number",
+    "email": "Email Address",
+    "message": "Message / Custom Requirement"
+  }
+}

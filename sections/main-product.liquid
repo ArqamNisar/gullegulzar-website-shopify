@@ -1,0 +1,170 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+{%- assign product_title = product.title | default: 'Royal 2-Tier Gold Tea Trolley' -%}
+{%- assign product_price = product.price | money | default: 'Rs. 24,500' -%}
+{%- assign product_compare = product.compare_at_price | money | default: 'Rs. 29,000' -%}
+{%- capture wa_product_msg -%}Hello Gull e Gulzar Home Trolley, I am interested in purchasing "{{ product_title }}" ({{ product_price }}). Could you please share delivery details and finish options?{%- endcapture -%}
+
+<div class="section-spacing" style="background: var(--color-bg-body);">
+  <div class="container">
+    <div class="product-detail-layout">
+      <!-- Left Column: Gallery -->
+      <div class="product-gallery">
+        <div class="product-main-view">
+          {%- if product.featured_image -%}
+            <img id="product-main-image" src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product_title }}">
+          {%- else -%}
+            <img id="product-main-image" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80" alt="{{ product_title }}">
+          {%- endif -%}
+        </div>
+
+        <div class="product-thumbs">
+          <div class="product-thumb-item active" data-image-src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=300&q=80" alt="Preview 1">
+          </div>
+          <div class="product-thumb-item" data-image-src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80" alt="Preview 2">
+          </div>
+          <div class="product-thumb-item" data-image-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=80">
+            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" alt="Preview 3">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Details & Actions -->
+      <div class="product-info-wrap">
+        <div>
+          <span class="subheading">{{ product.type | default: 'Gull e Gulzar Signature Collection' }}</span>
+          <h1 class="product-detail-title">{{ product_title }}</h1>
+        </div>
+
+        <div class="product-rating">
+          {% render 'icon-star' %}
+          {% render 'icon-star' %}
+          {% render 'icon-star' %}
+          {% render 'icon-star' %}
+          {% render 'icon-star' %}
+          <span style="font-weight: 600; color: var(--color-heading); margin-left: 0.35rem;">5.0</span>
+          <span>(Verified Handcrafted Guarantee)</span>
+        </div>
+
+        <div class="product-detail-price">
+          <span class="product-price-current">{{ product_price }}</span>
+          {%- if product_compare != blank -%}
+            <span class="product-price-old">{{ product_compare }}</span>
+            <span style="background: rgba(184, 144, 83, 0.15); color: var(--color-gold-dark); font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-full);">
+              Save 15%
+            </span>
+          {%- endif -%}
+        </div>
+
+        <p style="color: var(--color-body); font-size: 1rem; line-height: 1.7;">
+          {{ product.description | default: 'An exquisite luxury piece meticulously fabricated by master artisans. Features a heavy-gauge rust-treated steel frame, electroplated champagne gold finish, smooth rolling 360-degree casters, and dual-tier tempered glass/marble surfaces.' }}
+        </p>
+
+        <!-- Product Customization Options -->
+        <div class="product-order-box">
+          <div>
+            <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
+              Select Frame Finish:
+            </label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-gold); background: #FAF5EE;">
+                ✦ Champagne Gold
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+                Matte Black
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+                Rose Gold Brass
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
+              Table Top Material:
+            </label>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-gold); background: #FAF5EE;">
+                Tempered Fluted Glass
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+                Italian Carrara Marble
+              </button>
+              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+                Solid Hardwood
+              </button>
+            </div>
+          </div>
+
+          <!-- Direct WhatsApp Ordering Callout -->
+          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="https://wa.me/{{ wa_primary }}?text={{ wa_product_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block" style="font-size: 1.05rem; padding: 1rem 1.5rem;">
+              {% render 'icon-whatsapp' %}
+              Order Directly via WhatsApp (+92 320 4967079)
+            </a>
+
+            <div style="display: flex; gap: 0.75rem;">
+              <button type="button" class="btn btn-dark" style="flex: 1;">
+                Add to Cart
+              </button>
+              <a href="/pages/contact" class="btn btn-outline" style="flex: 1;">
+                Custom Size Inquiry
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="product-meta-pills">
+            <span class="meta-pill">{% render 'icon-truck' %} Free/Safe Delivery in Pakistan</span>
+            <span class="meta-pill">{% render 'icon-shield' %} 100% Solid Heavy Frame</span>
+            <span class="meta-pill">{% render 'icon-customize' %} Custom Sizes Available</span>
+          </div>
+        </div>
+
+        <!-- Accordion Details -->
+        <div class="accordion-tabs">
+          <div class="tab-item">
+            <div class="tab-header">
+              <span>Dimensions & Specifications</span>
+              <span>+</span>
+            </div>
+            <div class="tab-content">
+              • Frame: High-tensile iron & stainless steel with electroplated anti-rust coating<br>
+              • Dimensions: Standard 30" (H) x 32" (L) x 18" (W) or custom-tailored to your room<br>
+              • Wheels: 360-degree silent nylon/brass caster wheels with dual safety locks<br>
+              • Load Capacity: Supports up to 60 kg evenly distributed.
+            </div>
+          </div>
+
+          <div class="tab-item">
+            <div class="tab-header">
+              <span>Packaging & Nationwide Delivery</span>
+              <span>+</span>
+            </div>
+            <div class="tab-content">
+              Shipped in reinforced multi-layer corner protectors, heavy-duty bubble lining, and secured in custom wooden crates for damage-free transit across Lahore, Karachi, Islamabad, and all cities of Pakistan.
+            </div>
+          </div>
+
+          <div class="tab-item">
+            <div class="tab-header">
+              <span>Care & Cleaning Guide</span>
+              <span>+</span>
+            </div>
+            <div class="tab-content">
+              Wipe down gently with a soft microfibre cloth. Avoid harsh acidic cleaners or abrasive scouring pads. For marble tops, wipe spills immediately to maintain pristine polish.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": []
+}
+{% endschema %}

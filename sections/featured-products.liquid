@@ -1,0 +1,110 @@
+<section class="section-spacing featured-products-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="subheading">Masterpiece Showcase</span>
+      <h2>Featured Creations</h2>
+      <p>Hand-crafted with meticulous attention to detail. Available in customizable dimensions, powder-coated finishes, and genuine marble tops.</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- 1. Tea Trolley -->
+      {% render 'product-card',
+        title: 'Royal 2-Tier Gold Tea Trolley',
+        category: 'Tea Trolleys',
+        price: 'Rs. 24,500',
+        compare_price: 'Rs. 29,000',
+        image_url: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80',
+        badge: 'Bestseller'
+      %}
+
+      <!-- 2. Nesting Set -->
+      {% render 'product-card',
+        title: 'Imperial Round Nesting Set (3-Piece)',
+        category: 'Nesting Set',
+        price: 'Rs. 32,000',
+        compare_price: 'Rs. 38,000',
+        image_url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=700&q=80',
+        badge: 'Signature'
+      %}
+
+      <!-- 3. Center Table -->
+      {% render 'product-card',
+        title: 'Fluted Brass Center Table',
+        category: 'Center Table',
+        price: 'Rs. 28,500',
+        compare_price: 'Rs. 34,000',
+        image_url: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80',
+        badge: 'Trending'
+      %}
+
+      <!-- 4. Center Table Set -->
+      {% render 'product-card',
+        title: 'Geometric Marble Center Table Set',
+        category: 'Center Table Set',
+        price: 'Rs. 42,000',
+        compare_price: 'Rs. 48,000',
+        image_url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80',
+        badge: 'Luxury Set'
+      %}
+
+      <!-- 5. Coffee Table -->
+      {% render 'product-card',
+        title: 'Modernist Sleek Coffee Table',
+        category: 'Coffee Tables',
+        price: 'Rs. 19,500',
+        compare_price: 'Rs. 23,000',
+        image_url: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=700&q=80',
+        badge: 'Popular'
+      %}
+
+      <!-- 6. Mini Coffee Table -->
+      {% render 'product-card',
+        title: 'Aura Compact Mini Coffee Table',
+        category: 'Mini Coffee Table',
+        price: 'Rs. 14,000',
+        compare_price: 'Rs. 16,500',
+        image_url: 'https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=700&q=80',
+        badge: 'Compact'
+      %}
+
+      <!-- 7. Console Table -->
+      {% render 'product-card',
+        title: 'Monarch Grand Foyer Console Table',
+        category: 'Console Tables',
+        price: 'Rs. 36,000',
+        compare_price: 'Rs. 42,000',
+        image_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80',
+        badge: 'New'
+      %}
+
+      <!-- 8. Tea Table -->
+      {% render 'product-card',
+        title: 'Artisan Glass & Wood Tea Table',
+        category: 'Tea Tables',
+        price: 'Rs. 18,500',
+        compare_price: 'Rs. 22,000',
+        image_url: 'https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&w=700&q=80',
+        badge: 'Artisan'
+      %}
+    </div>
+
+    <div style="text-align: center; margin-top: 3.5rem;">
+      <a href="/collections/all" class="btn btn-outline" style="min-width: 220px;">
+        View Complete Catalog
+        {% render 'icon-arrow' %}
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

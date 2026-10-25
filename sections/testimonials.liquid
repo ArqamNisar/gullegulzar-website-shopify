@@ -1,0 +1,65 @@
+<section class="section-spacing" style="background: var(--color-bg-subtle);">
+  <div class="container">
+    <div class="section-header">
+      <span class="subheading">Client Testimonials</span>
+      <h2>Loved by Homes Across Pakistan</h2>
+      <p>Here is what our clients say about our service, delivery reliability, and furniture quality.</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem;">
+      <!-- Review 1 -->
+      <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 0.3rem; margin-bottom: 1rem; color: #F59E0B;">
+          {% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}
+        </div>
+        <p style="font-style: italic; color: var(--color-body); margin-bottom: 1.25rem; line-height: 1.6;">
+          "Ordered the Royal 2-tier Gold Tea Trolley for my drawing room in DHA Lahore. The golden polish is gorgeous and rolls so smoothly! The WhatsApp support was very helpful with size guidance."
+        </p>
+        <div>
+          <strong style="color: var(--color-heading); display: block;">Mrs. Ayesha Tariq</strong>
+          <span style="font-size: 0.8rem; color: var(--color-muted);">Lahore, Pakistan</span>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 0.3rem; margin-bottom: 1rem; color: #F59E0B;">
+          {% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}
+        </div>
+        <p style="font-style: italic; color: var(--color-body); margin-bottom: 1.25rem; line-height: 1.6;">
+          "I was worried about glass shipping to Karachi, but Gull e Gulzar's wooden crate packaging was rock solid. The Center Table Set with marble top is the highlight of our living space!"
+        </p>
+        <div>
+          <strong style="color: var(--color-heading); display: block;">Hamza Sheikh</strong>
+          <span style="font-size: 0.8rem; color: var(--color-muted);">Karachi, Pakistan</span>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div style="background: #FFFFFF; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
+        <div style="display: flex; gap: 0.3rem; margin-bottom: 1rem; color: #F59E0B;">
+          {% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}{% render 'icon-star' %}
+        </div>
+        <p style="font-style: italic; color: var(--color-body); margin-bottom: 1.25rem; line-height: 1.6;">
+          "We got a custom nesting table set made to match our sofa legs. The team communicated via WhatsApp throughout the fabrication process. 10/10 recommend Gull e Gulzar."
+        </p>
+        <div>
+          <strong style="color: var(--color-heading); display: block;">Dr. Sana Rehman</strong>
+          <span style="font-size: 0.8rem; color: var(--color-muted);">Islamabad, Pakistan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+}
+{% endschema %}

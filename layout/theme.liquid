@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="{{ settings.color_bg_main | default: '#FAF8F5' }}">
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ content_for_header }}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+    <style>
+      :root {
+        --color-bg-body: {{ settings.color_bg_main | default: '#FAF8F5' }};
+        --color-bg-card: {{ settings.color_bg_card | default: '#FFFFFF' }};
+        --color-bg-accent: {{ settings.color_bg_accent | default: '#F4EFEB' }};
+        --color-gold: {{ settings.color_primary_gold | default: '#B89053' }};
+        --color-gold-hover: {{ settings.color_gold_hover | default: '#9E793E' }};
+        --color-heading: {{ settings.color_text_heading | default: '#1C1917' }};
+        --color-body: {{ settings.color_text_body | default: '#44403C' }};
+        --color-muted: {{ settings.color_text_muted | default: '#78716C' }};
+        --color-border: {{ settings.color_border | default: '#E8E2D8' }};
+        --color-whatsapp: {{ settings.color_whatsapp | default: '#25D366' }};
+      }
+    </style>
+  </head>
+
+  <body class="template-{{ template.name | handle }}">
+    <!-- Skip to Content for Accessibility -->
+    <a class="skip-to-content-link visually-hidden" href="#MainContent" style="position: absolute; left: -9999px;">
+      Skip to content
+    </a>
+
+    <!-- Top Announcement Bar -->
+    {% section 'announcement-bar' %}
+
+    <!-- Main Header -->
+    {% section 'header' %}
+
+    <!-- Main Page Content -->
+    <main id="MainContent" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    <!-- Footer -->
+    {% section 'footer' %}
+
+    <!-- Floating WhatsApp Concierge Widget -->
+    {%- if settings.enable_floating_whatsapp != false -%}
+      {% render 'floating-whatsapp' %}
+    {%- endif -%}
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-drawer-overlay"></div>
+
+    <!-- Theme JavaScript -->
+    {{ 'theme.js' | asset_url | script_tag }}
+  </body>
+</html>

@@ -1,0 +1,74 @@
+{% comment %}
+  Renders a product card
+  Accepts:
+  - product: {Object} Product Liquid object (optional)
+  - title: {String} Fallback title
+  - category: {String} Category title
+  - price: {String} Price
+  - compare_price: {String} Regular/Compare price
+  - image_url: {String} Fallback image URL
+  - badge: {String} Optional badge text ("Bestseller", "New", "Luxury")
+{% endcomment %}
+
+{%- assign item_title = title | default: product.title | default: "Luxury Designer Table" -%}
+{%- assign item_category = category | default: product.type | default: "Home Trolley" -%}
+{%- assign item_price = price | default: product.price | money | default: "Rs. 18,500" -%}
+{%- assign item_compare = compare_price | default: product.compare_at_price | money | default: "Rs. 22,000" -%}
+{%- assign item_url = product.url | default: "/pages/contact" -%}
+{%- assign wa_number = settings.whatsapp_number_primary | default: "923204967079" -%}
+{%- capture wa_msg -%}Hello Gull e Gulzar Home Trolley, I am interested in ordering/inquiring about "{{ item_title }}" ({{ item_price }}). Please share details & availability.{%- endcapture -%}
+
+<div class="product-card">
+  <div class="product-media">
+    {%- if badge != blank -%}
+      <span class="product-tag tag-gold">{{ badge }}</span>
+    {%- elsif product.compare_at_price > product.price -%}
+      <span class="product-tag">Sale</span>
+    {%- endif -%}
+
+    <a href="{{ item_url }}" aria-label="{{ item_title }}">
+      {%- if product.featured_image -%}
+        {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: item_title }}
+      {%- elsif image_url != blank -%}
+        <img src="{{ image_url }}" alt="{{ item_title }}" loading="lazy" width="600" height="600">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </a>
+
+    <div class="product-quick-actions">
+      <a href="https://wa.me/{{ wa_number }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
+        {% render 'icon-whatsapp' %} Quick WhatsApp Inquiry
+      </a>
+    </div>
+  </div>
+
+  <div class="product-content">
+    <div class="product-category-hint">{{ item_category }}</div>
+    <h3 class="product-title">
+      <a href="{{ item_url }}">{{ item_title }}</a>
+    </h3>
+
+    <div class="product-rating">
+      {% render 'icon-star' %}
+      {% render 'icon-star' %}
+      {% render 'icon-star' %}
+      {% render 'icon-star' %}
+      {% render 'icon-star' %}
+      <span>(5.0)</span>
+    </div>
+
+    <div class="product-price-row">
+      <span class="product-price">{{ item_price }}</span>
+      {%- if item_compare != blank -%}
+        <span class="product-price-compare">{{ item_compare }}</span>
+      {%- endif -%}
+    </div>
+
+    <div class="product-actions-row">
+      <a href="https://wa.me/{{ wa_number }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-inquire">
+        {% render 'icon-whatsapp' %} Order via WhatsApp
+      </a>
+    </div>
+  </div>
+</div>

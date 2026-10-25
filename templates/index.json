@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Elegance on Wheels & Timeless Living Tables",
+        "subheading": "Handcrafting Pakistan's finest tea trolleys, center table sets, nesting tables, and console tables."
+      }
+    },
+    "category_grid": {
+      "type": "category-grid",
+      "settings": {}
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {}
+    },
+    "custom_features": {
+      "type": "custom-features",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {}
+    },
+    "faq_accordion": {
+      "type": "faq-accordion",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_banner",
+    "category_grid",
+    "featured_products",
+    "custom_features",
+    "testimonials",
+    "faq_accordion"
+  ]
+}

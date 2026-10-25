@@ -1,0 +1,23 @@
+<div class="section-spacing" style="text-align: center; background: var(--color-bg-body); min-height: 60vh; display: flex; align-items: center;">
+  <div class="container">
+    <span class="subheading">Page Not Found</span>
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">404 - Space Not Found</h1>
+    <p style="color: var(--color-muted); max-width: 500px; margin: 0 auto 2.5rem auto;">
+      The furniture piece or page you are looking for may have moved or is temporarily unavailable.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/" class="btn btn-primary">Return Home</a>
+      <a href="/collections/all" class="btn btn-outline">Browse Collections</a>
+      <a href="https://wa.me/{{ settings.whatsapp_number_primary | default: '923204967079' }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        {% render 'icon-whatsapp' %} Ask on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "404 Page",
+  "settings": []
+}
+{% endschema %}

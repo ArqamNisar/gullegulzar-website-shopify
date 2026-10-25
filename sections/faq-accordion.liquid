@@ -1,0 +1,72 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
+{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
+{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
+
+<section class="section-spacing faq-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="subheading">Have Questions?</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about our handcrafted furniture, ordering via WhatsApp, and nationwide delivery.</p>
+    </div>
+
+    <div class="faq-list">
+      <!-- FAQ 1 -->
+      <div class="faq-card active">
+        <button type="button" class="faq-question">
+          <span>How do I place an order or inquire via WhatsApp?</span>
+          <span class="faq-icon">▾</span>
+        </button>
+        <div class="faq-answer">
+          You can simply click the <strong>"Order via WhatsApp"</strong> button on any product or contact us directly at <a href="https://wa.me/{{ wa_primary }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-whatsapp); font-weight: 600;">{{ wa_primary_display }}</a> or <a href="https://wa.me/{{ wa_secondary }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-whatsapp); font-weight: 600;">{{ wa_secondary_display }}</a>. Share the design screenshot or product title, and our design team will promptly confirm current pricing, custom modifications, and delivery schedule.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-card">
+        <button type="button" class="faq-question">
+          <span>Do you deliver across Pakistan? How is packaging handled?</span>
+          <span class="faq-icon">▾</span>
+        </button>
+        <div class="faq-answer">
+          Yes! We deliver safely to all cities across Pakistan, including Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar, and beyond. Every product is secured with high-density bubble wrap, corner protectors, and reinforced wooden crates to ensure damage-free transit.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-card">
+        <button type="button" class="faq-question">
+          <span>Can I customize the size, finish, and table top?</span>
+          <span class="faq-icon">▾</span>
+        </button>
+        <div class="faq-answer">
+          Absolutely. Because we manufacture in-house, you can customize table heights, diameters, tiered shelves, and finishes including Champagne Gold, Antique Brass, Matte Black, Rose Gold, and Chrome. For table tops, choose between Italian Marble, Tempered Frosted/Smoked Glass, or Solid Treated Hardwood.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-card">
+        <button type="button" class="faq-question">
+          <span>What are your accepted payment methods?</span>
+          <span class="faq-icon">▾</span>
+        </button>
+        <div class="faq-answer">
+          We accept Online Bank Transfers (Meezan, HBL, Alfalah, etc.), Raast, JazzCash, EasyPaisa, and partial Cash on Delivery (COD) for standard items across select locations.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ Accordion",
+  "settings": [],
+  "presets": [
+    {
+      "name": "FAQ Accordion"
+    }
+  ]
+}
+{% endschema %}

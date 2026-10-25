@@ -1,0 +1,46 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
+{%- assign wa_msg = settings.whatsapp_default_message | default: 'Hello Gull e Gulzar Home Trolley, I would like to inquire about your products.' -%}
+
+<div class="floating-whatsapp-widget" id="floating-whatsapp">
+  <!-- Interactive WhatsApp Card -->
+  <div class="whatsapp-popup-card" id="whatsapp-popup-card">
+    <div class="whatsapp-popup-header">
+      <div class="whatsapp-agent">
+        <div class="agent-avatar">
+          GG
+          <span class="status-dot"></span>
+        </div>
+        <div class="agent-info">
+          <h5>Gull e Gulzar Support</h5>
+          <p>Online | Typically replies instantly</p>
+        </div>
+      </div>
+      <button type="button" class="whatsapp-popup-close" aria-label="Close WhatsApp card" style="color: #FFFFFF;">
+        {% render 'icon-close' %}
+      </button>
+    </div>
+
+    <div class="whatsapp-popup-body">
+      <div class="whatsapp-message-bubble">
+        👋 <strong>Welcome to Gull e Gulzar Home Trolley!</strong><br>
+        Looking for a bespoke tea trolley, center table set, or coffee table? We are here to help you with prices, custom finishes & quick ordering!
+      </div>
+    </div>
+
+    <div class="whatsapp-popup-footer">
+      <a href="https://wa.me/{{ wa_primary }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
+        {% render 'icon-whatsapp' %} Chat on WhatsApp (+92 320 4967079)
+      </a>
+      <a href="https://wa.me/{{ wa_secondary }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #128C7E;">
+        {% render 'icon-whatsapp' %} Alternate Line (+92 300 4055876)
+      </a>
+    </div>
+  </div>
+
+  <!-- Pulsing Trigger Button -->
+  <a href="https://wa.me/{{ wa_primary }}?text={{ wa_msg | url_encode }}" class="floating-whatsapp-btn" id="floating-whatsapp-trigger" target="_blank" rel="noopener noreferrer" aria-label="Direct WhatsApp Chat with Gull e Gulzar (+92 320 4967079)">
+    <div class="whatsapp-pulse-ring"></div>
+    {% render 'icon-whatsapp' %}
+  </a>
+</div>

@@ -1,0 +1,144 @@
+{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
+{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
+{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
+{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
+
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Brand Identity -->
+      <a href="/" class="header-brand">
+        <span class="brand-title">Gull e Gulzar</span>
+        <span class="brand-tagline">Home Trolley & Luxury Tables</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="header-nav" role="navigation">
+        <a href="/" class="nav-link">Home</a>
+
+        <div class="nav-item-dropdown">
+          <a href="/collections/all" class="nav-link">
+            Collections <span style="font-size: 0.75rem;">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="/collections/tea-trolleys" class="dropdown-item">Tea Trolleys</a>
+            <a href="/collections/coffee-tables" class="dropdown-item">Coffee Tables</a>
+            <a href="/collections/center-tables" class="dropdown-item">Center Tables</a>
+            <a href="/collections/mini-coffee-tables" class="dropdown-item">Mini Coffee Tables</a>
+            <a href="/collections/nesting-sets" class="dropdown-item">Nesting Sets</a>
+            <a href="/collections/center-table-sets" class="dropdown-item">Center Table Sets</a>
+            <a href="/collections/table-sets" class="dropdown-item">Table Sets</a>
+            <a href="/collections/console-tables" class="dropdown-item">Console Tables</a>
+            <a href="/collections/tea-tables" class="dropdown-item">Tea Tables</a>
+          </div>
+        </div>
+
+        <a href="/collections/all" class="nav-link">All Products</a>
+
+        <div class="nav-item-dropdown">
+          <a href="/pages/shipping-policy" class="nav-link">
+            Policies <span style="font-size: 0.75rem;">▾</span>
+          </a>
+          <div class="dropdown-menu">
+            <a href="/pages/shipping-policy" class="dropdown-item">Shipping & Delivery</a>
+            <a href="/pages/refund-policy" class="dropdown-item">Refund & Returns</a>
+            <a href="/pages/privacy-policy" class="dropdown-item">Privacy Policy</a>
+            <a href="/pages/terms-of-service" class="dropdown-item">Terms of Service</a>
+          </div>
+        </div>
+
+        <a href="/pages/contact" class="nav-link">Contact Us</a>
+      </nav>
+
+      <!-- Header Action Items -->
+      <div class="header-actions">
+        <!-- Direct WhatsApp CTA Button -->
+        <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to order or inquire about your home trolleys and tables.' | url_encode }}" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="header-whatsapp-cta">
+          {% render 'icon-whatsapp' %}
+          <span>Order on WhatsApp</span>
+        </a>
+
+        <!-- Search Icon -->
+        <a href="/search" class="header-action-btn" aria-label="Search">
+          {% render 'icon-search' %}
+        </a>
+
+        <!-- Cart Icon -->
+        <a href="/cart" class="header-action-btn" aria-label="Shopping Cart">
+          {% render 'icon-cart' %}
+          <span class="badge-count">{{ cart.item_count | default: 0 }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+  <div class="mobile-drawer-header">
+    <div class="header-brand">
+      <span class="brand-title" style="font-size: 1.4rem;">Gull e Gulzar</span>
+      <span class="brand-tagline">Home Trolley</span>
+    </div>
+    <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+  <div class="mobile-drawer-body">
+    <nav class="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/collections/tea-trolleys" class="mobile-nav-link">Tea Trolleys</a>
+      <a href="/collections/coffee-tables" class="mobile-nav-link">Coffee Tables</a>
+      <a href="/collections/center-tables" class="mobile-nav-link">Center Tables</a>
+      <a href="/collections/mini-coffee-tables" class="mobile-nav-link">Mini Coffee Tables</a>
+      <a href="/collections/nesting-sets" class="mobile-nav-link">Nesting Sets</a>
+      <a href="/collections/center-table-sets" class="mobile-nav-link">Center Table Sets</a>
+      <a href="/collections/table-sets" class="mobile-nav-link">Table Sets</a>
+      <a href="/collections/console-tables" class="mobile-nav-link">Console Tables</a>
+      <a href="/collections/tea-tables" class="mobile-nav-link">Tea Tables</a>
+      <a href="/collections/all" class="mobile-nav-link">Browse All Products</a>
+      <a href="/pages/contact" class="mobile-nav-link">Contact Us</a>
+      <a href="/pages/shipping-policy" class="mobile-nav-link">Shipping Policy</a>
+      <a href="/pages/refund-policy" class="mobile-nav-link">Refund & Returns</a>
+      <a href="/pages/privacy-policy" class="mobile-nav-link">Privacy Policy</a>
+      <a href="/pages/terms-of-service" class="mobile-nav-link">Terms of Service</a>
+    </nav>
+  </div>
+
+  <div class="mobile-drawer-footer">
+    <p style="font-size: 0.8rem; font-weight: 600; color: var(--color-muted); margin-bottom: 0.6rem; text-transform: uppercase;">
+      Direct WhatsApp Support
+    </p>
+    <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your products.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block" style="margin-bottom: 0.5rem;">
+      {% render 'icon-whatsapp' %} {{ wa_primary_display }} (Primary)
+    </a>
+    <a href="https://wa.me/{{ wa_secondary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your products.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm btn-block" style="border-color: #25D366; color: #128C7E;">
+      {% render 'icon-whatsapp' %} {{ wa_secondary_display }} (Support)
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Navigation Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

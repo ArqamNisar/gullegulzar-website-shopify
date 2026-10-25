@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main_collection": {
+      "type": "main-collection",
+      "settings": {}
+    },
+    "custom_features": {
+      "type": "custom-features",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main_collection",
+    "custom_features"
+  ]
+}
