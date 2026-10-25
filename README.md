@@ -47,36 +47,49 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 ---
 
-## 📄 Pages & Architecture
+## 📄 Multi-Page Architecture
 
-- **Home Page (`templates/index.json`)**:
+The project contains fully modular Shopify 2.0 sections and dedicated standalone multi-page views:
+
+- **Home Page** ([`index.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/index.html) / [`templates/index.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/index.json)):
   - Announcement bar with direct phone/WhatsApp links
   - Sticky glassmorphic header with navigation and mobile drawer
   - Hero banner with headline, CTA buttons, and trust highlights
-  - 9-category visual grid
-  - Featured product showcase with instant WhatsApp inquiry
+  - 9-category visual grid linking to individual pages
+  - Featured product showcase with instant Add to Cart
   - Brand highlights (Handcrafted Mastery, Custom Finishes, Factory-Direct, Nationwide Delivery)
   - Client reviews & testimonials
   - Interactive FAQ accordion
   - Luxury footer with quick links, policies, and contact cards
-- **Product Pages (`templates/product.json` & `sections/main-product.liquid`)**:
-  - Interactive thumbnail gallery
-  - Price display with compare-at discounts
-  - Frame finish & top material selectors
-  - Direct *"Order via WhatsApp (+92 320 4967079)"* CTA
-  - Collapsible specification and care tabs
-- **Collection Pages (`templates/collection.json` & `sections/main-collection.liquid`)**:
-  - Category filters for all 9 collections
-  - Responsive product grid
-- **Contact Us Page (`templates/page.contact.json` & `sections/main-contact.liquid`)**:
-  - Prominent WhatsApp click cards for `+923204967079` and `+923004055876`
-  - In-depth inquiry form
-  - Workshop & delivery desk info
-- **Policy Pages**:
-  - Shipping & Delivery Policy (`templates/page.shipping-policy.json`)
-  - Refund & Return Policy (`templates/page.refund-policy.json`)
-  - Privacy Policy (`templates/page.privacy-policy.json`)
-  - Terms of Service (`templates/page.terms-of-service.json`)
+
+- **Catalog & Collections Page** ([`collections.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/collections.html) / [`templates/collection.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/collection.json)):
+  - Directory of all 9 product categories
+  - Quick Add to Cart & View Product buttons on every card
+
+- **Dedicated Product Pages (Individual Pages for Each Item)**:
+  1. [`product-tea-trolley.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-trolley.html) — Royal 2-Tier Gold Tea Trolley
+  2. [`product-coffee-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-coffee-table.html) — Modernist Sleek Coffee Table
+  3. [`product-center-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-table.html) — Fluted Brass Center Table
+  4. [`product-mini-coffee-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-mini-coffee-table.html) — Aura Compact Mini Coffee Table
+  5. [`product-nesting-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-nesting-set.html) — Imperial Round Nesting Set (3-Piece)
+  6. [`product-center-table-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-table-set.html) — Geometric Marble Center Table Set
+  7. [`product-table-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-table-set.html) — Sculptural Marble Top Table Set (4-Piece)
+  8. [`product-console-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-console-table.html) — Monarch Grand Foyer Console Table
+  9. [`product-tea-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-table.html) — Artisan Glass & Wood Tea Table
+  - *Features on every product page*: High-resolution photo gallery with thumbnail switcher, Finish Selector (Champagne Gold / Matte Black / Rose Gold), Surface Selector (Marble / Glass / Wood), Quantity Selector, **Add to Cart** button, and **Buy Now** checkout button.
+
+- **Dedicated Contact Us Page** ([`contact.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/contact.html) / [`templates/page.contact.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/page.contact.json)):
+  - Direct WhatsApp click cards for `+923204967079` and `+923004055876`
+  - Inquiry form & workshop hours
+
+- **Shopping Cart & Checkout Page** ([`cart.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/cart.html) / [`templates/cart.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/cart.json)) & **Slide-in Cart Drawer**:
+  - Live subtotal calculation, quantity modifier, remove item, and checkout.
+
+- **Dedicated Policy Pages**:
+  - Shipping & Delivery Policy ([`shipping-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/shipping-policy.html))
+  - Refund & Return Policy ([`refund-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/refund-policy.html))
+  - Privacy Policy ([`privacy-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/privacy-policy.html))
+  - Terms of Service ([`terms-of-service.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/terms-of-service.html))
 
 ---
 

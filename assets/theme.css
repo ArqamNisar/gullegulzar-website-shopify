@@ -1409,6 +1409,140 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --------------------------------------------------------------------------
+   Variant Chips & Quantity Selectors
+   -------------------------------------------------------------------------- */
+.variant-chip {
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: #FFFFFF;
+  color: var(--color-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.variant-chip:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-hover);
+}
+
+.variant-chip.active {
+  border-color: var(--color-gold);
+  background: #FAF5EE;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+}
+
+.qty-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.qty-btn:hover {
+  background: var(--color-bg-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Slide-in Cart Drawer
+   -------------------------------------------------------------------------- */
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.cart-drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 390px;
+  max-width: 100vw;
+  height: 100%;
+  background: #FFFFFF;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer.active {
+  transform: translateX(-420px);
+}
+
+.cart-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+}
+
+.cart-drawer-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.cart-drawer-item-img {
+  width: 75px;
+  height: 75px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.cart-drawer-item-info {
+  flex: 1;
+}
+
+.cart-drawer-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 0.2rem;
+}
+
+.cart-drawer-item-variant {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-bottom: 0.4rem;
+}
+
+.cart-drawer-item-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+}
+
+.cart-drawer-footer {
+  padding: 1.5rem;
+  background: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
    Policy Pages Styling
    -------------------------------------------------------------------------- */
 .policy-page-container {

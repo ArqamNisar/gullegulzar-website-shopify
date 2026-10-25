@@ -8,17 +8,16 @@
   - compare_price: {String} Regular/Compare price
   - image_url: {String} Fallback image URL
   - badge: {String} Optional badge text ("Bestseller", "New", "Luxury")
+  - url: {String} Target product page URL
 {% endcomment %}
 
 {%- assign item_title = title | default: product.title | default: "Luxury Designer Table" -%}
 {%- assign item_category = category | default: product.type | default: "Home Trolley" -%}
 {%- assign item_price = price | default: product.price | money | default: "Rs. 18,500" -%}
 {%- assign item_compare = compare_price | default: product.compare_at_price | money | default: "Rs. 22,000" -%}
-{%- assign item_url = product.url | default: "/pages/contact" -%}
-{%- assign wa_number = settings.whatsapp_number_primary | default: "923204967079" -%}
-{%- capture wa_msg -%}Hello Gull e Gulzar Home Trolley, I am interested in ordering/inquiring about "{{ item_title }}" ({{ item_price }}). Please share details & availability.{%- endcapture -%}
+{%- assign item_url = url | default: product.url | default: "/pages/contact" -%}
 
-<div class="product-card">
+<div class="product-card" data-product-title="{{ item_title }}" data-product-price="{{ item_price }}" data-product-image="{{ image_url | default: product.featured_image | image_url: width: 600 }}">
   <div class="product-media">
     {%- if badge != blank -%}
       <span class="product-tag tag-gold">{{ badge }}</span>
@@ -37,8 +36,8 @@
     </a>
 
     <div class="product-quick-actions">
-      <a href="https://wa.me/{{ wa_number }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm btn-block">
-        {% render 'icon-whatsapp' %} Quick WhatsApp Inquiry
+      <a href="{{ item_url }}" class="btn btn-dark btn-sm btn-block">
+        View Product
       </a>
     </div>
   </div>
@@ -66,9 +65,14 @@
     </div>
 
     <div class="product-actions-row">
-      <a href="https://wa.me/{{ wa_number }}?text={{ wa_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-inquire">
-        {% render 'icon-whatsapp' %} Order via WhatsApp
-      </a>
+      <div style="display: flex; gap: 0.5rem;">
+        <button type="button" class="btn btn-primary btn-sm btn-block js-card-add-to-cart">
+          {% render 'icon-cart' %} Add to Cart
+        </button>
+        <a href="{{ item_url }}" class="btn btn-outline btn-sm" title="View Details">
+          {% render 'icon-arrow' %}
+        </a>
+      </div>
     </div>
   </div>
 </div>

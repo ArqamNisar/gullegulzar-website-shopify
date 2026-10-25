@@ -1,11 +1,16 @@
-{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
 {%- assign product_title = product.title | default: 'Royal 2-Tier Gold Tea Trolley' -%}
 {%- assign product_price = product.price | money | default: 'Rs. 24,500' -%}
 {%- assign product_compare = product.compare_at_price | money | default: 'Rs. 29,000' -%}
-{%- capture wa_product_msg -%}Hello Gull e Gulzar Home Trolley, I am interested in purchasing "{{ product_title }}" ({{ product_price }}). Could you please share delivery details and finish options?{%- endcapture -%}
 
 <div class="section-spacing" style="background: var(--color-bg-body);">
   <div class="container">
+    <!-- Breadcrumb -->
+    <div style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 2rem;">
+      <a href="/" style="color: var(--color-muted);">Home</a> / 
+      <a href="/collections/all" style="color: var(--color-muted);">Collections</a> / 
+      <span style="color: var(--color-heading); font-weight: 600;">{{ product_title }}</span>
+    </div>
+
     <div class="product-detail-layout">
       <!-- Left Column: Gallery -->
       <div class="product-gallery">
@@ -30,10 +35,10 @@
         </div>
       </div>
 
-      <!-- Right Column: Details & Actions -->
+      <!-- Right Column: Details & Order Form -->
       <div class="product-info-wrap">
         <div>
-          <span class="subheading">{{ product.type | default: 'Gull e Gulzar Signature Collection' }}</span>
+          <span class="subheading">{{ product.type | default: 'Gull e Gulzar Signature Series' }}</span>
           <h1 class="product-detail-title">{{ product_title }}</h1>
         </div>
 
@@ -44,11 +49,11 @@
           {% render 'icon-star' %}
           {% render 'icon-star' %}
           <span style="font-weight: 600; color: var(--color-heading); margin-left: 0.35rem;">5.0</span>
-          <span>(Verified Handcrafted Guarantee)</span>
+          <span>(Verified Handcrafted Quality)</span>
         </div>
 
         <div class="product-detail-price">
-          <span class="product-price-current">{{ product_price }}</span>
+          <span class="product-price-current" id="product-price-display">{{ product_price }}</span>
           {%- if product_compare != blank -%}
             <span class="product-price-old">{{ product_compare }}</span>
             <span style="background: rgba(184, 144, 83, 0.15); color: var(--color-gold-dark); font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-full);">
@@ -58,102 +63,113 @@
         </div>
 
         <p style="color: var(--color-body); font-size: 1rem; line-height: 1.7;">
-          {{ product.description | default: 'An exquisite luxury piece meticulously fabricated by master artisans. Features a heavy-gauge rust-treated steel frame, electroplated champagne gold finish, smooth rolling 360-degree casters, and dual-tier tempered glass/marble surfaces.' }}
+          {{ product.description | default: 'Meticulously fabricated with an architectural-grade steel frame, electroplated champagne gold finish, smooth rolling 360-degree casters, and dual-tier tempered glass/marble surfaces.' }}
         </p>
 
-        <!-- Product Customization Options -->
-        <div class="product-order-box">
+        <!-- Product Customization Form -->
+        {% form 'product', product, id: 'product-order-form', class: 'product-order-box' %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: '1' }}">
+
+          <!-- Variant: Frame Finish -->
           <div>
             <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
               Select Frame Finish:
             </label>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-gold); background: #FAF5EE;">
+            <div class="variant-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="variant-chip active" data-finish="Champagne Gold">
                 ✦ Champagne Gold
               </button>
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+              <button type="button" class="variant-chip" data-finish="Matte Black">
                 Matte Black
               </button>
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+              <button type="button" class="variant-chip" data-finish="Rose Gold Brass">
                 Rose Gold Brass
               </button>
             </div>
           </div>
 
+          <!-- Variant: Table Top Surface -->
           <div>
             <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
-              Table Top Material:
+              Table Top Surface:
             </label>
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-gold); background: #FAF5EE;">
+            <div class="variant-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button type="button" class="variant-chip active" data-surface="Tempered Fluted Glass">
                 Tempered Fluted Glass
               </button>
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+              <button type="button" class="variant-chip" data-surface="Italian Carrara Marble">
                 Italian Carrara Marble
               </button>
-              <button type="button" class="btn btn-sm btn-outline" style="border-color: var(--color-border); color: var(--color-body);">
+              <button type="button" class="variant-chip" data-surface="Solid Hardwood">
                 Solid Hardwood
               </button>
             </div>
           </div>
 
-          <!-- Direct WhatsApp Ordering Callout -->
-          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
-            <a href="https://wa.me/{{ wa_primary }}?text={{ wa_product_msg | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-block" style="font-size: 1.05rem; padding: 1rem 1.5rem;">
-              {% render 'icon-whatsapp' %}
-              Order Directly via WhatsApp (+92 320 4967079)
-            </a>
-
-            <div style="display: flex; gap: 0.75rem;">
-              <button type="button" class="btn btn-dark" style="flex: 1;">
-                Add to Cart
-              </button>
-              <a href="/pages/contact" class="btn btn-outline" style="flex: 1;">
-                Custom Size Inquiry
-              </a>
+          <!-- Quantity Selector -->
+          <div>
+            <label for="Quantity" style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
+              Quantity:
+            </label>
+            <div class="quantity-wrapper" style="display: inline-flex; align-items: center; border: 1.5px solid var(--color-border); border-radius: var(--radius-full); background: #FFFFFF; overflow: hidden;">
+              <button type="button" class="qty-btn" id="qty-decrease" style="padding: 0.6rem 1.1rem; font-weight: 700; font-size: 1.1rem; color: var(--color-heading);">-</button>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none; font-size: 1rem; font-weight: 600; font-family: inherit; outline: none;">
+              <button type="button" class="qty-btn" id="qty-increase" style="padding: 0.6rem 1.1rem; font-weight: 700; font-size: 1.1rem; color: var(--color-heading);">+</button>
             </div>
           </div>
 
+          <!-- Purchase Action Buttons: Add to Cart and Buy Now -->
+          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.85rem;">
+            <button type="submit" name="add" class="btn btn-primary btn-block" id="btn-add-to-cart" style="font-size: 1rem; padding: 1rem 1.75rem;">
+              {% render 'icon-cart' %}
+              Add to Cart
+            </button>
+
+            <button type="submit" name="checkout" class="btn btn-dark btn-block" id="btn-buy-now" style="font-size: 1rem; padding: 1rem 1.75rem;">
+              Buy Now (Proceed to Checkout)
+            </button>
+          </div>
+
           <!-- Trust Badges -->
-          <div class="product-meta-pills">
+          <div class="product-meta-pills" style="margin-top: 1rem;">
             <span class="meta-pill">{% render 'icon-truck' %} Free/Safe Delivery in Pakistan</span>
             <span class="meta-pill">{% render 'icon-shield' %} 100% Solid Heavy Frame</span>
             <span class="meta-pill">{% render 'icon-customize' %} Custom Sizes Available</span>
           </div>
-        </div>
+        {% endform %}
 
         <!-- Accordion Details -->
         <div class="accordion-tabs">
           <div class="tab-item">
             <div class="tab-header">
               <span>Dimensions & Specifications</span>
-              <span>+</span>
+              <span>▾</span>
             </div>
             <div class="tab-content">
-              • Frame: High-tensile iron & stainless steel with electroplated anti-rust coating<br>
-              • Dimensions: Standard 30" (H) x 32" (L) x 18" (W) or custom-tailored to your room<br>
-              • Wheels: 360-degree silent nylon/brass caster wheels with dual safety locks<br>
-              • Load Capacity: Supports up to 60 kg evenly distributed.
+              • Frame: High-tensile steel with electroplated anti-rust coating<br>
+              • Standard Size: 30" (H) x 32" (L) x 18" (W) or custom dimensions on request<br>
+              • Wheels: 360-degree silent rolling caster wheels with dual brakes<br>
+              • Weight Capacity: Up to 60 kg distributed weight.
             </div>
           </div>
 
           <div class="tab-item">
             <div class="tab-header">
-              <span>Packaging & Nationwide Delivery</span>
-              <span>+</span>
+              <span>Packaging & Nationwide Shipping</span>
+              <span>▾</span>
             </div>
             <div class="tab-content">
-              Shipped in reinforced multi-layer corner protectors, heavy-duty bubble lining, and secured in custom wooden crates for damage-free transit across Lahore, Karachi, Islamabad, and all cities of Pakistan.
+              Carefully packed using dense multi-layer corner protectors, heavy-duty bubble wrap, and rigid wooden crates to ensure zero-breakage delivery anywhere in Pakistan.
             </div>
           </div>
 
           <div class="tab-item">
             <div class="tab-header">
-              <span>Care & Cleaning Guide</span>
-              <span>+</span>
+              <span>Care & Maintenance</span>
+              <span>▾</span>
             </div>
             <div class="tab-content">
-              Wipe down gently with a soft microfibre cloth. Avoid harsh acidic cleaners or abrasive scouring pads. For marble tops, wipe spills immediately to maintain pristine polish.
+              Clean with a soft dry or damp microfibre cloth. Avoid bleach or abrasive pads to preserve the lustrous electroplated finish.
             </div>
           </div>
         </div>

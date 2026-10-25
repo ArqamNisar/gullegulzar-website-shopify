@@ -1,0 +1,40 @@
+<div class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+  <div class="cart-drawer-header">
+    <div style="display: flex; align-items: center; gap: 0.6rem;">
+      {% render 'icon-cart' %}
+      <h3 style="font-size: 1.3rem; margin: 0;">Shopping Cart (<span id="cart-drawer-count">0</span>)</h3>
+    </div>
+    <button type="button" class="cart-drawer-close" id="cart-drawer-close" aria-label="Close Cart">
+      {% render 'icon-close' %}
+    </button>
+  </div>
+
+  <div class="cart-drawer-body" id="cart-drawer-items">
+    <!-- Populated by JavaScript -->
+    <div class="cart-empty-message" id="cart-empty-state" style="text-align: center; padding: 3rem 1rem;">
+      <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-bg-accent); margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; color: var(--color-gold);">
+        {% render 'icon-cart' %}
+      </div>
+      <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Your Cart is Empty</h4>
+      <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Explore our tea trolleys, nesting sets, and living tables.</p>
+      <a href="/collections/all" class="btn btn-outline btn-sm">Browse Catalog</a>
+    </div>
+  </div>
+
+  <div class="cart-drawer-footer" id="cart-drawer-footer" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
+      <span style="font-size: 1rem; font-weight: 600;">Subtotal:</span>
+      <span style="font-size: 1.4rem; font-weight: 700; color: var(--color-heading);" id="cart-drawer-subtotal">Rs. 0</span>
+    </div>
+    <p style="font-size: 0.8rem; color: var(--color-muted); margin-bottom: 1rem;">
+      ✓ Shipping & taxes calculated at checkout. Safe delivery nationwide.
+    </p>
+    <a href="/checkout" class="btn btn-primary btn-block" style="padding: 0.95rem; font-size: 1rem; margin-bottom: 0.6rem;">
+      Proceed to Checkout
+    </a>
+    <button type="button" class="btn btn-outline btn-sm btn-block" id="cart-continue-btn">
+      Continue Shopping
+    </button>
+  </div>
+</div>
+<div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
