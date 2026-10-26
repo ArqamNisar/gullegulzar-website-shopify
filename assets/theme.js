@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initVariantChips();
   initCartDrawer();
   initWhatsAppPhoneLinks();
+  initHorizontalCarousels();
+  initZoomableImages();
 });
 
 /* --------------------------------------------------------------------------
@@ -53,9 +55,13 @@ function initMobileDrawer() {
     drawer.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    toggleBtn.setAttribute('aria-expanded', 'false');
   };
 
-  toggleBtn.addEventListener('click', openDrawer);
+  toggleBtn.addEventListener('click', () => {
+    openDrawer();
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  });
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
 
@@ -63,6 +69,69 @@ function initMobileDrawer() {
     if (e.key === 'Escape' && drawer.classList.contains('active')) {
       closeDrawer();
     }
+  });
+}
+
+/* --------------------------------------------------------------------------
+   Horizontal content carousels
+   -------------------------------------------------------------------------- */
+function initHorizontalCarousels() {
+  document.querySelectorAll('[data-carousel-prev], [data-carousel-next]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const section = button.closest('section');
+      const carousel = section?.querySelector('[data-horizontal-carousel]');
+      if (!carousel) return;
+
+      const direction = button.hasAttribute('data-carousel-next') ? 1 : -1;
+      carousel.scrollBy({ left: direction * carousel.clientWidth * 0.8, behavior: 'smooth' });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   Product image magnifier
+   -------------------------------------------------------------------------- */
+function initZoomableImages() {
+  document.querySelectorAll('[data-zoom-image]').forEach((zoomable) => {
+    const setZoomOrigin = (event) => {
+      const bounds = zoomable.getBoundingClientRect();
+      const x = Math.max(0, Math.min(100, ((event.clientX - bounds.left) / bounds.width) * 100));
+      const y = Math.max(0, Math.min(100, ((event.clientY - bounds.top) / bounds.height) * 100));
+
+      zoomable.style.setProperty('--zoom-x', `${x}%`);
+      zoomable.style.setProperty('--zoom-y', `${y}%`);
+    };
+
+    zoomable.addEventListener('pointermove', (event) => {
+      if (event.pointerType !== 'mouse') return;
+
+      setZoomOrigin(event);
+      zoomable.classList.add('is-zoomed');
+      zoomable.setAttribute('aria-pressed', 'true');
+    });
+
+    zoomable.addEventListener('pointerleave', (event) => {
+      if (event.pointerType !== 'mouse') return;
+
+      zoomable.classList.remove('is-zoomed');
+      zoomable.setAttribute('aria-pressed', 'false');
+    });
+
+    zoomable.addEventListener('click', (event) => {
+      if (event.detail === 0 || !window.matchMedia('(hover: none)').matches) return;
+
+      setZoomOrigin(event);
+      const isZoomed = zoomable.classList.toggle('is-zoomed');
+      zoomable.setAttribute('aria-pressed', String(isZoomed));
+    });
+
+    zoomable.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' && event.key !== ' ') return;
+
+      event.preventDefault();
+      const isZoomed = zoomable.classList.toggle('is-zoomed');
+      zoomable.setAttribute('aria-pressed', String(isZoomed));
+    });
   });
 }
 

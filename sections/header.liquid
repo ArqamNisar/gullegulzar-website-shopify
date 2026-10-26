@@ -4,23 +4,11 @@
 {%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
 
 <header class="site-header" role="banner">
-  <div class="container">
-    <div class="header-inner">
-      <!-- Mobile Hamburger Button -->
-      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <!-- Brand Identity -->
-      <a href="/" class="header-brand">
-        <span class="brand-title">Gull e Gulzar</span>
-        <span class="brand-tagline">Home Trolley & Luxury Tables</span>
-      </a>
-
-      <!-- Desktop Navigation Menu -->
-      <nav class="header-nav" role="navigation">
+  <div class="header-inner">
+    <button class="mobile-toggle" type="button" aria-label="Open Navigation Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header-nav" role="navigation">
         <a href="/" class="nav-link">Home</a>
 
         <div class="nav-item-dropdown">
@@ -55,30 +43,18 @@
         </div>
 
         <a href="/pages/contact" class="nav-link">Contact Us</a>
-      </nav>
-
-      <!-- Header Action Items -->
-      <div class="header-actions">
-        <!-- Direct WhatsApp CTA Button -->
-        <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to order or inquire about your home trolleys and tables.' | url_encode }}" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="header-whatsapp-cta">
-          {% render 'icon-whatsapp' %}
-          <span>Order on WhatsApp</span>
-        </a>
-
-        <!-- Search Icon -->
-        <a href="/search" class="header-action-btn" aria-label="Search">
-          {% render 'icon-search' %}
-        </a>
-
-        <!-- Cart Icon -->
-        <a href="/cart" class="header-action-btn" aria-label="Shopping Cart">
-          {% render 'icon-cart' %}
-          <span class="badge-count">{{ cart.item_count | default: 0 }}</span>
-        </a>
-      </div>
+    </nav>
+    <a href="/" class="header-brand" aria-label="Gull e Gulzar Home Trolley — Home">
+      <img src="{{ 'brand-logo.jpg' | asset_url }}" alt="Gull e Gulzar Home Trolley" width="120" height="120">
+    </a>
+    <div class="header-actions">
+      <a href="/search" class="header-action-btn" aria-label="Search">
+        {% render 'icon-search' %}
+      </a>
+      <a href="/cart" class="header-action-btn" aria-label="Shopping Cart">
+        {% render 'icon-cart' %}
+        <span class="badge-count">{{ cart.item_count | default: 0 }}</span>
+      </a>
     </div>
   </div>
 </header>
@@ -132,13 +108,6 @@
 {% schema %}
 {
   "name": "Header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "main_menu",
-      "label": "Navigation Menu",
-      "default": "main-menu"
-    }
-  ]
+  "settings": []
 }
 {% endschema %}

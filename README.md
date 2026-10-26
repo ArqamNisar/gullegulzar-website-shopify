@@ -115,6 +115,12 @@ Open Shopify Theme Customizer (`Online Store > Customize`):
 - Adjust light colors (Cream background, Champagne gold accents, typography colors).
 - Update typography and corner radiuses.
 
+### Home Page Preview
+
+The home page has a full-width hero banner, two scrolling announcement strips, a horizontally scrollable featured-product rail, craftsmanship highlights, and a single interactive product image that magnifies under the pointer (or on tap). The provided logo and banner are included in `assets/brand-logo.jpg` and `assets/home-hero.jpg`.
+
+To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product names, photos, and prices are clearly marked as samples; replace them with the store catalog before launch. In Shopify's theme customizer, select the real featured collection and update the footer social profile links before publishing.
+
 ---
 
 Crafted with ❤️ for **Gull e Gulzar Home Trolley**.

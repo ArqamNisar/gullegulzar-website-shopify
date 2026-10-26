@@ -1,89 +1,30 @@
-{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
-
-<section class="hero-section">
-  <div class="container">
-    <div class="hero-grid">
-      <!-- Left Content Column -->
-      <div class="hero-content">
-        <span class="hero-tag">
-          ✦ Premium Designer Furniture & Trolleys
-        </span>
-
-        <h1 class="hero-title">
-          Elegance on Wheels & <span>Timeless</span> Living Tables
-        </h1>
-
-        <p class="hero-description">
-          Welcome to <strong>Gull e Gulzar Home Trolley</strong>. Handcrafting Pakistan's finest tea trolleys, center table sets, nesting tables, and console tables. Crafted with precision metalwork, tempered glass, and Italian marble finishes.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="/collections/all" class="btn btn-primary">
-            Explore All Collections
-            {% render 'icon-arrow' %}
-          </a>
-          <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar Home Trolley, I am interested in exploring your catalog and getting a price quote.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-            {% render 'icon-whatsapp' %}
-            Chat / Order on WhatsApp
-          </a>
-        </div>
-
-        <div class="hero-trust-bar">
-          <div class="trust-item">
-            {% render 'icon-craft' %}
-            <span>Handcrafted Mastery</span>
-          </div>
-          <div class="trust-item">
-            {% render 'icon-customize' %}
-            <span>Custom Sizes & Finishes</span>
-          </div>
-          <div class="trust-item">
-            {% render 'icon-truck' %}
-            <span>Safe Delivery in Pakistan</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Visual Column -->
-      <div class="hero-visual">
-        <div class="hero-visual-card">
-          <img 
-            src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1200&q=80" 
-            alt="Gull e Gulzar Luxury Home Trolley and Living Table Showcase"
-            loading="eager"
-            width="1200"
-            height="900"
-          >
-          <div class="hero-floating-badge">
-            <div class="badge-title">Gull e Gulzar Signature</div>
-            <div class="badge-subtitle">Luxury Gold Brass & Marble Trolley</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="home-banner" aria-label="Gull e Gulzar Home Trolley">
+  {% if section.settings.banner_image != blank %}
+    {{ section.settings.banner_image | image_url: width: 2400 | image_tag: loading: 'eager', widths: '750, 1100, 1500, 2000, 2400', sizes: '100vw', alt: section.settings.image_alt }}
+  {% else %}
+    <img src="{{ 'home-hero.jpg' | asset_url }}" alt="{{ section.settings.image_alt | default: 'Gull e Gulzar Home Trolley luxury furniture and nationwide delivery' | escape }}" width="1536" height="864" fetchpriority="high">
+  {% endif %}
 </section>
 
 {% schema %}
 {
-  "name": "Hero Banner",
+  "name": "Home hero banner",
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Elegance on Wheels & Timeless Living Tables"
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image"
     },
     {
-      "type": "textarea",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Handcrafting Pakistan's finest tea trolleys, center table sets, nesting tables, and console tables."
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image description",
+      "default": "Gull e Gulzar Home Trolley luxury furniture and nationwide delivery"
     }
   ],
   "presets": [
     {
-      "name": "Hero Banner"
+      "name": "Home hero banner"
     }
   ]
 }

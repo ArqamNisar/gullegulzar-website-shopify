@@ -13,6 +13,17 @@
         <p class="footer-desc">
           Specializing in exquisite tea trolleys, center tables, nesting sets, and console tables. Crafted with architectural passion and delivered with care across Pakistan.
         </p>
+        <div class="footer-social-links" aria-label="Social media">
+          <a href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="0.8" class="social-fill"></circle></svg>
+          </a>
+          <a href="{{ section.settings.facebook_url | default: 'https://www.facebook.com/' }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v5h4v-5h3l1-4h-4V9a1 1 0 0 1 1-1z"></path></svg>
+          </a>
+          <a href="{{ section.settings.tiktok_url | default: 'https://www.tiktok.com/' }}" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.9V7.2a8 8 0 1 0 7 7.9V9.4a9 9 0 0 0 4 1V6.8A5 5 0 0 1 17 3h-3z"></path></svg>
+          </a>
+        </div>
         <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
           <a href="https://wa.me/{{ wa_primary }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp Us">
             {% render 'icon-whatsapp' %} Chat on WhatsApp
@@ -20,9 +31,9 @@
         </div>
       </div>
 
-      <!-- Col 2: Categories -->
+      <!-- Col 2: Collections -->
       <div class="footer-column">
-        <h4>Our Collections</h4>
+        <h4>Featured Collections</h4>
         <ul class="footer-links">
           <li><a href="/collections/tea-trolleys" class="footer-link">Tea Trolleys</a></li>
           <li><a href="/collections/coffee-tables" class="footer-link">Coffee Tables</a></li>
@@ -95,6 +106,22 @@
 {% schema %}
 {
   "name": "Footer",
-  "settings": []
+  "settings": [
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram profile"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook page"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok profile"
+    }
+  ]
 }
 {% endschema %}

@@ -13,16 +13,37 @@
 
 {%- assign item_title = title | default: product.title | default: "Luxury Designer Table" -%}
 {%- assign item_category = category | default: product.type | default: "Home Trolley" -%}
-{%- assign item_price = price | default: product.price | money | default: "Rs. 18,500" -%}
-{%- assign item_compare = compare_price | default: product.compare_at_price | money | default: "Rs. 22,000" -%}
+{%- if price != blank -%}
+  {%- assign item_price = price -%}
+{%- elsif product != blank -%}
+  {%- assign item_price = product.price | money -%}
+{%- else -%}
+  {%- assign item_price = "Rs. 18,500" -%}
+{%- endif -%}
+{%- if compare_price != blank -%}
+  {%- assign item_compare = compare_price -%}
+{%- elsif product.compare_at_price > product.price -%}
+  {%- assign item_compare = product.compare_at_price | money -%}
+{%- else -%}
+  {%- assign item_compare = blank -%}
+{%- endif -%}
 {%- assign item_url = url | default: product.url | default: "/pages/contact" -%}
+{%- if product != blank -%}
+  {%- assign item_price_numeric = product.price | divided_by: 100.0 -%}
+  {%- assign item_compare_numeric = product.compare_at_price | divided_by: 100.0 -%}
+{%- else -%}
+  {%- assign item_price_numeric = item_price | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
+  {%- assign item_compare_numeric = item_compare | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
+{%- endif -%}
+{%- assign discount_amount = item_compare_numeric | minus: item_price_numeric -%}
+{%- assign discount_percent = discount_amount | times: 100.0 | divided_by: item_compare_numeric | round -%}
 
 <div class="product-card" data-product-title="{{ item_title }}" data-product-price="{{ item_price }}" data-product-image="{{ image_url | default: product.featured_image | image_url: width: 600 }}">
   <div class="product-media">
-    {%- if badge != blank -%}
+    {%- if item_compare_numeric > item_price_numeric and item_compare_numeric > 0 -%}
+      <span class="product-tag tag-gold">{{ discount_percent }}% OFF</span>
+    {%- elsif badge != blank -%}
       <span class="product-tag tag-gold">{{ badge }}</span>
-    {%- elsif product.compare_at_price > product.price -%}
-      <span class="product-tag">Sale</span>
     {%- endif -%}
 
     <a href="{{ item_url }}" aria-label="{{ item_title }}">
@@ -59,20 +80,19 @@
 
     <div class="product-price-row">
       <span class="product-price">{{ item_price }}</span>
-      {%- if item_compare != blank -%}
+      {%- if item_compare_numeric > item_price_numeric and item_compare_numeric > 0 -%}
         <span class="product-price-compare">{{ item_compare }}</span>
       {%- endif -%}
     </div>
 
-    <div class="product-actions-row">
-      <div style="display: flex; gap: 0.5rem;">
-        <button type="button" class="btn btn-primary btn-sm btn-block js-card-add-to-cart">
-          {% render 'icon-cart' %} Add to Cart
-        </button>
-        <a href="{{ item_url }}" class="btn btn-outline btn-sm" title="View Details">
-          {% render 'icon-arrow' %}
-        </a>
-      </div>
-    </div>
+    {%- if product != blank -%}
+      <form method="post" action="/cart/add" class="product-actions-row">
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="btn btn-primary btn-sm btn-block">{% render 'icon-cart' %} Add to Cart</button>
+      </form>
+    {%- else -%}
+      <a href="{{ item_url }}" class="product-preview-link">View product <span aria-hidden="true">→</span></a>
+    {%- endif -%}
   </div>
 </div>

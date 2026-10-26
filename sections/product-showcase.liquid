@@ -1,0 +1,63 @@
+<section class="section-spacing product-showcase-section">
+  <div class="container">
+    <div class="section-heading-row">
+      <div class="section-header">
+        <span class="subheading">{{ section.settings.eyebrow | default: 'A closer look' }}</span>
+        <h2>{{ section.settings.heading | default: 'Thoughtful details. Everyday beauty.' }}</h2>
+        <p>{{ section.settings.description | default: 'Move across the image to discover every detail.' }}</p>
+      </div>
+    </div>
+
+    <div class="showcase-image-zoom" data-zoom-image tabindex="0" role="button" aria-label="Explore the product image. Move your pointer to magnify details." aria-pressed="false">
+      {% if section.settings.showcase_image != blank %}
+        {{ section.settings.showcase_image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 2000', sizes: '100vw', alt: section.settings.image_alt }}
+      {% else %}
+        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1800&q=85" alt="{{ section.settings.image_alt | default: 'Sample luxury home trolley with carefully finished surfaces' | escape }}" loading="lazy" width="1800" height="1200">
+      {% endif %}
+      <span class="showcase-zoom-hint" aria-hidden="true">Hover or tap to explore the details</span>
+    </div>
+    <p class="preview-price-note">Sample product image for preview. Replace it with a product photo in the theme customizer.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product highlights",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A closer look"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Thoughtful details. Everyday beauty."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Move across the image to discover every detail."
+    },
+    {
+      "type": "image_picker",
+      "id": "showcase_image",
+      "label": "Product image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image description",
+      "default": "Sample luxury home trolley with carefully finished surfaces"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product highlights"
+    }
+  ]
+}
+{% endschema %}

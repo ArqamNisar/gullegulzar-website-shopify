@@ -3,12 +3,11 @@
     "hero_banner": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Elegance on Wheels & Timeless Living Tables",
-        "subheading": "Handcrafting Pakistan's finest tea trolleys, center table sets, nesting tables, and console tables."
+        "image_alt": "Gull e Gulzar Home Trolley luxury furniture and nationwide delivery"
       }
     },
-    "category_grid": {
-      "type": "category-grid",
+    "benefit_ticker": {
+      "type": "benefit-ticker",
       "settings": {}
     },
     "featured_products": {
@@ -19,21 +18,16 @@
       "type": "custom-features",
       "settings": {}
     },
-    "testimonials": {
-      "type": "testimonials",
-      "settings": {}
-    },
-    "faq_accordion": {
-      "type": "faq-accordion",
+    "product_showcase": {
+      "type": "product-showcase",
       "settings": {}
     }
   },
   "order": [
     "hero_banner",
-    "category_grid",
+    "benefit_ticker",
     "featured_products",
     "custom_features",
-    "testimonials",
-    "faq_accordion"
+    "product_showcase"
   ]
 }

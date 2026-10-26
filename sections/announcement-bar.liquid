@@ -1,24 +1,14 @@
-{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
-{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
-{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
-{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
-
 <div class="announcement-bar" role="region" aria-label="Announcement">
-  <div class="container">
-    <div class="announcement-content">
-      <span>✨</span>
-      <span>{{ section.settings.text | default: '✦ Luxury Home Trolleys & Living Tables | Handcrafted Custom Designs | Safe Nationwide Delivery ✦' }}</span>
+  <div class="ticker-track">
+    <div class="ticker-group">
+      <span>{{ section.settings.text | default: 'Gull e Gulzar Home Trolley' }}</span><span aria-hidden="true">✦</span>
+      <span>{{ section.settings.shipping_text | default: 'Free Shipping Across Pakistan' }}</span><span aria-hidden="true">✦</span>
+      <span>{{ section.settings.sale_text | default: '11.11 Sale Coming Soon' }}</span><span aria-hidden="true">✦</span>
     </div>
-
-    <div class="announcement-actions">
-      <span>Direct WhatsApp:</span>
-      <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your products' | url_encode }}" target="_blank" rel="noopener noreferrer" class="announcement-phone">
-        {% render 'icon-whatsapp' %} {{ wa_primary_display }}
-      </a>
-      <span>|</span>
-      <a href="https://wa.me/{{ wa_secondary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your products' | url_encode }}" target="_blank" rel="noopener noreferrer" class="announcement-phone">
-        {% render 'icon-whatsapp' %} {{ wa_secondary_display }}
-      </a>
+    <div class="ticker-group" aria-hidden="true">
+      <span>{{ section.settings.text | default: 'Gull e Gulzar Home Trolley' }}</span><span>✦</span>
+      <span>{{ section.settings.shipping_text | default: 'Free Shipping Across Pakistan' }}</span><span>✦</span>
+      <span>{{ section.settings.sale_text | default: '11.11 Sale Coming Soon' }}</span><span>✦</span>
     </div>
   </div>
 </div>
@@ -30,8 +20,20 @@
     {
       "type": "text",
       "id": "text",
-      "label": "Announcement Text",
-      "default": "✦ Luxury Home Trolleys & Living Tables | Handcrafted Custom Designs | Safe Nationwide Delivery ✦"
+      "label": "Store name",
+      "default": "Gull e Gulzar Home Trolley"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping message",
+      "default": "Free Shipping Across Pakistan"
+    },
+    {
+      "type": "text",
+      "id": "sale_text",
+      "label": "Promotion message",
+      "default": "11.11 Sale Coming Soon"
     }
   ]
 }

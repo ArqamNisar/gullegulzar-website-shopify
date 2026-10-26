@@ -1,96 +1,37 @@
 <section class="section-spacing featured-products-section">
   <div class="container">
-    <div class="section-header">
-      <span class="subheading">Masterpiece Showcase</span>
-      <h2>Featured Creations</h2>
-      <p>Hand-crafted with meticulous attention to detail. Available in customizable dimensions, powder-coated finishes, and genuine marble tops.</p>
+    <div class="section-heading-row">
+      <div class="section-header">
+        <span class="subheading">A little something special</span>
+        <h2>{{ section.settings.heading | default: 'Featured Collection' }}</h2>
+        <p>{{ section.settings.description | default: 'Thoughtfully made statement pieces for the moments that make a home.' }}</p>
+      </div>
+      <div class="carousel-controls" aria-label="Featured products controls">
+        <button class="carousel-button" type="button" data-carousel-prev aria-label="Scroll products left">{% render 'icon-arrow' %}</button>
+        <button class="carousel-button carousel-button-next" type="button" data-carousel-next aria-label="Scroll products right">{% render 'icon-arrow' %}</button>
+      </div>
     </div>
 
-    <div class="products-grid">
-      <!-- 1. Tea Trolley -->
-      {% render 'product-card',
-        title: 'Royal 2-Tier Gold Tea Trolley',
-        category: 'Tea Trolleys',
-        price: 'Rs. 24,500',
-        compare_price: 'Rs. 29,000',
-        image_url: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80',
-        badge: 'Bestseller'
-      %}
-
-      <!-- 2. Nesting Set -->
-      {% render 'product-card',
-        title: 'Imperial Round Nesting Set (3-Piece)',
-        category: 'Nesting Set',
-        price: 'Rs. 32,000',
-        compare_price: 'Rs. 38,000',
-        image_url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=700&q=80',
-        badge: 'Signature'
-      %}
-
-      <!-- 3. Center Table -->
-      {% render 'product-card',
-        title: 'Fluted Brass Center Table',
-        category: 'Center Table',
-        price: 'Rs. 28,500',
-        compare_price: 'Rs. 34,000',
-        image_url: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80',
-        badge: 'Trending'
-      %}
-
-      <!-- 4. Center Table Set -->
-      {% render 'product-card',
-        title: 'Geometric Marble Center Table Set',
-        category: 'Center Table Set',
-        price: 'Rs. 42,000',
-        compare_price: 'Rs. 48,000',
-        image_url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80',
-        badge: 'Luxury Set'
-      %}
-
-      <!-- 5. Coffee Table -->
-      {% render 'product-card',
-        title: 'Modernist Sleek Coffee Table',
-        category: 'Coffee Tables',
-        price: 'Rs. 19,500',
-        compare_price: 'Rs. 23,000',
-        image_url: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=700&q=80',
-        badge: 'Popular'
-      %}
-
-      <!-- 6. Mini Coffee Table -->
-      {% render 'product-card',
-        title: 'Aura Compact Mini Coffee Table',
-        category: 'Mini Coffee Table',
-        price: 'Rs. 14,000',
-        compare_price: 'Rs. 16,500',
-        image_url: 'https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=700&q=80',
-        badge: 'Compact'
-      %}
-
-      <!-- 7. Console Table -->
-      {% render 'product-card',
-        title: 'Monarch Grand Foyer Console Table',
-        category: 'Console Tables',
-        price: 'Rs. 36,000',
-        compare_price: 'Rs. 42,000',
-        image_url: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80',
-        badge: 'New'
-      %}
-
-      <!-- 8. Tea Table -->
-      {% render 'product-card',
-        title: 'Artisan Glass & Wood Tea Table',
-        category: 'Tea Tables',
-        price: 'Rs. 18,500',
-        compare_price: 'Rs. 22,000',
-        image_url: 'https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&w=700&q=80',
-        badge: 'Artisan'
-      %}
+    <div class="products-grid horizontal-carousel" data-horizontal-carousel tabindex="0" aria-label="Featured products">
+      {%- assign featured_collection = section.settings.collection -%}
+      {%- if featured_collection != blank and featured_collection.products.size > 0 -%}
+        {%- for product in featured_collection.products limit: 8 -%}
+          {% render 'product-card', product: product, category: product.type %}
+        {%- endfor -%}
+      {%- else -%}
+        {% render 'product-card', title: 'Sample Tea Trolley', category: 'Featured design', price: 'Rs. 24,500', compare_price: 'Rs. 29,000', image_url: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
+        {% render 'product-card', title: 'Sample Nesting Set', category: 'Featured design', price: 'Rs. 32,000', compare_price: 'Rs. 38,000', image_url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
+        {% render 'product-card', title: 'Sample Center Table', category: 'Featured design', price: 'Rs. 28,500', compare_price: 'Rs. 34,000', image_url: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
+        {% render 'product-card', title: 'Sample Table Set', category: 'Featured design', price: 'Rs. 42,000', compare_price: 'Rs. 48,000', image_url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
+      {%- endif -%}
     </div>
 
-    <div style="text-align: center; margin-top: 3.5rem;">
-      <a href="/collections/all" class="btn btn-outline" style="min-width: 220px;">
-        View Complete Catalog
+    {%- unless featured_collection != blank and featured_collection.products.size > 0 -%}
+      <p class="preview-price-note">Sample products and prices shown for design preview only.</p>
+    {%- endunless -%}
+    <div class="section-cta">
+      <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary">
+        {{ section.settings.button_label | default: 'Explore Collections' }}
         {% render 'icon-arrow' %}
       </a>
     </div>
@@ -100,7 +41,36 @@
 {% schema %}
 {
   "name": "Featured Products",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Thoughtfully made statement pieces for the moments that make a home."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product collection"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
   "presets": [
     {
       "name": "Featured Products"
