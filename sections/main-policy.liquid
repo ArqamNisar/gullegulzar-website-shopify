@@ -1,69 +1,129 @@
-{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
-{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
-{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
-{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
+{%- assign policy_handle = page.handle | default: 'terms-of-service' -%}
+{%- assign updated_at = 'now' | date: '%B %Y' -%}
 
-<div class="section-spacing" style="background: var(--color-bg-body);">
+<section class="page-hero policy-page-hero">
   <div class="container">
-    <div class="policy-page-container">
-      <div class="policy-page-header">
-        <span class="subheading">Gull e Gulzar Home Trolley</span>
-        <h1>{{ page.title | default: 'Store Policies' }}</h1>
-        <p style="color: var(--color-muted); font-size: 0.95rem;">
-          Last updated: October 2026 | Dedicated to transparent customer satisfaction across Pakistan.
-        </p>
+    <span class="policy-hero-icon" aria-hidden="true">
+      {%- case policy_handle -%}
+        {%- when 'shipping-policy' -%}{% render 'icon-truck' %}
+        {%- when 'refund-policy' -%}{% render 'icon-shield' %}
+        {%- when 'privacy-policy' -%}{% render 'icon-shield' %}
+        {%- else -%}{% render 'icon-customize' %}
+      {%- endcase -%}
+    </span>
+    <span class="subheading">Gull e Gulzar Home Trolley</span>
+    <h1>{{ page.title | default: 'Store Policy' | escape }}</h1>
+    <p>Clear information to help you shop with confidence.</p>
+  </div>
+</section>
+
+<section class="section-spacing policy-page-section">
+  <div class="container">
+    <article class="policy-page-container">
+      <div class="policy-page-meta">
+        <span>Last updated {{ updated_at }}</span>
+        <a href="/pages/contact">Questions? Contact our team <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="policy-page-content">
-        {%- if page.content != blank -%}
-          {{ page.content }}
+        {%- if section.settings.policy_content != blank -%}
+          {{ section.settings.policy_content }}
         {%- else -%}
-          <!-- Fallback Comprehensive Policy Content -->
-          <h2>1. Overview & Commitment to Quality</h2>
-          <p>
-            At <strong>Gull e Gulzar Home Trolley</strong>, we take immense pride in crafting premium quality tea trolleys, coffee tables, center tables, nesting sets, and console tables. Every item undergoes stringent multi-point quality checks for structural balance, welding integrity, and flawless finish before dispatch.
-          </p>
+          {%- case policy_handle -%}
+            {%- when 'shipping-policy' -%}
+              <p class="policy-lead">We provide free delivery across Pakistan. Delivery estimates depend on whether an item is in stock or being made to a custom specification.</p>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-truck' %}</span>
+                <div><h2>Delivery estimates</h2><p>In-stock designs are estimated to arrive within <strong>4–7 business days</strong>. Custom-made orders are estimated within <strong>10–14 business days</strong>. These are estimates and may vary by destination, product availability, holidays, or courier delays.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-shield' %}</span>
+                <div><h2>Careful preparation and delivery</h2><p>We take care to prepare furniture for delivery. Items with glass or marble require protective packaging. We will share dispatch or tracking information when it is available.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-customize' %}</span>
+                <div><h2>Before your order arrives</h2><p>Please check that your delivery address and contact number are accurate. If your delivery details change or you need help with an order, contact us as soon as possible.</p><ul><li>Orders are delivered to addresses across Pakistan.</li><li>Delivery timing can vary for remote destinations and made-to-order pieces.</li><li>If a parcel appears damaged on arrival, please keep the packaging and contact us within 24 hours.</li></ul></div>
+              </div>
+              <p class="policy-contact-note">Need help with delivery? <a href="/pages/contact">Contact our team</a> or message us on WhatsApp at <a href="https://wa.me/{{ settings.whatsapp_number_primary | default: '923204967079' }}">+92 320 4967079</a>.</p>
 
-          <h2>2. Nationwide Shipping & Safe Delivery</h2>
-          <p>
-            We deliver safely to all cities and regions across Pakistan, including Lahore, Karachi, Islamabad, Rawalpindi, Faisalabad, Multan, Peshawar, and Quetta.
-          </p>
-          <ul>
-            <li><strong>Packaging Standard:</strong> Every furniture piece is packed using industrial high-density foam, corner protectors, and reinforced wooden crates for glass and marble items.</li>
-            <li><strong>Transit Insurance:</strong> We take complete responsibility for your item until it arrives safely at your doorstep. In the rare event of transit damage, notify us within 24 hours.</li>
-            <li><strong>Delivery Timeline:</strong> Standard in-stock designs are delivered within 4-7 business days. Custom bespoke orders take 10-14 business days.</li>
-          </ul>
+            {%- when 'refund-policy' -%}
+              <p class="policy-lead">We want your furniture to arrive in the condition you expected. If an order arrives damaged, defective, or incorrect, contact us so we can review it and arrange an appropriate resolution.</p>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-shield' %}</span>
+                <div><h2>Report an issue within 24 hours</h2><p>Please contact us within <strong>24 hours of delivery</strong> if an item is damaged, defective, or different from what you ordered. Include your order details and clear photos or a short video of the item and its packaging so our team can assess the issue.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-customize' %}</span>
+                <div><h2>Review and resolution</h2><p>After reviewing a verified issue, our standard resolution is to repair the affected item or provide a replacement. Please wait for our team to confirm the next steps before sending an item back.</p><ul><li>Keep the original packaging until we have reviewed your report.</li><li>Share your order number and contact details when you reach out.</li><li>Do not arrange a return shipment without speaking to us first.</li></ul></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-craft' %}</span>
+                <div><h2>Custom orders and cancellations</h2><p>Custom orders cannot be cancelled once fabrication has begun. Please contact us as early as possible if you need to discuss a change before production starts.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-phone' %}</span>
+                <div><h2>Refund questions</h2><p>Refunds are not automatic. If a repair or replacement is not suitable for a verified issue, contact us to discuss the available resolution. We will confirm any approved refund and its method with you before it is processed.</p></div>
+              </div>
+              <p class="policy-contact-note">To report an issue, <a href="/pages/contact">contact us</a> or message our team on WhatsApp within 24 hours of delivery.</p>
 
-          <h2>3. Returns, Replacements & Refunds</h2>
-          <p>
-            If your product arrives damaged or significantly defective, we will promptly repair or replace the affected parts at zero extra cost to you.
-          </p>
-          <ul>
-            <li>Customers are requested to inspect the package upon arrival and document unboxing with a short video.</li>
-            <li>Customized orders (tailored dimensions or bespoke finishes) are fabricated specifically for you and cannot be cancelled once manufacturing has commenced.</li>
-          </ul>
+            {%- when 'privacy-policy' -%}
+              <p class="policy-lead">This notice explains how Gull e Gulzar Home Trolley uses information you share when browsing our store, placing an order, or contacting our team.</p>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-shield' %}</span>
+                <div><h2>Information you provide</h2><p>Depending on how you use the store, information may include your name, phone number, email address, delivery details, order information, and messages you send to our support team.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-cart' %}</span>
+                <div><h2>How information is used</h2><p>We use information relevant to your request to manage orders, arrange delivery, respond to questions, provide customer support, and maintain the operation and security of the store.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-truck' %}</span>
+                <div><h2>Service providers and retention</h2><p>Information needed to fulfil an order may be shared with service providers involved in store operations, payment processing, or delivery. We retain information as needed to provide our services and meet applicable record-keeping obligations.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-phone' %}</span>
+                <div><h2>Your questions and choices</h2><p>To ask about personal information associated with an order or support request, contact us using the details on our <a href="/pages/contact">Contact Us page</a>. Shopify may also process information when you browse or use the store; its privacy practices are described in Shopify's own privacy materials.</p></div>
+              </div>
 
-          <h2>4. Customer Support & WhatsApp Concierge</h2>
-          <p>
-            For any queries, claim support, or custom orders, our support team is available on WhatsApp:
-          </p>
-          <div style="background: var(--color-bg-accent); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
-            <p style="margin-bottom: 0.5rem;">
-              <strong>Primary WhatsApp:</strong> <a href="https://wa.me/{{ wa_primary }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-whatsapp); font-weight: 700;">{{ wa_primary_display }}</a>
-            </p>
-            <p style="margin-bottom: 0;">
-              <strong>Support & Sales Line:</strong> <a href="https://wa.me/{{ wa_secondary }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-whatsapp); font-weight: 700;">{{ wa_secondary_display }}</a>
-            </p>
-          </div>
+            {%- else -%}
+              <p class="policy-lead">These terms explain the basic conditions for browsing and ordering from Gull e Gulzar Home Trolley.</p>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-craft' %}</span>
+                <div><h2>Product information</h2><p>We aim to describe products, materials, dimensions, and finishes as accurately as possible. As furniture is viewed on different screens and may be handcrafted, slight differences in color, texture, or finish may occur. Please contact us if you need details before ordering.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-cart' %}</span>
+                <div><h2>Orders and pricing</h2><p>Placing an order is a request to purchase. Orders are subject to product availability and confirmation. Please review the product details, delivery information, and price shown at checkout before completing your order. If we need to clarify an order, we will contact you using the details provided.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-truck' %}</span>
+                <div><h2>Delivery, returns, and custom work</h2><p>Delivery estimates and issue-resolution steps are described in our <a href="/pages/shipping-policy">Shipping Policy</a> and <a href="/pages/refund-policy">Refund Policy</a>. Custom orders cannot be cancelled once fabrication has begun.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-shield' %}</span>
+                <div><h2>Using our store</h2><p>Please use the store lawfully and provide accurate information when placing an order or contacting us. Website content and store features may be updated as products and services change. These terms do not limit any rights that cannot be excluded under applicable law.</p></div>
+              </div>
+              <div class="policy-point">
+                <span class="policy-point-icon" aria-hidden="true">{% render 'icon-phone' %}</span>
+                <div><h2>Questions</h2><p>If you have a question about an order or these terms, please <a href="/pages/contact">contact our team</a>.</p></div>
+              </div>
+          {%- endcase -%}
         {%- endif -%}
       </div>
-    </div>
+    </article>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
-  "name": "Policy Content",
-  "settings": []
+  "name": "Policy page",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "policy_content",
+      "label": "Custom policy content",
+      "info": "Leave blank to use the policy text for this page."
+    }
+  ]
 }
 {% endschema %}

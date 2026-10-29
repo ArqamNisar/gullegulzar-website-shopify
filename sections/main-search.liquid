@@ -1,0 +1,157 @@
+{%- assign search_query = search.terms | strip -%}
+
+<section class="search-page">
+  <div class="search-page-hero">
+    <div class="container">
+      <span class="subheading">Find your next favourite piece</span>
+      <h1>Search our collection</h1>
+      <p>Thoughtful furniture, made to bring a little more beauty to your home.</p>
+
+      <form class="search-main-form" action="{{ routes.search_url }}" method="get" role="search">
+        <label class="visually-hidden" for="StoreSearchInput">Search products</label>
+        <span class="search-input-icon" aria-hidden="true">{% render 'icon-search' %}</span>
+        <input id="StoreSearchInput" type="search" name="q" value="{{ search_query | escape }}" placeholder="Try “tea trolley” or “coffee table”" autocomplete="off">
+        <input type="hidden" name="type" value="product">
+        <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">→</span></button>
+      </form>
+
+      {%- unless search.performed -%}
+        <div class="search-quick-links" aria-label="Popular searches">
+          <span>Popular:</span>
+          <a href="{{ routes.search_url }}?q=tea+trolley&type=product">Tea trolleys</a>
+          <a href="{{ routes.search_url }}?q=coffee+table&type=product">Coffee tables</a>
+          <a href="{{ routes.search_url }}?q=nesting+set&type=product">Nesting sets</a>
+        </div>
+      {%- endunless -%}
+    </div>
+  </div>
+
+  {%- if search.performed -%}
+    <section class="section-spacing search-results-section">
+      <div class="container">
+        <div class="search-results-heading">
+          <div>
+            <span class="subheading">Your search</span>
+            <h2>
+              {%- if search_query != blank -%}
+                Results for “{{ search_query | escape }}”
+              {%- else -%}
+                All products
+              {%- endif -%}
+            </h2>
+            <p>{{ search.results_count }} {% if search.results_count == 1 %}piece{% else %}pieces{% endif %} to explore</p>
+          </div>
+          {%- if search.sort_options.size > 1 -%}
+            <label class="search-sort-control">
+              <span class="search-control-icon" aria-hidden="true">{% render 'icon-sort' %}</span>
+              <span class="visually-hidden">Sort results</span>
+              <select name="sort_by" form="SearchFiltersForm" aria-label="Sort results">
+                {%- for option in search.sort_options -%}
+                  <option value="{{ option.value | escape }}" {% if option.value == search.sort_by %}selected{% endif %}>{{ option.name | escape }}</option>
+                {%- endfor -%}
+              </select>
+            </label>
+          {%- endif -%}
+        </div>
+
+        <div class="search-results-layout">
+          <aside class="search-filters">
+            <form id="SearchFiltersForm" class="search-filter-form" action="{{ routes.search_url }}" method="get">
+              <input type="hidden" name="q" value="{{ search_query | escape }}">
+              <input type="hidden" name="type" value="product">
+
+              <div class="search-filter-heading">
+                <span class="search-filter-icon" aria-hidden="true">{% render 'icon-filter' %}</span>
+                <h2>Refine your search</h2>
+              </div>
+
+              {%- for filter in search.filters -%}
+                <details class="search-filter-group" open>
+                  <summary>{{ filter.label | escape }} <span aria-hidden="true">+</span></summary>
+                  {%- case filter.type -%}
+                    {%- when 'list', 'boolean' -%}
+                      <div class="search-filter-options">
+                        {%- for filter_value in filter.values -%}
+                          <label class="search-filter-option">
+                            <input type="checkbox" name="{{ filter_value.param_name | escape }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked{% endif %} {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}>
+                            <span>{{ filter_value.label | escape }}</span>
+                            <small>{{ filter_value.count }}</small>
+                          </label>
+                        {%- endfor -%}
+                      </div>
+                    {%- when 'price_range' -%}
+                      <div class="search-price-fields">
+                        <label>
+                          <span>Min (Rs.)</span>
+                          <input type="number" name="{{ filter.min_value.param_name | escape }}" min="0" step="500" placeholder="0" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
+                        </label>
+                        <label>
+                          <span>Max (Rs.)</span>
+                          <input type="number" name="{{ filter.max_value.param_name | escape }}" min="0" step="500" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+                        </label>
+                      </div>
+                  {%- endcase -%}
+                </details>
+              {%- endfor -%}
+
+              <div class="search-filter-actions">
+                <button class="btn btn-primary search-apply-button" type="submit">Apply filters <span aria-hidden="true">→</span></button>
+                <a class="search-clear-link" href="{{ routes.search_url }}?q={{ search_query | url_encode }}&type=product">Clear all filters</a>
+              </div>
+            </form>
+          </aside>
+
+          <div class="search-results-content">
+            {%- if search.results_count > 0 -%}
+              {%- paginate search.results by 12 -%}
+                <div class="products-grid search-products-grid">
+                  {%- for result in search.results -%}
+                    {%- if result.object_type == 'product' -%}
+                      {% render 'product-card', product: result %}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+                {%- if paginate.pages > 1 -%}
+                  <nav class="search-pagination" aria-label="Search results pages">
+                    {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" aria-label="Previous page">← Previous</a>{%- endif -%}
+                    <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+                    {%- if paginate.next -%}<a href="{{ paginate.next.url }}" aria-label="Next page">Next →</a>{%- endif -%}
+                  </nav>
+                {%- endif -%}
+              {%- endpaginate -%}
+            {%- else -%}
+              <div class="search-empty-state">
+                <span class="search-empty-icon" aria-hidden="true">{% render 'icon-search' %}</span>
+                <h2>No pieces found just yet</h2>
+                <p>Try a different search, or clear a filter to see more of our collection.</p>
+                <a class="btn btn-outline" href="{{ routes.search_url }}">Browse all products</a>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </section>
+  {%- else -%}
+    <section class="search-discovery-section section-spacing">
+      <div class="container">
+        <div class="search-discovery-heading">
+          <span class="subheading">A good place to start</span>
+          <h2>Browse by category</h2>
+        </div>
+        <div class="search-category-grid">
+          <a class="search-category-card" href="/collections/tea-trolleys"><span class="search-category-icon" aria-hidden="true">{% render 'icon-cart' %}</span><strong>Tea Trolleys</strong><span>Serve in style <span aria-hidden="true">→</span></span></a>
+          <a class="search-category-card" href="/collections/coffee-tables"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Coffee Tables</strong><span>Gather beautifully <span aria-hidden="true">→</span></span></a>
+          <a class="search-category-card" href="/collections/nesting-sets"><span class="search-category-icon" aria-hidden="true">{% render 'icon-customize' %}</span><strong>Nesting Sets</strong><span>Flexible elegance <span aria-hidden="true">→</span></span></a>
+          <a class="search-category-card" href="/collections/console-tables"><span class="search-category-icon" aria-hidden="true">{% render 'icon-star' %}</span><strong>Console Tables</strong><span>Make an entrance <span aria-hidden="true">→</span></span></a>
+        </div>
+      </div>
+    </section>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Search page",
+  "settings": []
+}
+{% endschema %}

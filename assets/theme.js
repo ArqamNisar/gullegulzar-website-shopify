@@ -3,7 +3,7 @@
  * Interactive controls, Multi-page Cart Drawer, Variant Chips, Product Gallery, FAQs & WhatsApp routing
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+const initializeTheme = () => {
   initHeader();
   initMobileDrawer();
   initFAQAccordion();
@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppPhoneLinks();
   initHorizontalCarousels();
   initZoomableImages();
-});
+  initPreviewContactForm();
+  initSearchSort();
+};
+
+initializeTheme();
 
 /* --------------------------------------------------------------------------
    Header Scroll Behavior
@@ -166,6 +170,36 @@ function initZoomableImages() {
       zoomable.setAttribute('aria-pressed', String(isZoomed));
     });
   });
+}
+
+function initPreviewContactForm() {
+  const form = document.querySelector('#preview-contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const subject = `Website inquiry from ${formData.get('name')}`;
+    const body = [
+      `Name: ${formData.get('name')}`,
+      `Phone / WhatsApp: ${formData.get('phone')}`,
+      `Email: ${formData.get('email')}`,
+      '',
+      'Message:',
+      formData.get('message')
+    ].join('\n');
+
+    window.location.href = `mailto:gullegulzarhometrolley@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
+function initSearchSort() {
+  const sortControl = document.querySelector('[name="sort_by"][form="SearchFiltersForm"]');
+  const filterForm = document.querySelector('#SearchFiltersForm');
+  if (!sortControl || !filterForm) return;
+
+  sortControl.addEventListener('change', () => filterForm.requestSubmit());
 }
 
 /* --------------------------------------------------------------------------

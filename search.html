@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0c362d">
+  <title>Search Furniture | Gull e Gulzar Home Trolley</title>
+  <meta name="description" content="Search handcrafted tea trolleys, coffee tables, nesting sets, and other furniture from Gull e Gulzar Home Trolley.">
+  <link rel="stylesheet" href="assets/theme.css?v=6">
+</head>
+<body class="search-page">
+  <div data-store-header></div>
+  <main>
+    <section class="search-page-hero">
+      <div class="container">
+        <span class="subheading">Find your next favourite piece</span>
+        <h1>Search our collection</h1>
+        <p>Thoughtful furniture, made to bring a little more beauty to your home.</p>
+        <form class="search-main-form" action="search.html" method="get" role="search">
+          <label class="visually-hidden" for="PreviewSearchInput">Search products</label>
+          <span class="search-input-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+          </span>
+          <input id="PreviewSearchInput" type="search" name="q" placeholder="Try “tea trolley” or “coffee table”" autocomplete="off">
+          <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="search-quick-links" aria-label="Popular searches">
+          <span>Popular:</span>
+          <a href="search.html?q=tea+trolley">Tea trolleys</a>
+          <a href="search.html?q=coffee+table">Coffee tables</a>
+          <a href="search.html?q=nesting+set">Nesting sets</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-spacing search-results-section">
+      <div class="container">
+        <div class="search-results-heading">
+          <div>
+            <span class="subheading">Thoughtfully made for your home</span>
+            <h2 id="SearchResultsTitle">Explore our furniture</h2>
+            <p id="SearchResultsCount" aria-live="polite"></p>
+          </div>
+          <label class="search-sort-control">
+            <span class="search-control-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14m0 0-3-3m3 3 3-3M16 19V5m0 0-3 3m3-3 3 3"></path></svg>
+            </span>
+            <span class="visually-hidden">Sort results</span>
+            <select id="SearchSort" aria-label="Sort results">
+              <option value="featured">Featured</option>
+              <option value="price-ascending">Price: low to high</option>
+              <option value="price-descending">Price: high to low</option>
+              <option value="title-ascending">Name: A to Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="search-results-layout">
+          <aside class="search-filters">
+            <form id="PreviewSearchFilters" class="search-filter-form">
+              <div class="search-filter-heading">
+                <span class="search-filter-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"></path><circle cx="15" cy="7" r="2"></circle><circle cx="9" cy="17" r="2"></circle></svg>
+                </span>
+                <h2>Refine your search</h2>
+              </div>
+              <label class="search-filter-label" for="SearchCategory">Category</label>
+              <div class="search-category-select-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg>
+                <select id="SearchCategory" name="category">
+                  <option value="">All furniture</option>
+                  <option>Tea Trolleys</option>
+                  <option>Coffee Tables</option>
+                  <option>Center Tables</option>
+                  <option>Mini Coffee Tables</option>
+                  <option>Nesting Sets</option>
+                  <option>Center Table Sets</option>
+                  <option>Table Sets</option>
+                  <option>Console Tables</option>
+                  <option>Tea Tables</option>
+                </select>
+              </div>
+              <div class="search-filter-divider"></div>
+              <span class="search-filter-label">Price range <span class="search-filter-label-icon" aria-hidden="true">₨</span></span>
+              <div class="search-price-fields">
+                <label><span>Min (Rs.)</span><input id="SearchMinPrice" name="min" type="number" min="0" step="500" inputmode="numeric" placeholder="0"></label>
+                <label><span>Max (Rs.)</span><input id="SearchMaxPrice" name="max" type="number" min="0" step="500" inputmode="numeric" placeholder="No limit"></label>
+              </div>
+              <label class="search-sale-option">
+                <input id="SearchOnSale" type="checkbox">
+                <span class="search-sale-check" aria-hidden="true"></span>
+                <span>On sale</span>
+                <span class="search-sale-badge">OFF</span>
+              </label>
+              <button class="btn btn-primary search-apply-button" type="submit">Apply filters <span aria-hidden="true">→</span></button>
+              <button class="search-clear-link" id="SearchClearFilters" type="button">Clear all filters</button>
+            </form>
+          </aside>
+
+          <div class="search-results-content">
+            <div class="search-active-filters" id="SearchActiveFilters" aria-live="polite"></div>
+            <div class="products-grid search-products-grid" id="SearchProducts" aria-live="polite"></div>
+            <div class="search-empty-state" id="SearchEmptyState" hidden>
+              <span class="search-empty-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+              </span>
+              <h2>No pieces found just yet</h2>
+              <p>Try a different search, or clear a filter to see more of our collection.</p>
+              <button class="btn btn-outline" type="button" data-search-reset>Show all furniture</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-store-footer></div>
+  <script src="assets/page-shell.js?v=3"></script>
+  <script src="assets/theme.js?v=7"></script>
+  <script src="assets/search-preview.js?v=1"></script>
+</body>
+</html>

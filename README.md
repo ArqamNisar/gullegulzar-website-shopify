@@ -68,13 +68,13 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
 
 - **Dedicated Product Pages (Individual Pages for Each Item)**:
   1. [`product-tea-trolley.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-trolley.html) — Royal 2-Tier Gold Tea Trolley
-  2. [`product-coffee-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-coffee-table.html) — Modernist Sleek Coffee Table
-  3. [`product-center-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-table.html) — Fluted Brass Center Table
-  4. [`product-mini-coffee-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-mini-coffee-table.html) — Aura Compact Mini Coffee Table
+  2. [`product-coffee.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-coffee.html) — Modernist Sleek Coffee Table
+  3. [`product-center.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center.html) — Fluted Brass Center Table
+  4. [`product-mini-coffee.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-mini-coffee.html) — Aura Compact Mini Coffee Table
   5. [`product-nesting-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-nesting-set.html) — Imperial Round Nesting Set (3-Piece)
-  6. [`product-center-table-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-table-set.html) — Geometric Marble Center Table Set
+  6. [`product-center-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-set.html) — Geometric Marble Center Table Set
   7. [`product-table-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-table-set.html) — Sculptural Marble Top Table Set (4-Piece)
-  8. [`product-console-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-console-table.html) — Monarch Grand Foyer Console Table
+  8. [`product-console.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-console.html) — Monarch Grand Foyer Console Table
   9. [`product-tea-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-table.html) — Artisan Glass & Wood Tea Table
   - *Features on every product page*: High-resolution photo gallery with thumbnail switcher, Finish Selector (Champagne Gold / Matte Black / Rose Gold), Surface Selector (Marble / Glass / Wood), Quantity Selector, **Add to Cart** button, and **Buy Now** checkout button.
 
