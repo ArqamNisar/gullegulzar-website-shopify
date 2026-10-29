@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initMobileDrawer();
-  initWhatsAppFloating();
   initFAQAccordion();
   initProductGallery();
   initVariantChips();
@@ -45,23 +44,57 @@ function initMobileDrawer() {
 
   if (!toggleBtn || !drawer || !overlay) return;
 
+  let pageScrollY = 0;
+  let originalBodyStyles = null;
+  let originalRootOverflow = '';
+
   const openDrawer = () => {
+    if (drawer.classList.contains('active')) return;
+
+    pageScrollY = window.scrollY;
+    originalBodyStyles = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      left: document.body.style.left,
+      right: document.body.style.right,
+      width: document.body.style.width,
+      overflow: document.body.style.overflow
+    };
+    originalRootOverflow = document.documentElement.style.overflow;
+
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${pageScrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+    document.body.style.overflow = 'hidden';
     drawer.classList.add('active');
     overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    toggleBtn.setAttribute('aria-expanded', 'true');
   };
 
   const closeDrawer = () => {
+    if (!drawer.classList.contains('active')) return;
+
     drawer.classList.remove('active');
     overlay.classList.remove('active');
-    document.body.style.overflow = '';
     toggleBtn.setAttribute('aria-expanded', 'false');
+
+    if (originalBodyStyles) {
+      Object.entries(originalBodyStyles).forEach(([property, value]) => {
+        document.body.style[property] = value;
+      });
+    }
+    document.documentElement.style.overflow = originalRootOverflow;
+    const originalScrollBehavior = document.documentElement.style.scrollBehavior;
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, pageScrollY);
+    document.documentElement.style.scrollBehavior = originalScrollBehavior;
+    originalBodyStyles = null;
   };
 
-  toggleBtn.addEventListener('click', () => {
-    openDrawer();
-    toggleBtn.setAttribute('aria-expanded', 'true');
-  });
+  toggleBtn.addEventListener('click', openDrawer);
   if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
   overlay.addEventListener('click', closeDrawer);
 
@@ -132,35 +165,6 @@ function initZoomableImages() {
       const isZoomed = zoomable.classList.toggle('is-zoomed');
       zoomable.setAttribute('aria-pressed', String(isZoomed));
     });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   Floating WhatsApp Widget & Interactive Popup
-   -------------------------------------------------------------------------- */
-function initWhatsAppFloating() {
-  const widgetBtn = document.querySelector('.floating-whatsapp-btn');
-  const popup = document.querySelector('.whatsapp-popup-card');
-  const popupClose = document.querySelector('.whatsapp-popup-close');
-
-  if (!widgetBtn || !popup) return;
-
-  widgetBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    popup.classList.toggle('active');
-  });
-
-  if (popupClose) {
-    popupClose.addEventListener('click', (e) => {
-      e.stopPropagation();
-      popup.classList.remove('active');
-    });
-  }
-
-  document.addEventListener('click', (e) => {
-    if (!popup.contains(e.target) && !widgetBtn.contains(e.target)) {
-      popup.classList.remove('active');
-    }
   });
 }
 

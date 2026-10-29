@@ -117,7 +117,7 @@ Open Shopify Theme Customizer (`Online Store > Customize`):
 
 ### Home Page Preview
 
-The home page has a full-width hero banner, two scrolling announcement strips, a horizontally scrollable featured-product rail, craftsmanship highlights, and a single interactive product image that magnifies under the pointer (or on tap). The provided logo and banner are included in `assets/brand-logo.jpg` and `assets/home-hero.jpg`.
+The home page has a full-width hero banner, two scrolling announcement strips, a horizontally scrollable featured-product rail, craftsmanship highlights, and a single interactive product image that magnifies under the pointer (or on tap). A floating WhatsApp icon opens a direct chat, and the footer groups the store introduction, main menu, policies, and support information. The provided logo and banner are included in `assets/brand-logo.jpg` and `assets/home-hero.jpg`.
 
 To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product names, photos, and prices are clearly marked as samples; replace them with the store catalog before launch. In Shopify's theme customizer, select the real featured collection and update the footer social profile links before publishing.
 

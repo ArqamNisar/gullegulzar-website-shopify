@@ -2028,7 +2028,13 @@ body::-webkit-scrollbar,
 .mobile-drawer {
   left: 0;
   width: min(340px, 88vw);
+  top: 0;
+  bottom: 0;
+  height: auto;
+  max-height: 100vh;
+  max-height: 100dvh;
   transform: translateX(-105%);
+  overflow: hidden;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -2040,6 +2046,23 @@ body::-webkit-scrollbar,
   width: 78px;
   height: 70px;
   object-fit: contain;
+}
+
+.mobile-drawer-body {
+  min-height: 0;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+.mobile-drawer > .mobile-nav-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  padding: 1.25rem;
 }
 
 .home-banner {
@@ -2500,5 +2523,173 @@ body::-webkit-scrollbar,
 
   .horizontal-carousel {
     scroll-behavior: auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   WhatsApp shortcut and reference-inspired footer
+   -------------------------------------------------------------------------- */
+.floating-whatsapp-widget {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 990;
+}
+
+.floating-whatsapp-btn {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  color: #fff;
+  background: #20c968;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 5px 18px rgba(17, 43, 32, 0.28);
+}
+
+.floating-whatsapp-btn svg {
+  width: 34px;
+  height: 34px;
+}
+
+.floating-whatsapp-btn svg path:first-child {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.floating-whatsapp-btn svg path:last-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.floating-whatsapp-btn:hover {
+  color: #fff;
+  background: #159e50;
+  transform: translateY(-3px) scale(1.05);
+}
+
+.site-footer {
+  background: #0c362d;
+  color: #e8eee8;
+  padding: 3.5rem 0 1.6rem;
+  border-top: 0;
+}
+
+.footer-grid {
+  grid-template-columns: minmax(0, 1.35fr) minmax(150px, 0.7fr) minmax(220px, 1fr);
+  gap: 2.5rem 4rem;
+  margin-bottom: 3rem;
+}
+
+.footer-column h2 {
+  margin: 0 0 1.15rem;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.32rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.footer-about-closing {
+  margin-bottom: 1.4rem;
+  color: #cbd9d1;
+  line-height: 1.7;
+}
+
+.footer-about-closing strong,
+.footer-help-detail strong {
+  color: #fff;
+}
+
+.footer-grid .footer-desc {
+  margin-bottom: 1rem;
+  color: #cbd9d1;
+  font-size: 0.95rem;
+}
+
+.footer-grid .footer-links {
+  gap: 0.8rem;
+}
+
+.footer-grid .footer-link {
+  color: #d3dfd8;
+  font-size: 0.92rem;
+}
+
+.footer-grid .footer-link:hover {
+  color: #fff;
+}
+
+.footer-help {
+  grid-column: 1;
+}
+
+.footer-help-detail {
+  margin: 0 0 0.9rem;
+  color: #d3dfd8;
+}
+
+.footer-help .footer-link {
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+.footer-social-links {
+  gap: 0.7rem;
+}
+
+.footer-social-links a {
+  width: 40px;
+  height: 40px;
+  color: #f0dfc0;
+  border-color: rgba(240, 223, 192, 0.4);
+}
+
+.footer-social-links a:hover {
+  color: #0c362d;
+  background: #f0dfc0;
+  border-color: #f0dfc0;
+}
+
+.site-footer .footer-bottom {
+  padding-top: 1.4rem;
+  color: #b7c8bf;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 991px) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(150px, 0.8fr);
+    gap: 2.25rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .floating-whatsapp-widget {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+
+  .floating-whatsapp-btn {
+    width: 54px;
+    height: 54px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-help {
+    grid-column: auto;
+  }
+
+  .site-footer {
+    padding-top: 2.5rem;
   }
 }

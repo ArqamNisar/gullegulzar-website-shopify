@@ -1,18 +1,10 @@
-{%- assign wa_primary = settings.whatsapp_number_primary | default: '923204967079' -%}
-{%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
-{%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
-{%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
-
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
-      <!-- Col 1: Brand Info -->
-      <div class="footer-column">
-        <h3 class="footer-brand-title">Gull e Gulzar</h3>
-        <span class="footer-brand-tagline">Home Trolley & Luxury Tables</span>
-        <p class="footer-desc">
-          Specializing in exquisite tea trolleys, center tables, nesting sets, and console tables. Crafted with architectural passion and delivered with care across Pakistan.
-        </p>
+      <div class="footer-column footer-about">
+        <h2>About us</h2>
+        <p class="footer-desc">{{ section.settings.about_text | default: 'Gull e Gulzar Home Trolley offers elegant, thoughtfully crafted furniture to bring comfort and timeless style to your home. Discover beautiful tea trolleys, tables, and furniture made with care.' }}</p>
+        <p class="footer-about-closing">Discover your perfect piece and make every moment count with <strong>Gull e Gulzar Home Trolley.</strong></p>
         <div class="footer-social-links" aria-label="Social media">
           <a href="{{ section.settings.instagram_url | default: 'https://www.instagram.com/' }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="18" cy="6" r="0.8" class="social-fill"></circle></svg>
@@ -24,68 +16,39 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.2a4 4 0 1 1-3-3.9V7.2a8 8 0 1 0 7 7.9V9.4a9 9 0 0 0 4 1V6.8A5 5 0 0 1 17 3h-3z"></path></svg>
           </a>
         </div>
-        <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-          <a href="https://wa.me/{{ wa_primary }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="WhatsApp Us">
-            {% render 'icon-whatsapp' %} Chat on WhatsApp
-          </a>
-        </div>
       </div>
 
-      <!-- Col 2: Collections -->
       <div class="footer-column">
-        <h4>Featured Collections</h4>
+        <h2>Main Menu</h2>
         <ul class="footer-links">
-          <li><a href="/collections/tea-trolleys" class="footer-link">Tea Trolleys</a></li>
-          <li><a href="/collections/coffee-tables" class="footer-link">Coffee Tables</a></li>
-          <li><a href="/collections/center-tables" class="footer-link">Center Tables</a></li>
-          <li><a href="/collections/mini-coffee-tables" class="footer-link">Mini Coffee Tables</a></li>
-          <li><a href="/collections/nesting-sets" class="footer-link">Nesting Sets</a></li>
-          <li><a href="/collections/center-table-sets" class="footer-link">Center Table Sets</a></li>
-          <li><a href="/collections/table-sets" class="footer-link">Table Sets</a></li>
-          <li><a href="/collections/console-tables" class="footer-link">Console Tables</a></li>
-          <li><a href="/collections/tea-tables" class="footer-link">Tea Tables</a></li>
+          <li><a href="{{ routes.root_url }}" class="footer-link">Home</a></li>
+          <li><a href="/collections/all" class="footer-link">Featured Collection</a></li>
+          <li><a href="/collections/all" class="footer-link">All Collections</a></li>
+          <li><a href="/pages/contact" class="footer-link">Contact</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Policies & Quick Links -->
       <div class="footer-column">
-        <h4>Customer Care</h4>
+        <h2>Policy</h2>
         <ul class="footer-links">
-          <li><a href="/pages/contact" class="footer-link">Contact Us</a></li>
-          <li><a href="/pages/shipping-policy" class="footer-link">Shipping & Delivery Policy</a></li>
-          <li><a href="/pages/refund-policy" class="footer-link">Refund & Return Policy</a></li>
-          <li><a href="/pages/privacy-policy" class="footer-link">Privacy Policy</a></li>
-          <li><a href="/pages/terms-of-service" class="footer-link">Terms of Service</a></li>
-          <li><a href="/collections/all" class="footer-link">Catalog Directory</a></li>
+          <li><a href="/search" class="footer-link">Search</a></li>
+          <li><a href="{{ shop.policies.terms_of_service.url | default: '/pages/terms-of-service' }}" class="footer-link">Terms of Service</a></li>
+          <li><a href="{{ shop.policies.shipping_policy.url | default: '/pages/shipping-policy' }}" class="footer-link">Shipping Policy</a></li>
+          <li><a href="{{ shop.policies.refund_policy.url | default: '/pages/refund-policy' }}" class="footer-link">Refund Policy</a></li>
+          <li><a href="{{ shop.policies.privacy_policy.url | default: '/pages/privacy-policy' }}" class="footer-link">Privacy Policy</a></li>
+          <li><a href="/pages/terms-of-service" class="footer-link">Legal Notice</a></li>
+          <li><a href="/pages/contact" class="footer-link">Contact Information</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Contact & WhatsApp Numbers -->
-      <div class="footer-column">
-        <h4>Direct Contact</h4>
-        <div class="footer-contact-item">
-          {% render 'icon-whatsapp' %}
-          <div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-gold); display: block;">Primary Orders & WhatsApp</span>
-            <a href="https://wa.me/{{ wa_primary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your home trolleys and tables.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
-              {{ wa_primary_display }}
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-contact-item">
-          {% render 'icon-phone' %}
-          <div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-gold); display: block;">Support & Sales Line</span>
-            <a href="https://wa.me/{{ wa_secondary }}?text={{ 'Hello Gull e Gulzar, I would like to inquire about your home trolleys and tables.' | url_encode }}" target="_blank" rel="noopener noreferrer" class="footer-contact-link">
-              {{ wa_secondary_display }}
-            </a>
-          </div>
-        </div>
-
-        <p style="font-size: 0.85rem; color: #78716C; margin-top: 1rem; line-height: 1.5;">
-          📍 Delivery available across Lahore, Karachi, Islamabad, and nationwide across Pakistan.
-        </p>
+      <div class="footer-column footer-help">
+        <h2>Need Help?</h2>
+        <p class="footer-desc">We are happy to help and assist you.</p>
+        {% if section.settings.contact_email != blank %}
+          <p class="footer-help-detail"><strong>Email:</strong> <a href="mailto:{{ section.settings.contact_email | escape }}">{{ section.settings.contact_email | escape }}</a></p>
+        {% endif %}
+        <p class="footer-help-detail"><strong>Timing:</strong> {{ section.settings.support_hours | default: '24/7 Support' }}</p>
+        <a class="footer-link" href="/pages/contact">Contact Us</a>
       </div>
     </div>
 
@@ -94,11 +57,7 @@
       <div>
         &copy; {{ 'now' | date: '%Y' }} <strong>Gull e Gulzar Home Trolley</strong>. All rights reserved.
       </div>
-      <div style="display: flex; gap: 1.5rem;">
-        <a href="/pages/privacy-policy">Privacy</a>
-        <a href="/pages/refund-policy">Refunds</a>
-        <a href="/pages/terms-of-service">Terms</a>
-      </div>
+      <span>Furniture for beautiful living.</span>
     </div>
   </div>
 </footer>
@@ -121,6 +80,23 @@
       "type": "url",
       "id": "tiktok_url",
       "label": "TikTok profile"
+    },
+    {
+      "type": "textarea",
+      "id": "about_text",
+      "label": "About us",
+      "default": "Gull e Gulzar Home Trolley offers elegant, thoughtfully crafted furniture to bring comfort and timeless style to your home. Discover beautiful tea trolleys, tables, and furniture made with care."
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Support email"
+    },
+    {
+      "type": "text",
+      "id": "support_hours",
+      "label": "Support hours",
+      "default": "24/7 Support"
     }
   ]
 }
