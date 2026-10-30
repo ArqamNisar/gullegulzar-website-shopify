@@ -1,6 +1,6 @@
 # 🏛️ Gull e Gulzar Home Trolley — Premium Shopify 2.0 Theme
 
-A bespoke, mobile-optimized, light luxury Shopify 2.0 theme developed specifically for **Gull e Gulzar Home Trolley**, specialists in luxury home trolleys, designer coffee tables, center tables, and nesting sets.
+A bespoke, mobile-optimized, light luxury Shopify 2.0 theme developed specifically for **Gull e Gulzar Home Trolley**, currently featuring the Mini Coffee Table.
 
 [![GitHub Repo](https://img.shields.io/badge/GitHub-gullegulzar--website--shopify-blue?logo=github)](https://github.com/ArqamNisar/gullegulzar-website-shopify)
 [![Shopify 2.0](https://img.shields.io/badge/Shopify-Online%20Store%202.0-green?logo=shopify)](https://shopify.dev/docs/themes)
@@ -33,17 +33,9 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 ---
 
-## 🪑 Product Categories Included
+## 🪑 Current Product
 
-1. **Tea Trolleys** (Luxury serving carts with smooth rolling casters)
-2. **Coffee Tables** (Modernist & sculptural living room centerpieces)
-3. **Center Tables** (Architectural statement tables)
-4. **Mini Coffee Tables** (Compact, space-saving units)
-5. **Nesting Sets** (2-piece & 3-piece layered versatile sets)
-6. **Center Table Sets** (Matching ensemble table arrangements)
-7. **Table Sets** (Complete coordinated living room tables)
-8. **Console Tables** (Sleek hallway, entryway & foyer consoles)
-9. **Tea Tables** (Traditional & contemporary tea tables)
+The storefront currently features one confirmed product: the **Mini Coffee Table**, priced at **Rs. 5,500 PKR** in the standalone preview.
 
 ---
 
@@ -51,45 +43,35 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 The project contains fully modular Shopify 2.0 sections and dedicated standalone multi-page views:
 
-- **Home Page** ([`index.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/index.html) / [`templates/index.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/index.json)):
+- **Home Page** ([`index.html`](./index.html) / [`templates/index.json`](./templates/index.json)):
   - Announcement bar with direct phone/WhatsApp links
   - Sticky glassmorphic header with navigation and mobile drawer
   - Hero banner with headline, CTA buttons, and trust highlights
-  - 9-category visual grid linking to individual pages
-  - Featured product showcase with instant Add to Cart
-  - Brand highlights (Handcrafted Mastery, Custom Finishes, Factory-Direct, Nationwide Delivery)
-  - Client reviews & testimonials
-  - Interactive FAQ accordion
+  - A featured Mini Coffee Table product card
+  - Furniture quality highlights and a zoomable lifestyle photo of the table
   - Luxury footer with quick links, policies, and contact cards
 
-- **Catalog & Collections Page** ([`collections.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/collections.html) / [`templates/collection.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/collection.json)):
-  - Directory of all 9 product categories
-  - Quick Add to Cart & View Product buttons on every card
+- **Catalog & Collections Page** ([`collections.html`](./collections.html) / [`templates/collection.json`](./templates/collection.json)):
+  - A single Mini Coffee Table product listing
 
-- **Dedicated Product Pages (Individual Pages for Each Item)**:
-  1. [`product-tea-trolley.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-trolley.html) — Royal 2-Tier Gold Tea Trolley
-  2. [`product-coffee.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-coffee.html) — Modernist Sleek Coffee Table
-  3. [`product-center.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center.html) — Fluted Brass Center Table
-  4. [`product-mini-coffee.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-mini-coffee.html) — Aura Compact Mini Coffee Table
-  5. [`product-nesting-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-nesting-set.html) — Imperial Round Nesting Set (3-Piece)
-  6. [`product-center-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-center-set.html) — Geometric Marble Center Table Set
-  7. [`product-table-set.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-table-set.html) — Sculptural Marble Top Table Set (4-Piece)
-  8. [`product-console.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-console.html) — Monarch Grand Foyer Console Table
-  9. [`product-tea-table.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/product-tea-table.html) — Artisan Glass & Wood Tea Table
-  - *Features on every product page*: High-resolution photo gallery with thumbnail switcher, Finish Selector (Champagne Gold / Matte Black / Rose Gold), Surface Selector (Marble / Glass / Wood), Quantity Selector, **Add to Cart** button, and **Buy Now** checkout button.
+- **Dedicated Product Page** ([`product-mini-coffee.html`](./product-mini-coffee.html) / [`sections/main-product.liquid`](./sections/main-product.liquid)):
+  - Two-photo gallery with zoom and thumbnail switching
+  - Confirmed standalone price of Rs. 5,500, quantity selector, cart action, and WhatsApp ordering
+  - Customer review summary, submission handoff to WhatsApp, and review blocks for publishing moderated feedback
+  - Shopify product form with native Add to Cart and Buy Now actions when the Shopify product exists
 
-- **Dedicated Contact Us Page** ([`contact.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/contact.html) / [`templates/page.contact.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/page.contact.json)):
+- **Dedicated Contact Us Page** ([`contact.html`](./contact.html) / [`templates/page.contact.json`](./templates/page.contact.json)):
   - Direct WhatsApp click cards for `+923204967079` and `+923004055876`
   - Inquiry form & workshop hours
 
-- **Shopping Cart & Checkout Page** ([`cart.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/cart.html) / [`templates/cart.json`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/templates/cart.json)) & **Slide-in Cart Drawer**:
-  - Live subtotal calculation, quantity modifier, remove item, and checkout.
+- **Shopping Cart** ([`cart.html`](./cart.html) / [`templates/cart.json`](./templates/cart.json)) & **Slide-in Cart Drawer**:
+  - Standalone preview cart with a subtotal and WhatsApp order handoff; Shopify uses its native cart and checkout.
 
 - **Dedicated Policy Pages**:
-  - Shipping & Delivery Policy ([`shipping-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/shipping-policy.html))
-  - Refund & Return Policy ([`refund-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/refund-policy.html))
-  - Privacy Policy ([`privacy-policy.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/privacy-policy.html))
-  - Terms of Service ([`terms-of-service.html`](file:///d:/AI%20Agents%20projects/gullegulzar-website-shopify/terms-of-service.html))
+  - Shipping & Delivery Policy ([`shipping-policy.html`](./shipping-policy.html))
+  - Refund & Return Policy ([`refund-policy.html`](./refund-policy.html))
+  - Privacy Policy ([`privacy-policy.html`](./privacy-policy.html))
+  - Terms of Service ([`terms-of-service.html`](./terms-of-service.html))
 
 ---
 
@@ -119,7 +101,7 @@ Open Shopify Theme Customizer (`Online Store > Customize`):
 
 The home page has a full-width hero banner, two scrolling announcement strips, a horizontally scrollable featured-product rail, craftsmanship highlights, and a single interactive product image that magnifies under the pointer (or on tap). A floating WhatsApp icon opens a direct chat, and the footer groups the store introduction, main menu, policies, and support information. The provided logo and banner are included in `assets/brand-logo.jpg` and `assets/home-hero.jpg`.
 
-To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product names, photos, and prices are clearly marked as samples; replace them with the store catalog before launch. In Shopify's theme customizer, select the real featured collection and update the footer social profile links before publishing.
+To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product page uses the supplied Mini Coffee Table photos and its confirmed Rs. 5,500 price. Before publishing, create the Shopify product with handle `mini-coffee-table` and set its price and product images in Shopify Admin. Update the footer social profile links before publishing.
 
 ---
 

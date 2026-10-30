@@ -14,6 +14,8 @@ const initializeTheme = () => {
   initHorizontalCarousels();
   initZoomableImages();
   initPreviewContactForm();
+  initProductWhatsAppOrder();
+  initProductReviewForm();
   initSearchSort();
 };
 
@@ -238,6 +240,7 @@ function initProductGallery() {
     thumb.addEventListener('click', () => {
       thumbs.forEach((t) => t.classList.remove('active'));
       thumb.classList.add('active');
+      thumbs.forEach((t) => t.setAttribute('aria-pressed', String(t === thumb)));
 
       const newSrc = thumb.getAttribute('data-image-src');
       if (newSrc) {
@@ -283,6 +286,7 @@ function initVariantChips() {
    -------------------------------------------------------------------------- */
 function initCartDrawer() {
   const drawer = document.getElementById('cart-drawer');
+  if (drawer?.hasAttribute('data-shopify-cart-drawer')) return;
   const overlay = document.getElementById('cart-drawer-overlay');
   const closeBtn = document.getElementById('cart-drawer-close');
   const continueBtn = document.getElementById('cart-continue-btn');
@@ -307,7 +311,7 @@ function initCartDrawer() {
       itemsContainer.innerHTML = `
         <div style="text-align: center; padding: 3rem 1rem;">
           <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Your Cart is Empty</h4>
-          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Explore our signature tea trolleys and designer tables.</p>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Take a look at our Mini Coffee Table.</p>
           <a href="collections.html" class="btn btn-outline btn-sm">Explore Catalog</a>
         </div>
       `;
@@ -381,21 +385,22 @@ function initCartDrawer() {
 
   // Handle Add to Cart button on Product Page
   const addToCartBtn = document.getElementById('btn-add-to-cart');
-  if (addToCartBtn) {
+  if (addToCartBtn && !addToCartBtn.closest('form[action^="/cart/add"]')) {
     addToCartBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const title = document.querySelector('.product-detail-title')?.textContent || 'Luxury Table';
       const price = document.querySelector('.product-price-current')?.textContent || 'Rs. 24,500';
       const image = document.querySelector('#product-main-image')?.src || '';
-      const finish = document.querySelector('.variant-chip.active[data-finish]')?.getAttribute('data-finish') || 'Champagne Gold';
-      const surface = document.querySelector('.variant-chip.active[data-surface]')?.getAttribute('data-surface') || 'Tempered Glass';
+      const finish = document.querySelector('.variant-chip.active[data-finish]')?.getAttribute('data-finish');
+      const surface = document.querySelector('.variant-chip.active[data-surface]')?.getAttribute('data-surface');
       const qty = parseInt(document.querySelector('#Quantity')?.value) || 1;
+      const variant = [finish, surface].filter(Boolean).join(' / ') || 'Standard';
 
       cart.push({
         title,
         price,
         image,
-        variant: `${finish} / ${surface}`,
+        variant,
         quantity: qty
       });
 
@@ -413,15 +418,16 @@ function initCartDrawer() {
       const title = document.querySelector('.product-detail-title')?.textContent || 'Luxury Table';
       const price = document.querySelector('.product-price-current')?.textContent || 'Rs. 24,500';
       const image = document.querySelector('#product-main-image')?.src || '';
-      const finish = document.querySelector('.variant-chip.active[data-finish]')?.getAttribute('data-finish') || 'Champagne Gold';
-      const surface = document.querySelector('.variant-chip.active[data-surface]')?.getAttribute('data-surface') || 'Tempered Glass';
+      const finish = document.querySelector('.variant-chip.active[data-finish]')?.getAttribute('data-finish');
+      const surface = document.querySelector('.variant-chip.active[data-surface]')?.getAttribute('data-surface');
       const qty = parseInt(document.querySelector('#Quantity')?.value) || 1;
+      const variant = [finish, surface].filter(Boolean).join(' / ') || 'Standard';
 
       cart.push({
         title,
         price,
         image,
-        variant: `${finish} / ${surface}`,
+        variant,
         quantity: qty
       });
 
@@ -456,6 +462,42 @@ function initCartDrawer() {
   });
 
   updateCartUI();
+}
+
+function initProductWhatsAppOrder() {
+  const orderLink = document.querySelector('[data-product-whatsapp]');
+  if (!orderLink) return;
+
+  orderLink.addEventListener('click', () => {
+    const title = document.querySelector('.product-detail-title')?.textContent?.trim() || 'Mini Coffee Table';
+    const quantity = Math.max(1, parseInt(document.querySelector('#Quantity')?.value, 10) || 1);
+    const message = `Hello Gull e Gulzar Home Trolley, I would like to order ${quantity} × ${title}.`;
+    orderLink.href = `https://wa.me/923204967079?text=${encodeURIComponent(message)}`;
+  });
+}
+
+function initProductReviewForm() {
+  const form = document.querySelector('[data-review-form]');
+  if (!form) return;
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const message = [
+      'Hello Gull e Gulzar Home Trolley, I would like to submit a customer review.',
+      `Product: ${document.querySelector('.product-detail-title')?.textContent?.trim() || 'Mini Coffee Table'}`,
+      `Name: ${formData.get('reviewer-name')}`,
+      `Rating: ${formData.get('review-rating')} out of 5`,
+      `Title: ${formData.get('review-title')}`,
+      `Review: ${formData.get('review-content')}`,
+      '',
+      'Please review my feedback before publishing it.'
+    ].join('\n');
+
+    window.location.href = `https://wa.me/923204967079?text=${encodeURIComponent(message)}`;
+  });
 }
 
 /* --------------------------------------------------------------------------

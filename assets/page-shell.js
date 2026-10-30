@@ -30,8 +30,9 @@ document.querySelector('[data-store-header]')?.insertAdjacentHTML('beforebegin',
         <a class="header-action-btn" href="search.html" aria-label="Search products">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
         </a>
-        <a class="header-action-btn" href="cart.html" aria-label="Shopping cart">
+        <a class="header-action-btn" href="cart.html" title="Cart" aria-label="Shopping cart">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg>
+          <span class="badge-count">0</span>
         </a>
       </div>
     </div>
@@ -45,9 +46,7 @@ document.querySelector('[data-store-header]')?.insertAdjacentHTML('beforebegin',
       <nav class="mobile-nav-list">
         <a class="mobile-nav-link" href="index.html">Home</a>
         <a class="mobile-nav-link" href="collections.html">Explore Collections</a>
-        <a class="mobile-nav-link" href="product-tea-trolley.html">Tea Trolleys</a>
-        <a class="mobile-nav-link" href="product-coffee.html">Coffee Tables</a>
-        <a class="mobile-nav-link" href="product-nesting-set.html">Nesting Sets</a>
+        <a class="mobile-nav-link" href="product-mini-coffee.html">Mini Coffee Table</a>
         <a class="mobile-nav-link" href="contact.html">Contact Us</a>
         <a class="mobile-nav-link" href="shipping-policy.html">Shipping Policy</a>
         <a class="mobile-nav-link" href="refund-policy.html">Return &amp; Refund Policy</a>
@@ -113,4 +112,16 @@ document.querySelector('[data-store-footer]')?.insertAdjacentHTML('beforebegin',
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5a12.3 12.3 0 0 0-10.6 18.5L4 28l6.2-1.6A12.4 12.4 0 1 0 16 3.5Z"></path><path d="M12.1 10.1c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.5 1.4-1.5 3.4s1.5 3.9 1.7 4.2c.2.3 2.9 4.6 7.1 6.2 3.5 1.4 4.2 1.1 4.9 1 .8-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.4-.3-.8-.5l-2.7-1.3c-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1a10.7 10.7 0 0 1-3.2-2 12 12 0 0 1-2.2-2.8c-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3 0-.5 0-.7Z"></path></svg>
     </a>
   </div>
+  <div class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <h3>Your Cart (<span id="cart-drawer-count">0</span>)</h3>
+      <button type="button" class="cart-drawer-close" id="cart-drawer-close" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-items"></div>
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-drawer-subtotal-row"><span>Subtotal</span><strong id="cart-drawer-subtotal">Rs. 0</strong></div>
+      <a href="cart.html" class="btn btn-primary btn-block">View Cart</a>
+    </div>
+  </div>
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
 `);

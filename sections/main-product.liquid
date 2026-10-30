@@ -1,186 +1,255 @@
-{%- assign product_title = product.title | default: 'Royal 2-Tier Gold Tea Trolley' -%}
-{%- assign product_price = product.price | money | default: 'Rs. 24,500' -%}
-{%- assign product_compare = product.compare_at_price | money | default: 'Rs. 29,000' -%}
+{%- assign product_title = product.title | default: 'Mini Coffee Table' -%}
+{%- assign first_image = product.featured_image -%}
+{%- if product != blank -%}
+  {%- assign product_price = product.price | money -%}
+  {%- if first_image != blank -%}
+    {%- assign first_image_url = first_image | image_url: width: 1400 -%}
+  {%- else -%}
+    {%- assign first_image = 'mini-coffee.jpg' | asset_url -%}
+    {%- assign first_image_url = first_image -%}
+  {%- endif -%}
+{%- else -%}
+  {%- assign product_price = 'Rs. 5,500' -%}
+  {%- assign first_image = 'mini-coffee.jpg' | asset_url -%}
+  {%- assign first_image_url = first_image -%}
+{%- endif -%}
+{%- assign room_image = 'mini-room.jpg' | asset_url -%}
 
-<div class="section-spacing" style="background: var(--color-bg-body);">
+<section class="section-spacing product-page-section">
   <div class="container">
-    <!-- Breadcrumb -->
-    <div style="font-size: 0.85rem; color: var(--color-muted); margin-bottom: 2rem;">
-      <a href="/" style="color: var(--color-muted);">Home</a> / 
-      <a href="/collections/all" style="color: var(--color-muted);">Collections</a> / 
-      <span style="color: var(--color-heading); font-weight: 600;">{{ product_title }}</span>
-    </div>
+    <nav class="product-breadcrumbs" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a><span aria-hidden="true">/</span>
+      <a href="/collections/all">Collections</a><span aria-hidden="true">/</span>
+      <span aria-current="page">{{ product_title | escape }}</span>
+    </nav>
 
-    <div class="product-detail-layout">
-      <!-- Left Column: Gallery -->
+    <div class="product-detail-layout product-detail-card">
       <div class="product-gallery">
-        <div class="product-main-view">
-          {%- if product.featured_image -%}
-            <img id="product-main-image" src="{{ product.featured_image | image_url: width: 1000 }}" alt="{{ product_title }}">
-          {%- else -%}
-            <img id="product-main-image" src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80" alt="{{ product_title }}">
-          {%- endif -%}
+        <div class="product-main-view product-main-image" data-zoom-image tabindex="0" role="button" aria-label="Move your pointer over the product photo to magnify it" aria-pressed="false">
+          <img id="product-main-image" src="{{ first_image_url }}" alt="{{ product_title | escape }} shown on a light background" fetchpriority="high" width="1400" height="1400">
+          <span class="product-image-hint" aria-hidden="true">Hover to explore details</span>
         </div>
-
-        <div class="product-thumbs">
-          <div class="product-thumb-item active" data-image-src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1000&q=80">
-            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=300&q=80" alt="Preview 1">
-          </div>
-          <div class="product-thumb-item" data-image-src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1000&q=80">
-            <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=300&q=80" alt="Preview 2">
-          </div>
-          <div class="product-thumb-item" data-image-src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=80">
-            <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=300&q=80" alt="Preview 3">
-          </div>
+        <div class="product-thumbs" aria-label="Product photos">
+          {%- if product.images.size > 0 -%}
+            {%- for image in product.images -%}
+              <button type="button" class="product-thumb-item{% if image == first_image %} active{% endif %}" data-image-src="{{ image | image_url: width: 1400 }}" aria-label="View product photo {{ forloop.index }}" aria-pressed="{% if image == first_image %}true{% else %}false{% endif %}">
+                {{ image | image_url: width: 240 | image_tag: loading: 'lazy', alt: product_title }}
+              </button>
+            {%- endfor -%}
+          {%- else -%}
+            <button type="button" class="product-thumb-item active" data-image-src="{{ first_image }}" aria-label="View Mini Coffee Table product photo" aria-pressed="true">
+              <img src="{{ first_image }}" alt="Mini Coffee Table product view" loading="lazy" width="240" height="240">
+            </button>
+            <button type="button" class="product-thumb-item" data-image-src="{{ room_image }}" aria-label="View Mini Coffee Table in a living room" aria-pressed="false">
+              <img src="{{ room_image }}" alt="Mini Coffee Table styled in a living room" loading="lazy" width="240" height="240">
+            </button>
+          {%- endif -%}
+          {%- unless product.images.size > 1 -%}
+            {%- if product.images.size > 0 -%}
+              <button type="button" class="product-thumb-item" data-image-src="{{ room_image }}" aria-label="View Mini Coffee Table styled in a living room" aria-pressed="false">
+                <img src="{{ room_image }}" alt="Mini Coffee Table styled in a living room" loading="lazy" width="240" height="240">
+              </button>
+            {%- endif -%}
+          {%- endunless -%}
         </div>
       </div>
 
-      <!-- Right Column: Details & Order Form -->
       <div class="product-info-wrap">
-        <div>
-          <span class="subheading">{{ product.type | default: 'Gull e Gulzar Signature Series' }}</span>
-          <h1 class="product-detail-title">{{ product_title }}</h1>
-        </div>
-
-        <div class="product-rating">
-          {% render 'icon-star' %}
-          {% render 'icon-star' %}
-          {% render 'icon-star' %}
-          {% render 'icon-star' %}
-          {% render 'icon-star' %}
-          <span style="font-weight: 600; color: var(--color-heading); margin-left: 0.35rem;">5.0</span>
-          <span>(Verified Handcrafted Quality)</span>
+        <div class="product-title-block">
+          <span class="product-brand-label">GULL E GULZAR HOME TROLLEY</span>
+          <h1 class="product-detail-title">{{ product_title | escape }}</h1>
+          <p class="product-short-description">A graceful two-tier accent table with a warm gold-finish frame and light marble-look surfaces.</p>
+          <a class="product-review-jump" href="#customer-reviews" aria-label="Read customer reviews">
+            <span class="product-rating-stars" aria-hidden="true">☆☆☆☆☆</span>
+            {%- if section.blocks.size > 0 -%}
+              <span>{{ section.blocks.size }} customer review{% unless section.blocks.size == 1 %}s{% endunless %}</span>
+            {%- else -%}
+              <span>Be the first to review</span>
+            {%- endif -%}
+          </a>
         </div>
 
         <div class="product-detail-price">
           <span class="product-price-current" id="product-price-display">{{ product_price }}</span>
-          {%- if product_compare != blank -%}
-            <span class="product-price-old">{{ product_compare }}</span>
-            <span style="background: rgba(184, 144, 83, 0.15); color: var(--color-gold-dark); font-size: 0.8rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: var(--radius-full);">
-              Save 15%
-            </span>
+          <span class="product-price-note">PKR</span>
+          {%- if product != blank and product.compare_at_price > product.price -%}
+            <s class="product-price-compare">{{ product.compare_at_price | money }}</s>
           {%- endif -%}
         </div>
 
-        <p style="color: var(--color-body); font-size: 1rem; line-height: 1.7;">
-          {{ product.description | default: 'Meticulously fabricated with an architectural-grade steel frame, electroplated champagne gold finish, smooth rolling 360-degree casters, and dual-tier tempered glass/marble surfaces.' }}
-        </p>
+        <div class="product-stock-note">
+          {% render 'icon-truck' %}
+          <span>Free delivery across Pakistan</span>
+        </div>
 
-        <!-- Product Customization Form -->
-        {% form 'product', product, id: 'product-order-form', class: 'product-order-box' %}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: '1' }}">
-
-          <!-- Variant: Frame Finish -->
-          <div>
-            <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
-              Select Frame Finish:
-            </label>
-            <div class="variant-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button type="button" class="variant-chip active" data-finish="Champagne Gold">
-                ✦ Champagne Gold
+        {%- if product != blank -%}
+          {% form 'product', product, id: 'product-order-form', class: 'product-order-box product-purchase-box' %}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <label class="product-quantity-label" for="Quantity">Quantity</label>
+            <div class="quantity-wrapper product-quantity-control">
+              <button type="button" class="qty-btn" id="qty-decrease" aria-label="Decrease quantity">−</button>
+              <input type="number" id="Quantity" name="quantity" value="1" min="1" step="1" inputmode="numeric" aria-label="Quantity">
+              <button type="button" class="qty-btn" id="qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <div class="product-buy-actions">
+              <button type="submit" name="add" class="btn btn-primary btn-block product-add-button" id="btn-add-to-cart" {% unless product.available %}disabled{% endunless %}>
+                {% render 'icon-cart' %}{% if product.available %}Add to Cart{% else %}Sold Out{% endif %}
               </button>
-              <button type="button" class="variant-chip" data-finish="Matte Black">
-                Matte Black
-              </button>
-              <button type="button" class="variant-chip" data-finish="Rose Gold Brass">
-                Rose Gold Brass
-              </button>
+              {%- if product.available -%}
+                <button type="submit" name="checkout" class="btn btn-dark btn-block product-buy-button">Buy Now</button>
+              {%- endif -%}
+            </div>
+          {% endform %}
+        {%- else -%}
+          <div class="product-order-box product-purchase-box">
+            <label class="product-quantity-label" for="Quantity">Quantity</label>
+            <div class="quantity-wrapper product-quantity-control">
+              <button type="button" class="qty-btn" id="qty-decrease" aria-label="Decrease quantity">−</button>
+              <input type="number" id="Quantity" value="1" min="1" step="1" inputmode="numeric" aria-label="Quantity">
+              <button type="button" class="qty-btn" id="qty-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <div class="product-buy-actions">
+              <button type="button" class="btn btn-primary btn-block product-add-button" id="btn-add-to-cart">{% render 'icon-cart' %}Add to Cart</button>
+              <a class="btn btn-dark btn-block product-buy-button product-whatsapp-order" href="https://wa.me/923204967079" target="_blank" rel="noopener noreferrer" data-product-whatsapp>Order on WhatsApp</a>
             </div>
           </div>
+        {%- endif -%}
 
-          <!-- Variant: Table Top Surface -->
-          <div>
-            <label style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
-              Table Top Surface:
-            </label>
-            <div class="variant-chips" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <button type="button" class="variant-chip active" data-surface="Tempered Fluted Glass">
-                Tempered Fluted Glass
-              </button>
-              <button type="button" class="variant-chip" data-surface="Italian Carrara Marble">
-                Italian Carrara Marble
-              </button>
-              <button type="button" class="variant-chip" data-surface="Solid Hardwood">
-                Solid Hardwood
-              </button>
-            </div>
-          </div>
+        <div class="product-trust-list">
+          <div class="product-trust-item"><span class="product-trust-icon" aria-hidden="true">{% render 'icon-truck' %}</span><span><strong>Delivery across Pakistan</strong><small>In-stock delivery estimate: 4–7 business days</small></span></div>
+          <div class="product-trust-item"><span class="product-trust-icon" aria-hidden="true">{% render 'icon-shield' %}</span><span><strong>Need help before ordering?</strong><small><a href="/pages/contact">Talk to our customer care team</a></small></span></div>
+        </div>
 
-          <!-- Quantity Selector -->
-          <div>
-            <label for="Quantity" style="font-size: 0.85rem; font-weight: 700; color: var(--color-heading); display: block; margin-bottom: 0.5rem;">
-              Quantity:
-            </label>
-            <div class="quantity-wrapper" style="display: inline-flex; align-items: center; border: 1.5px solid var(--color-border); border-radius: var(--radius-full); background: #FFFFFF; overflow: hidden;">
-              <button type="button" class="qty-btn" id="qty-decrease" style="padding: 0.6rem 1.1rem; font-weight: 700; font-size: 1.1rem; color: var(--color-heading);">-</button>
-              <input type="number" id="Quantity" name="quantity" value="1" min="1" style="width: 50px; text-align: center; border: none; font-size: 1rem; font-weight: 600; font-family: inherit; outline: none;">
-              <button type="button" class="qty-btn" id="qty-increase" style="padding: 0.6rem 1.1rem; font-weight: 700; font-size: 1.1rem; color: var(--color-heading);">+</button>
+        <div class="product-detail-accordions">
+          <details class="product-detail-accordion" open>
+            <summary><span>{% render 'icon-craft' %}Product details</span><span aria-hidden="true">+</span></summary>
+            <div class="product-accordion-content">
+              <p>Designed with a round, two-tier silhouette, a slender gold-finish frame, and light marble-look tops. The lower shelf offers a handy place for books or everyday essentials.</p>
+              <ul>
+                <li>Two round table surfaces</li>
+                <li>Warm gold-finish metal frame</li>
+                <li>Light marble-look top and lower shelf</li>
+              </ul>
+              <p>Exact dimensions and material specifications can be confirmed with our team before ordering.</p>
             </div>
-          </div>
-
-          <!-- Purchase Action Buttons: Add to Cart and Buy Now -->
-          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.85rem;">
-            <button type="submit" name="add" class="btn btn-primary btn-block" id="btn-add-to-cart" style="font-size: 1rem; padding: 1rem 1.75rem;">
-              {% render 'icon-cart' %}
-              Add to Cart
-            </button>
-
-            <button type="submit" name="checkout" class="btn btn-dark btn-block" id="btn-buy-now" style="font-size: 1rem; padding: 1rem 1.75rem;">
-              Buy Now (Proceed to Checkout)
-            </button>
-          </div>
-
-          <!-- Trust Badges -->
-          <div class="product-meta-pills" style="margin-top: 1rem;">
-            <span class="meta-pill">{% render 'icon-truck' %} Free/Safe Delivery in Pakistan</span>
-            <span class="meta-pill">{% render 'icon-shield' %} 100% Solid Heavy Frame</span>
-            <span class="meta-pill">{% render 'icon-customize' %} Custom Sizes Available</span>
-          </div>
-        {% endform %}
-
-        <!-- Accordion Details -->
-        <div class="accordion-tabs">
-          <div class="tab-item">
-            <div class="tab-header">
-              <span>Dimensions & Specifications</span>
-              <span>▾</span>
+          </details>
+          <details class="product-detail-accordion">
+            <summary><span>{% render 'icon-truck' %}Delivery &amp; support</span><span aria-hidden="true">+</span></summary>
+            <div class="product-accordion-content">
+              <p>Delivery is free across Pakistan. In-stock items are estimated to arrive within 4–7 business days. Timing may vary by destination and courier.</p>
+              <p><a href="/pages/shipping-policy">Read our Shipping Policy</a> or <a href="/pages/contact">contact our team</a> for help.</p>
             </div>
-            <div class="tab-content">
-              • Frame: High-tensile steel with electroplated anti-rust coating<br>
-              • Standard Size: 30" (H) x 32" (L) x 18" (W) or custom dimensions on request<br>
-              • Wheels: 360-degree silent rolling caster wheels with dual brakes<br>
-              • Weight Capacity: Up to 60 kg distributed weight.
+          </details>
+          <details class="product-detail-accordion">
+            <summary><span>{% render 'icon-shield' %}Care &amp; returns</span><span aria-hidden="true">+</span></summary>
+            <div class="product-accordion-content">
+              <p>Wipe gently with a soft cloth and avoid abrasive cleaners. If your order arrives damaged, defective, or incorrect, contact us within 24 hours of delivery.</p>
+              <p><a href="/pages/refund-policy">Read our Returns &amp; Refund Policy</a>.</p>
             </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="tab-header">
-              <span>Packaging & Nationwide Shipping</span>
-              <span>▾</span>
-            </div>
-            <div class="tab-content">
-              Carefully packed using dense multi-layer corner protectors, heavy-duty bubble wrap, and rigid wooden crates to ensure zero-breakage delivery anywhere in Pakistan.
-            </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="tab-header">
-              <span>Care & Maintenance</span>
-              <span>▾</span>
-            </div>
-            <div class="tab-content">
-              Clean with a soft dry or damp microfibre cloth. Avoid bleach or abrasive pads to preserve the lustrous electroplated finish.
-            </div>
-          </div>
+          </details>
         </div>
       </div>
     </div>
+
+    <section class="product-reviews" id="customer-reviews" aria-labelledby="product-reviews-title">
+      <div class="product-reviews-heading">
+        <div>
+          <span class="product-brand-label">YOUR EXPERIENCE MATTERS</span>
+          <h2 id="product-reviews-title">Customer reviews</h2>
+        </div>
+        {%- assign review_total = 0 -%}
+        {%- assign review_rating_sum = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- assign review_total = review_total | plus: 1 -%}
+          {%- assign review_rating_sum = review_rating_sum | plus: block.settings.rating -%}
+        {%- endfor -%}
+        <div class="product-review-summary">
+          {%- if review_total > 0 -%}
+            {%- assign review_average = review_rating_sum | times: 1.0 | divided_by: review_total -%}
+            <strong>{{ review_average | round: 1 }}</strong>
+            <span class="product-rating-stars" aria-label="{{ review_average | round: 1 }} out of 5 stars">★★★★★</span>
+            <span>{{ review_total }} review{% unless review_total == 1 %}s{% endunless %}</span>
+          {%- else -%}
+            <strong>—</strong>
+            <span class="product-rating-stars" aria-label="No ratings yet">☆☆☆☆☆</span>
+            <span>No reviews yet</span>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="product-review-grid">
+        {%- if review_total > 0 -%}
+          {%- for block in section.blocks -%}
+            <article class="product-review-card" {{ block.shopify_attributes }}>
+              <div class="product-review-card-top">
+                <span class="product-rating-stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                  {%- for star in (1..5) -%}
+                    {%- if star <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
+                  {%- endfor -%}
+                </span>
+                {%- if block.settings.date != blank -%}<time>{{ block.settings.date | escape }}</time>{%- endif -%}
+              </div>
+              {%- if block.settings.title != blank -%}<h3>{{ block.settings.title | escape }}</h3>{%- endif -%}
+              <p>{{ block.settings.content | escape }}</p>
+              <span class="product-review-author">{{ block.settings.name | escape }}</span>
+            </article>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="product-review-empty">
+            <span class="product-review-empty-icon" aria-hidden="true">✦</span>
+            <h3>No reviews yet</h3>
+            <p>Have this table at home? Share your experience with us.</p>
+            <a class="btn btn-outline" href="#write-review">Write the first review</a>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-review-form-wrap" id="write-review">
+        <div>
+          <span class="product-brand-label">SHARE YOUR THOUGHTS</span>
+          <h3>Write a review</h3>
+          <p>Your review will be sent to our team for review before it is added to this page.</p>
+        </div>
+        <form class="product-review-form" data-review-form>
+          <label for="reviewer-name">Your name</label>
+          <input id="reviewer-name" name="reviewer-name" type="text" autocomplete="name" required>
+          <label for="review-rating">Your rating</label>
+          <select id="review-rating" name="review-rating" required>
+            <option value="5">★★★★★ — Excellent</option>
+            <option value="4">★★★★☆ — Very good</option>
+            <option value="3">★★★☆☆ — Good</option>
+            <option value="2">★★☆☆☆ — Could be better</option>
+            <option value="1">★☆☆☆☆ — Poor</option>
+          </select>
+          <label for="review-title">Review title</label>
+          <input id="review-title" name="review-title" type="text" required>
+          <label for="review-content">Your review</label>
+          <textarea id="review-content" name="review-content" rows="4" required></textarea>
+          <button class="btn btn-primary" type="submit">Send review to our team</button>
+          <small>Submitting opens WhatsApp with your review details so you can send it to us.</small>
+        </form>
+      </div>
+    </section>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
-  "name": "Product Details",
-  "settings": []
+  "name": "Mini table product",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Customer review",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Customer name" },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "title", "label": "Review title" },
+        { "type": "textarea", "id": "content", "label": "Review" },
+        { "type": "text", "id": "date", "label": "Date (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 20
 }
 {% endschema %}

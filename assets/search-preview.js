@@ -1,13 +1,5 @@
 const previewSearchProducts = [
-  { title: 'Royal 2-Tier Gold Tea Trolley', category: 'Tea Trolleys', price: 24500, compareAt: 29000, image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80', url: 'product-tea-trolley.html', badge: 'Bestseller' },
-  { title: 'Modernist Sleek Coffee Table', category: 'Coffee Tables', price: 19500, compareAt: 23000, image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=700&q=80', url: 'product-coffee.html', badge: 'Popular' },
-  { title: 'Fluted Brass Center Table', category: 'Center Tables', price: 28500, compareAt: 34000, image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80', url: 'product-center.html', badge: 'Trending' },
-  { title: 'Aura Compact Mini Coffee Table', category: 'Mini Coffee Tables', price: 14000, compareAt: 16500, image: 'https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=700&q=80', url: 'product-mini-coffee.html', badge: 'Compact' },
-  { title: 'Imperial Round Nesting Set (3-Piece)', category: 'Nesting Sets', price: 32000, compareAt: 38000, image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=700&q=80', url: 'product-nesting-set.html', badge: 'Signature' },
-  { title: 'Geometric Marble Center Table Set', category: 'Center Table Sets', price: 42000, compareAt: 48000, image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80', url: 'product-center-set.html', badge: 'Luxury Set' },
-  { title: 'Sculptural Marble Top Table Set (4-Piece)', category: 'Table Sets', price: 58000, compareAt: 68000, image: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=700&q=80', url: 'product-table-set.html', badge: 'Exclusive' },
-  { title: 'Monarch Grand Foyer Console Table', category: 'Console Tables', price: 36000, compareAt: 42000, image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=80', url: 'product-console.html', badge: 'New' },
-  { title: 'Artisan Glass & Wood Tea Table', category: 'Tea Tables', price: 18500, compareAt: 22000, image: 'https://images.unsplash.com/photo-1519974719765-e6559eac2575?auto=format&fit=crop&w=700&q=80', url: 'product-tea-table.html', badge: 'Artisan' }
+  { title: 'Mini Coffee Table', category: 'Mini Coffee Table', price: 5500, compareAt: null, image: 'assets/mini-coffee.jpg', url: 'product-mini-coffee.html', badge: 'New' }
 ];
 
 const initializePreviewSearch = () => {
@@ -33,11 +25,10 @@ const initializePreviewSearch = () => {
 
   const formatPrice = (price) => `Rs. ${price.toLocaleString('en-PK')}`;
   const cardMarkup = (product) => {
-    const discount = Math.round(((product.compareAt - product.price) / product.compareAt) * 100);
     return `
       <article class="product-card">
         <div class="product-media">
-          <span class="product-tag tag-gold">${discount}% OFF</span>
+          <span class="product-tag tag-gold">${product.badge}</span>
           <a href="${product.url}" aria-label="${product.title}">
             <img src="${product.image}" alt="${product.title}" loading="lazy" width="700" height="700">
           </a>
@@ -47,7 +38,7 @@ const initializePreviewSearch = () => {
           <div class="product-category-hint">${product.category}</div>
           <h3 class="product-title"><a href="${product.url}">${product.title}</a></h3>
           <div class="product-rating" aria-label="Rated 5 out of 5">★★★★★ <span>(5.0)</span></div>
-          <div class="product-price-row"><span class="product-price">${formatPrice(product.price)}</span><span class="product-price-compare">${formatPrice(product.compareAt)}</span></div>
+          <div class="product-price-row"><span class="product-price">${formatPrice(product.price)}</span>${product.compareAt ? `<span class="product-price-compare">${formatPrice(product.compareAt)}</span>` : ''}</div>
           <a href="${product.url}" class="product-preview-link">View product <span aria-hidden="true">→</span></a>
         </div>
       </article>
@@ -66,7 +57,7 @@ const initializePreviewSearch = () => {
         (!category || product.category === category) &&
         product.price >= min &&
         product.price <= max &&
-        (!onSale || product.compareAt > product.price);
+        (!onSale || (product.compareAt && product.compareAt > product.price));
     });
 
     switch (sortSelect.value) {

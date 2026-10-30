@@ -3,19 +3,9 @@
     "main_product": {
       "type": "main-product",
       "settings": {}
-    },
-    "custom_features": {
-      "type": "custom-features",
-      "settings": {}
-    },
-    "faq_accordion": {
-      "type": "faq-accordion",
-      "settings": {}
     }
   },
   "order": [
-    "main_product",
-    "custom_features",
-    "faq_accordion"
+    "main_product"
   ]
 }

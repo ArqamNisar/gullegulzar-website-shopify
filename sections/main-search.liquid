@@ -10,7 +10,7 @@
       <form class="search-main-form" action="{{ routes.search_url }}" method="get" role="search">
         <label class="visually-hidden" for="StoreSearchInput">Search products</label>
         <span class="search-input-icon" aria-hidden="true">{% render 'icon-search' %}</span>
-        <input id="StoreSearchInput" type="search" name="q" value="{{ search_query | escape }}" placeholder="Try “tea trolley” or “coffee table”" autocomplete="off">
+        <input id="StoreSearchInput" type="search" name="q" value="{{ search_query | escape }}" placeholder="Try “Mini Coffee Table”" autocomplete="off">
         <input type="hidden" name="type" value="product">
         <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">→</span></button>
       </form>
@@ -18,15 +18,19 @@
       {%- unless search.performed -%}
         <div class="search-quick-links" aria-label="Popular searches">
           <span>Popular:</span>
-          <a href="{{ routes.search_url }}?q=tea+trolley&type=product">Tea trolleys</a>
-          <a href="{{ routes.search_url }}?q=coffee+table&type=product">Coffee tables</a>
-          <a href="{{ routes.search_url }}?q=nesting+set&type=product">Nesting sets</a>
+          <a href="{{ routes.search_url }}?q=mini+coffee+table&type=product">Mini Coffee Table</a>
         </div>
       {%- endunless -%}
     </div>
   </div>
 
   {%- if search.performed -%}
+    {%- assign mini_product_found = false -%}
+    {%- for result in search.results -%}
+      {%- if result.object_type == 'product' and result.handle == 'mini-coffee-table' -%}
+        {%- assign mini_product_found = true -%}
+      {%- endif -%}
+    {%- endfor -%}
     <section class="section-spacing search-results-section">
       <div class="container">
         <div class="search-results-heading">
@@ -39,7 +43,7 @@
                 All products
               {%- endif -%}
             </h2>
-            <p>{{ search.results_count }} {% if search.results_count == 1 %}piece{% else %}pieces{% endif %} to explore</p>
+            <p id="SearchResultCount">{% if mini_product_found %}1 piece to explore{% else %}0 pieces to explore{% endif %}</p>
           </div>
           {%- if search.sort_options.size > 1 -%}
             <label class="search-sort-control">
@@ -102,31 +106,21 @@
           </aside>
 
           <div class="search-results-content">
-            {%- if search.results_count > 0 -%}
-              {%- paginate search.results by 12 -%}
-                <div class="products-grid search-products-grid">
-                  {%- for result in search.results -%}
-                    {%- if result.object_type == 'product' -%}
-                      {% render 'product-card', product: result %}
-                    {%- endif -%}
-                  {%- endfor -%}
-                </div>
-                {%- if paginate.pages > 1 -%}
-                  <nav class="search-pagination" aria-label="Search results pages">
-                    {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" aria-label="Previous page">← Previous</a>{%- endif -%}
-                    <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
-                    {%- if paginate.next -%}<a href="{{ paginate.next.url }}" aria-label="Next page">Next →</a>{%- endif -%}
-                  </nav>
+            <div class="products-grid search-products-grid">
+              {%- for result in search.results -%}
+                {%- if result.object_type == 'product' and result.handle == 'mini-coffee-table' -%}
+                  {% render 'product-card', product: result %}
                 {%- endif -%}
-              {%- endpaginate -%}
-            {%- else -%}
+              {%- endfor -%}
+            </div>
+            {%- unless mini_product_found -%}
               <div class="search-empty-state">
                 <span class="search-empty-icon" aria-hidden="true">{% render 'icon-search' %}</span>
                 <h2>No pieces found just yet</h2>
                 <p>Try a different search, or clear a filter to see more of our collection.</p>
                 <a class="btn btn-outline" href="{{ routes.search_url }}">Browse all products</a>
               </div>
-            {%- endif -%}
+            {%- endunless -%}
           </div>
         </div>
       </div>
@@ -139,10 +133,7 @@
           <h2>Browse by category</h2>
         </div>
         <div class="search-category-grid">
-          <a class="search-category-card" href="/collections/tea-trolleys"><span class="search-category-icon" aria-hidden="true">{% render 'icon-cart' %}</span><strong>Tea Trolleys</strong><span>Serve in style <span aria-hidden="true">→</span></span></a>
-          <a class="search-category-card" href="/collections/coffee-tables"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Coffee Tables</strong><span>Gather beautifully <span aria-hidden="true">→</span></span></a>
-          <a class="search-category-card" href="/collections/nesting-sets"><span class="search-category-icon" aria-hidden="true">{% render 'icon-customize' %}</span><strong>Nesting Sets</strong><span>Flexible elegance <span aria-hidden="true">→</span></span></a>
-          <a class="search-category-card" href="/collections/console-tables"><span class="search-category-icon" aria-hidden="true">{% render 'icon-star' %}</span><strong>Console Tables</strong><span>Make an entrance <span aria-hidden="true">→</span></span></a>
+          <a class="search-category-card" href="/products/mini-coffee-table"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Mini Coffee Table</strong><span>Explore the design <span aria-hidden="true">→</span></span></a>
         </div>
       </div>
     </section>

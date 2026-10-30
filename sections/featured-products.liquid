@@ -1,34 +1,31 @@
+{%- assign mini_product = all_products['mini-coffee-table'] -%}
+{%- assign mini_image = 'mini-coffee.jpg' | asset_url -%}
+
 <section class="section-spacing featured-products-section">
   <div class="container">
     <div class="section-heading-row">
       <div class="section-header">
         <span class="subheading">A little something special</span>
         <h2>{{ section.settings.heading | default: 'Featured Collection' }}</h2>
-        <p>{{ section.settings.description | default: 'Thoughtfully made statement pieces for the moments that make a home.' }}</p>
-      </div>
-      <div class="carousel-controls" aria-label="Featured products controls">
-        <button class="carousel-button" type="button" data-carousel-prev aria-label="Scroll products left">{% render 'icon-arrow' %}</button>
-        <button class="carousel-button carousel-button-next" type="button" data-carousel-next aria-label="Scroll products right">{% render 'icon-arrow' %}</button>
+        <p>{{ section.settings.description | default: 'Meet the Mini Coffee Table, thoughtfully styled for everyday living.' }}</p>
       </div>
     </div>
 
-    <div class="products-grid horizontal-carousel" data-horizontal-carousel tabindex="0" aria-label="Featured products">
-      {%- assign featured_collection = section.settings.collection -%}
-      {%- if featured_collection != blank and featured_collection.products.size > 0 -%}
-        {%- for product in featured_collection.products limit: 8 -%}
-          {% render 'product-card', product: product, category: product.type %}
-        {%- endfor -%}
+    <div class="products-grid featured-single-product">
+      {%- if mini_product != blank -%}
+        {% render 'product-card', product: mini_product, category: 'Mini Coffee Table' %}
       {%- else -%}
-        {% render 'product-card', title: 'Sample Tea Trolley', category: 'Featured design', price: 'Rs. 24,500', compare_price: 'Rs. 29,000', image_url: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
-        {% render 'product-card', title: 'Sample Nesting Set', category: 'Featured design', price: 'Rs. 32,000', compare_price: 'Rs. 38,000', image_url: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
-        {% render 'product-card', title: 'Sample Center Table', category: 'Featured design', price: 'Rs. 28,500', compare_price: 'Rs. 34,000', image_url: 'https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
-        {% render 'product-card', title: 'Sample Table Set', category: 'Featured design', price: 'Rs. 42,000', compare_price: 'Rs. 48,000', image_url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=80', badge: 'Preview' %}
+        {% render 'product-card',
+          title: 'Mini Coffee Table',
+          category: 'Mini Coffee Table',
+          price: 'Rs. 5,500',
+          image_url: mini_image,
+          url: '/products/mini-coffee-table',
+          badge: 'New'
+        %}
       {%- endif -%}
     </div>
 
-    {%- unless featured_collection != blank and featured_collection.products.size > 0 -%}
-      <p class="preview-price-note">Sample products and prices shown for design preview only.</p>
-    {%- endunless -%}
     <div class="section-cta">
       <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary">
         {{ section.settings.button_label | default: 'Explore Collections' }}
@@ -52,12 +49,7 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Thoughtfully made statement pieces for the moments that make a home."
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Product collection"
+      "default": "Meet the Mini Coffee Table, thoughtfully styled for everyday living."
     },
     {
       "type": "text",

@@ -12,11 +12,10 @@
       {% if section.settings.showcase_image != blank %}
         {{ section.settings.showcase_image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '750, 1100, 1500, 2000', sizes: '100vw', alt: section.settings.image_alt }}
       {% else %}
-        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1800&q=85" alt="{{ section.settings.image_alt | default: 'Sample luxury home trolley with carefully finished surfaces' | escape }}" loading="lazy" width="1800" height="1200">
+        <img src="{{ 'mini-room.jpg' | asset_url }}" alt="{{ section.settings.image_alt | default: 'Mini Coffee Table styled in a living room' | escape }}" loading="lazy" width="1800" height="1200">
       {% endif %}
       <span class="showcase-zoom-hint" aria-hidden="true">Hover or tap to explore the details</span>
     </div>
-    <p class="preview-price-note">Sample product image for preview. Replace it with a product photo in the theme customizer.</p>
   </div>
 </section>
 
@@ -51,7 +50,7 @@
       "type": "text",
       "id": "image_alt",
       "label": "Image description",
-      "default": "Sample luxury home trolley with carefully finished surfaces"
+      "default": "Mini Coffee Table styled in a living room"
     }
   ],
   "presets": [
