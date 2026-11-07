@@ -10,16 +10,29 @@ const initializeTheme = () => {
   initProductGallery();
   initVariantChips();
   initCartDrawer();
+  initShopifyCartQuantityControls();
   initWhatsAppPhoneLinks();
   initHorizontalCarousels();
   initZoomableImages();
   initPreviewContactForm();
   initProductWhatsAppOrder();
+  initProductBundles();
+  initExitOffer();
   initProductReviewForm();
   initSearchSort();
+  initProductStickyBar();
 };
 
 initializeTheme();
+
+function parsePriceAmount(value) {
+  const match = String(value).match(/\d[\d,]*(?:\.\d+)?/);
+  return match ? Number.parseFloat(match[0].replace(/,/g, '')) : 0;
+}
+
+function formatPriceAmount(amount) {
+  return `Rs. ${Math.round(amount).toLocaleString('en-PK')}`;
+}
 
 /* --------------------------------------------------------------------------
    Header Scroll Behavior
@@ -271,12 +284,16 @@ function initVariantChips() {
   if (qtyInput && minusBtn && plusBtn) {
     minusBtn.addEventListener('click', () => {
       let val = parseInt(qtyInput.value) || 1;
-      if (val > 1) qtyInput.value = val - 1;
+      if (val > 1) {
+        qtyInput.value = val - 1;
+        qtyInput.dispatchEvent(new Event('input', { bubbles: true }));
+      }
     });
 
     plusBtn.addEventListener('click', () => {
       let val = parseInt(qtyInput.value) || 1;
       qtyInput.value = val + 1;
+      qtyInput.dispatchEvent(new Event('input', { bubbles: true }));
     });
   }
 }
@@ -293,6 +310,10 @@ function initCartDrawer() {
   const cartTriggerBtns = document.querySelectorAll('.header-action-btn[title="Cart"], a[href="/cart"], .js-open-cart');
 
   let cart = JSON.parse(localStorage.getItem('gg_cart') || '[]');
+  window.addEventListener('gg-cart-updated', () => {
+    cart = JSON.parse(localStorage.getItem('gg_cart') || '[]');
+    updateCartUI();
+  });
 
   const updateCartUI = () => {
     const countElements = document.querySelectorAll('.badge-count, #cart-drawer-count');
@@ -324,8 +345,9 @@ function initCartDrawer() {
     let subtotal = 0;
     itemsContainer.innerHTML = cart
       .map((item, idx) => {
-        const priceNum = parseInt(item.price.replace(/[^0-9]/g, '')) || 0;
-        subtotal += priceNum * (item.quantity || 1);
+        const priceNum = parsePriceAmount(item.price);
+        const quantity = Math.max(1, Number.parseInt(item.quantity, 10) || 1);
+        subtotal += priceNum * quantity;
 
         return `
           <div class="cart-drawer-item">
@@ -333,7 +355,12 @@ function initCartDrawer() {
             <div class="cart-drawer-item-info">
               <h5 class="cart-drawer-item-title">${item.title}</h5>
               <div class="cart-drawer-item-variant">${item.variant || 'Standard Custom Finish'}</div>
-              <div class="cart-drawer-item-price">${item.price} × ${item.quantity}</div>
+              <div class="cart-drawer-item-price">${formatPriceAmount(priceNum)} each</div>
+              <div class="cart-drawer-quantity" aria-label="Quantity controls for ${item.title}">
+                <button type="button" class="cart-drawer-quantity-step" data-cart-action="decrease" data-index="${idx}" aria-label="Decrease quantity">−</button>
+                <span aria-live="polite">${quantity}</span>
+                <button type="button" class="cart-drawer-quantity-step" data-cart-action="increase" data-index="${idx}" aria-label="Increase quantity">+</button>
+              </div>
             </div>
             <button type="button" class="js-remove-cart-item" data-index="${idx}" style="color: #EF4444; font-size: 0.8rem; font-weight: 600; padding: 4px;">Remove</button>
           </div>
@@ -342,13 +369,26 @@ function initCartDrawer() {
       .join('');
 
     if (subtotalEl) {
-      subtotalEl.textContent = 'Rs. ' + subtotal.toLocaleString();
+      subtotalEl.textContent = formatPriceAmount(subtotal);
     }
+
+    itemsContainer.querySelectorAll('[data-cart-action]').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        const index = Number.parseInt(event.currentTarget.dataset.index, 10);
+        const item = cart[index];
+        if (!item) return;
+        const direction = event.currentTarget.dataset.cartAction === 'increase' ? 1 : -1;
+        item.quantity = Math.max(1, (Number.parseInt(item.quantity, 10) || 1) + direction);
+        localStorage.setItem('gg_cart', JSON.stringify(cart));
+        updateCartUI();
+      });
+    });
 
     // Attach remove handlers
     itemsContainer.querySelectorAll('.js-remove-cart-item').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const index = parseInt(e.target.dataset.index);
+      btn.addEventListener('click', (event) => {
+        const index = Number.parseInt(event.currentTarget.dataset.index, 10);
+        if (!Number.isInteger(index) || index < 0 || index >= cart.length) return;
         cart.splice(index, 1);
         localStorage.setItem('gg_cart', JSON.stringify(cart));
         updateCartUI();
@@ -464,15 +504,148 @@ function initCartDrawer() {
   updateCartUI();
 }
 
-function initProductWhatsAppOrder() {
-  const orderLink = document.querySelector('[data-product-whatsapp]');
-  if (!orderLink) return;
+function initShopifyCartQuantityControls() {
+  document.querySelectorAll('[data-shopify-cart-quantity]').forEach((control) => {
+    const input = control.querySelector('input[name="updates[]"]');
+    const form = control.closest('form');
+    const updateButton = form?.querySelector('button[name="update"], input[name="update"]');
+    if (!input || !form || !updateButton) return;
 
-  orderLink.addEventListener('click', () => {
-    const title = document.querySelector('.product-detail-title')?.textContent?.trim() || 'Mini Coffee Table';
-    const quantity = Math.max(1, parseInt(document.querySelector('#Quantity')?.value, 10) || 1);
-    const message = `Hello Gull e Gulzar Home Trolley, I would like to order ${quantity} × ${title}.`;
-    orderLink.href = `https://wa.me/923204967079?text=${encodeURIComponent(message)}`;
+    control.querySelectorAll('[data-cart-quantity-decrease], [data-cart-quantity-increase]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const current = Math.max(1, Number.parseInt(input.value, 10) || 1);
+        const direction = button.hasAttribute('data-cart-quantity-increase') ? 1 : -1;
+        input.value = String(Math.max(1, current + direction));
+        form.requestSubmit(updateButton);
+      });
+    });
+
+    input.addEventListener('change', () => {
+      input.value = String(Math.max(1, Number.parseInt(input.value, 10) || 1));
+      form.requestSubmit(updateButton);
+    });
+  });
+}
+
+function initProductWhatsAppOrder() {
+  document.querySelectorAll('[data-product-whatsapp]').forEach((orderLink) => {
+    orderLink.addEventListener('click', () => {
+      const title = document.querySelector('.product-detail-title')?.textContent?.trim() || 'Mini Coffee Table';
+      const price = document.querySelector('.product-price-current')?.textContent?.trim() || '';
+      const quantity = Math.max(1, parseInt(document.querySelector('#Quantity')?.value, 10) || 1);
+      const imageEl = document.querySelector('#product-main-image');
+      const imageUrl = imageEl?.src || '';
+      const pageUrl = window.location.href;
+      const finish = document.querySelector('.variant-chip.active[data-finish]')?.getAttribute('data-finish') || '';
+      const surface = document.querySelector('.variant-chip.active[data-surface]')?.getAttribute('data-surface') || '';
+      const variant = [finish, surface].filter(Boolean).join(' / ');
+
+      const lines = [
+        `Hello Gull e Gulzar Home Trolley! 🛋️`,
+        ``,
+        `I would like to place an order:`,
+        ``,
+        `📦 *Product:* ${title}`,
+        variant ? `🎨 *Variant:* ${variant}` : null,
+        `🔢 *Quantity:* ${quantity}`,
+        price ? `💰 *Price:* ${price}` : null,
+        ``,
+        `🔗 *Product Link:* ${pageUrl}`,
+        imageUrl ? `🖼️ *Product Image:* ${imageUrl}` : null,
+        ``,
+        `Please confirm availability and delivery details. Thank you!`
+      ].filter((line) => line !== null).join('\n');
+
+      orderLink.href = `https://wa.me/923204967079?text=${encodeURIComponent(lines)}`;
+    });
+  });
+}
+
+function initProductBundles() {
+  const bundleSelector = document.querySelector('[data-product-bundles]');
+  const quantityInput = document.querySelector('#Quantity');
+  const totalElement = bundleSelector?.querySelector('[data-bundle-total]');
+  if (!bundleSelector || !quantityInput || !totalElement) return;
+
+  const options = bundleSelector.querySelectorAll('[data-bundle-qty]');
+  const priceElement = document.querySelector('.product-price-current');
+  const dataPrice = Number.parseFloat(priceElement?.dataset.unitPrice || '');
+  const unitPrice = Number.isFinite(dataPrice) && dataPrice >= 0
+    ? dataPrice
+    : parsePriceAmount(priceElement?.textContent || '');
+
+  const updateBundle = (quantity) => {
+    options.forEach((option) => {
+      const selected = Number.parseInt(option.dataset.bundleQty, 10) === quantity;
+      option.classList.toggle('active', selected);
+      option.setAttribute('aria-pressed', String(selected));
+      const optionPrice = option.querySelector('[data-bundle-option-price]');
+      if (optionPrice) {
+        const optionQuantity = Number.parseInt(option.dataset.bundleQty, 10);
+        optionPrice.textContent = formatPriceAmount(unitPrice * optionQuantity);
+      }
+    });
+    totalElement.textContent = formatPriceAmount(unitPrice * quantity);
+  };
+
+  options.forEach((option) => {
+    option.addEventListener('click', () => {
+      const quantity = Number.parseInt(option.dataset.bundleQty, 10);
+      if (!Number.isInteger(quantity) || quantity < 1) return;
+      quantityInput.value = String(quantity);
+      quantityInput.dispatchEvent(new Event('input', { bubbles: true }));
+      updateBundle(quantity);
+    });
+  });
+
+  quantityInput.addEventListener('input', () => {
+    const quantity = Math.max(1, Number.parseInt(quantityInput.value, 10) || 1);
+    updateBundle(quantity);
+  });
+  quantityInput.addEventListener('change', () => {
+    const quantity = Math.max(1, Number.parseInt(quantityInput.value, 10) || 1);
+    quantityInput.value = String(quantity);
+    updateBundle(quantity);
+  });
+  updateBundle(Math.max(1, Number.parseInt(quantityInput.value, 10) || 1));
+}
+
+function initExitOffer() {
+  const modal = document.querySelector('[data-exit-offer]');
+  if (!modal || !window.history?.pushState || typeof modal.showModal !== 'function') return;
+
+  const storageKey = 'gg_product_exit_offer_seen';
+  const claimLink = modal.querySelector('[data-exit-offer-claim]');
+  const productTitle = document.querySelector('.product-detail-title')?.textContent?.trim() || 'Mini Coffee Table';
+  const productPrice = document.querySelector('.product-price-current')?.textContent?.trim() || 'Rs. 6,000';
+  if (claimLink) {
+    const message = `Hello Gull e Gulzar Home Trolley, I am interested in the 5% offer for ${productTitle} (${productPrice}). Please confirm the discount for my order.`;
+    claimLink.href = `https://wa.me/923204967079?text=${encodeURIComponent(message)}`;
+  }
+
+  const dismissOffer = () => {
+    if (modal.open) modal.close();
+    window.history.go(-2);
+  };
+
+  modal.querySelectorAll('[data-exit-offer-close]').forEach((button) => {
+    button.addEventListener('click', dismissOffer);
+  });
+  modal.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    dismissOffer();
+  });
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) dismissOffer();
+  });
+
+  window.history.pushState({ ggExitOfferGuard: true }, '', window.location.href);
+  window.addEventListener('popstate', (event) => {
+    if (event.state?.ggExitOfferGuard) return;
+    if (sessionStorage.getItem(storageKey) === 'shown') return;
+    sessionStorage.setItem(storageKey, 'shown');
+    window.history.pushState({ ggExitOfferGuard: true }, '', window.location.href);
+    modal.showModal();
   });
 }
 
@@ -523,4 +696,51 @@ function initWhatsAppPhoneLinks() {
       link.setAttribute('rel', 'noopener noreferrer');
     });
   });
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Add-to-Cart Bar
+   -------------------------------------------------------------------------- */
+function initProductStickyBar() {
+  const stickyBar = document.getElementById('product-sticky-bar');
+  const purchaseBox = document.querySelector('.product-purchase-box');
+  if (!stickyBar || !purchaseBox) return;
+
+  // Keep sticky bar price in sync with main price
+  const mainPrice = document.querySelector('.product-price-current');
+  const stickyPrice = document.getElementById('sticky-price-display');
+  if (mainPrice && stickyPrice) {
+    const updateStickyPrice = () => { stickyPrice.textContent = mainPrice.textContent; };
+    updateStickyPrice();
+    new MutationObserver(updateStickyPrice).observe(mainPrice, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+
+  // Show sticky bar once the purchase box scrolls out of view
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      const isVisible = !entry.isIntersecting;
+      stickyBar.classList.toggle('is-visible', isVisible);
+      stickyBar.setAttribute('aria-hidden', String(!isVisible));
+      document.body.classList.toggle('has-visible-product-sticky', isVisible);
+    },
+    { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
+  );
+  observer.observe(purchaseBox);
+
+  // Clicking sticky "Add to Cart" triggers the main button and scrolls up
+  const stickyAddBtn = document.getElementById('sticky-add-btn');
+  const mainAddBtn = document.getElementById('btn-add-to-cart');
+  if (stickyAddBtn && mainAddBtn) {
+    stickyAddBtn.addEventListener('click', () => {
+      mainAddBtn.click();
+      window.scrollTo({
+        top: purchaseBox.getBoundingClientRect().top + window.scrollY - 120,
+        behavior: 'smooth'
+      });
+    });
+  }
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0c362d">
   <title>Your Cart | Gull e Gulzar Home Trolley</title>
-  <link rel="stylesheet" href="assets/theme.css?v=9">
+  <link rel="stylesheet" href="assets/theme.css?v=14">
 </head>
 <body class="cart-page">
   <div data-store-header></div>
@@ -22,9 +22,14 @@
     </section>
   </main>
   <div data-store-footer></div>
-  <script src="assets/page-shell.js?v=4"></script>
-  <script src="assets/theme.js?v=9"></script>
+  <script src="assets/page-shell.js?v=5"></script>
+  <script src="assets/theme.js?v=14"></script>
   <script>
+    const persistCart = (cart) => {
+      localStorage.setItem('gg_cart', JSON.stringify(cart));
+      window.dispatchEvent(new Event('gg-cart-updated'));
+    };
+
     const renderCartPage = () => {
       const container = document.querySelector('#cart-page-content');
       const cart = JSON.parse(localStorage.getItem('gg_cart') || '[]');
@@ -37,7 +42,7 @@
         const heading = document.createElement('h2');
         heading.textContent = 'Your cart is empty';
         const message = document.createElement('p');
-        message.textContent = 'Take a look at our Mini Coffee Table.';
+        message.textContent = 'Discover our Mini Coffee Table, thoughtfully styled for everyday living.';
         const link = document.createElement('a');
         link.className = 'btn btn-primary';
         link.href = 'product-mini-coffee.html';
@@ -50,7 +55,7 @@
       let subtotal = 0;
       const items = document.createElement('div');
       items.className = 'cart-page-items';
-      cart.forEach((item) => {
+      cart.forEach((item, index) => {
         const price = Number.parseInt(String(item.price).replace(/[^0-9]/g, ''), 10) || 0;
         const quantity = Math.max(1, Number.parseInt(item.quantity, 10) || 1);
         subtotal += price * quantity;
@@ -68,9 +73,47 @@
         const variant = document.createElement('p');
         variant.textContent = item.variant && item.variant !== 'Standard' ? item.variant : 'Standard design';
         const priceLine = document.createElement('strong');
-        priceLine.textContent = `Rs. ${price.toLocaleString('en-PK')} × ${quantity}`;
-        details.append(title, variant, priceLine);
-        row.append(image, details);
+        priceLine.textContent = `Rs. ${price.toLocaleString('en-PK')} each`;
+        const quantityControl = document.createElement('div');
+        quantityControl.className = 'cart-page-quantity';
+        const decreaseButton = document.createElement('button');
+        decreaseButton.type = 'button';
+        decreaseButton.className = 'cart-quantity-step';
+        decreaseButton.textContent = '−';
+        decreaseButton.setAttribute('aria-label', `Decrease quantity of ${title.textContent}`);
+        const quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.min = '1';
+        quantityInput.step = '1';
+        quantityInput.inputMode = 'numeric';
+        quantityInput.value = String(quantity);
+        quantityInput.setAttribute('aria-label', `Quantity of ${title.textContent}`);
+        const increaseButton = document.createElement('button');
+        increaseButton.type = 'button';
+        increaseButton.className = 'cart-quantity-step';
+        increaseButton.textContent = '+';
+        increaseButton.setAttribute('aria-label', `Increase quantity of ${title.textContent}`);
+        const saveQuantity = (nextQuantity) => {
+          item.quantity = Math.max(1, Number.parseInt(nextQuantity, 10) || 1);
+          persistCart(cart);
+          renderCartPage();
+        };
+        decreaseButton.addEventListener('click', () => saveQuantity(quantity - 1));
+        increaseButton.addEventListener('click', () => saveQuantity(quantity + 1));
+        quantityInput.addEventListener('change', () => saveQuantity(quantityInput.value));
+        quantityControl.append(decreaseButton, quantityInput, increaseButton);
+        details.append(title, variant, priceLine, quantityControl);
+        const removeButton = document.createElement('button');
+        removeButton.className = 'cart-page-remove';
+        removeButton.type = 'button';
+        removeButton.textContent = 'Remove';
+        removeButton.setAttribute('aria-label', `Remove ${title.textContent} from cart`);
+        removeButton.addEventListener('click', () => {
+          cart.splice(index, 1);
+          persistCart(cart);
+          renderCartPage();
+        });
+        row.append(image, details, removeButton);
         items.append(row);
       });
 
@@ -86,20 +129,21 @@
       note.className = 'cart-page-note';
       note.textContent = 'Delivery is free across Pakistan. Our team can confirm the delivery estimate when you place your order.';
 
-      const actions = document.createElement('div');
+            const actions = document.createElement('div');
       actions.className = 'cart-page-actions';
-      const orderLink = document.createElement('a');
-      orderLink.className = 'btn btn-primary';
-      orderLink.target = '_blank';
-      orderLink.rel = 'noopener noreferrer';
-      orderLink.textContent = 'Continue on WhatsApp';
-      const orderText = cart.map((item) => `${Math.max(1, Number.parseInt(item.quantity, 10) || 1)} x ${item.title || 'Mini Coffee Table'} (${item.price || 'Rs. 5,500'})`).join('\n');
-      orderLink.href = `https://wa.me/923204967079?text=${encodeURIComponent(`Hello Gull e Gulzar Home Trolley, I would like to place this order:\n${orderText}\nSubtotal: Rs. ${subtotal.toLocaleString('en-PK')}`)}`;
+      const checkoutBtn = document.createElement('a');
+      checkoutBtn.className = 'btn btn-primary';
+      checkoutBtn.href = '#';
+      checkoutBtn.textContent = 'Proceed to Checkout';
+      checkoutBtn.onclick = (e) => {
+        e.preventDefault();
+        alert('Thank you for shopping with Gull e Gulzar Home Trolley.');
+      };
       const continueLink = document.createElement('a');
       continueLink.className = 'btn btn-outline';
       continueLink.href = 'collections.html';
       continueLink.textContent = 'Continue Shopping';
-      actions.append(orderLink, continueLink);
+      actions.append(checkoutBtn, continueLink);
       container.append(items, summary, note, actions);
     };
 

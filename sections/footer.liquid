@@ -32,11 +32,11 @@
         <h2>Policy</h2>
         <ul class="footer-links">
           <li><a href="/search" class="footer-link">Search</a></li>
-          <li><a href="{{ shop.policies.terms_of_service.url | default: '/pages/terms-of-service' }}" class="footer-link">Terms of Service</a></li>
-          <li><a href="{{ shop.policies.shipping_policy.url | default: '/pages/shipping-policy' }}" class="footer-link">Shipping Policy</a></li>
-          <li><a href="{{ shop.policies.refund_policy.url | default: '/pages/refund-policy' }}" class="footer-link">Refund Policy</a></li>
-          <li><a href="{{ shop.policies.privacy_policy.url | default: '/pages/privacy-policy' }}" class="footer-link">Privacy Policy</a></li>
-          <li><a href="/pages/terms-of-service" class="footer-link">Legal Notice</a></li>
+          <li><a href="{{ shop.terms_of_service.url | default: '/policies/terms-of-service' }}" class="footer-link">Terms of Service</a></li>
+          <li><a href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}" class="footer-link">Shipping Policy</a></li>
+          <li><a href="{{ shop.refund_policy.url | default: '/policies/refund-policy' }}" class="footer-link">Refund Policy</a></li>
+          <li><a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}" class="footer-link">Privacy Policy</a></li>
+          <li><a href="/pages/legal-notice" class="footer-link">Legal Notice</a></li>
           <li><a href="/pages/contact" class="footer-link">Contact Information</a></li>
         </ul>
       </div>

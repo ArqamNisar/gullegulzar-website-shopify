@@ -33,9 +33,9 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 ---
 
-## 🪑 Current Product
+## 🪑 Current Products
 
-The storefront currently features one confirmed product: the **Mini Coffee Table**, priced at **Rs. 5,500 PKR** in the standalone preview.
+The catalog includes the **Mini Coffee Table** at **Rs. 6,000 PKR** (compare-at price Rs. 7,000) and four Console Tables at **Rs. 13,000 PKR** each (compare-at price Rs. 15,000). The console products use `product.console.json` and include seven product photos across four designs. To create or update products in Shopify Admin, import [`product-import.csv`](./product-import.csv) from **Products > Import**. Product rows in the CSV are marked `active` and `TRUE` for publication on the Online Store. The CSV image links point to this repository's `main` branch, so push the included assets before importing. A theme ZIP does not import catalog products or publish them to the Online Store sales channel.
 
 ---
 
@@ -47,31 +47,45 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
   - Announcement bar with direct phone/WhatsApp links
   - Sticky glassmorphic header with navigation and mobile drawer
   - Hero banner with headline, CTA buttons, and trust highlights
-  - A featured Mini Coffee Table product card
+  - Featured products including the Mini Coffee Table and four Console Tables
   - Furniture quality highlights and a zoomable lifestyle photo of the table
   - Luxury footer with quick links, policies, and contact cards
 
 - **Catalog & Collections Page** ([`collections.html`](./collections.html) / [`templates/collection.json`](./templates/collection.json)):
-  - A single Mini Coffee Table product listing
+  - The Mini Coffee Table and four Console Table designs, each with a product listing
 
-- **Dedicated Product Page** ([`product-mini-coffee.html`](./product-mini-coffee.html) / [`sections/main-product.liquid`](./sections/main-product.liquid)):
+- **Product Pages** ([`product-mini-coffee.html`](./product-mini-coffee.html), [`console-product.html`](./console-product.html) / [`sections/main-product.liquid`](./sections/main-product.liquid)):
   - Two-photo gallery with zoom and thumbnail switching
-  - Confirmed standalone price of Rs. 5,500, quantity selector, cart action, and WhatsApp ordering
-  - Customer review summary, submission handoff to WhatsApp, and review blocks for publishing moderated feedback
+  - Use the Mini Coffee Table product page as the design and content reference for every new product page
+  - Use the product-in-use or styled photo as the primary image when available; keep clean product-only photos as secondary images
+  - Premium product layout with stock status, trust benefits, quantity selector, cart action, Buy Now, and sticky cart bar
+  - Bundle selector with totals calculated from the product price
+  - Delivery timeline, product-specific specifications, delivery and care accordions, and a 5% exit offer
+  - Bundle totals use the listed per-piece price; no bundle discount is applied unless configured by the store
+  - Customer review form and summary; only display reviews supplied for that product rather than reusing another product's feedback
+  - Customer review submission handoff to WhatsApp and review blocks for publishing moderated feedback
+  - The Mini Coffee Table uses the `mini-coffee` Shopify template suffix for its supplied reviews; new products use the standard `product` template without inheriting those reviews
   - Shopify product form with native Add to Cart and Buy Now actions when the Shopify product exists
+  - Product reference data is included in [`assets/products.json`](./assets/products.json); Shopify theme ZIP uploads do not create catalog products
+  - Product cards and galleries for the five included product handles use the theme's bundled images, so their display does not depend on Shopify product media URLs resolving
+  - Console Table Shopify product pages use the `console` template suffix; their imported handles create the individual `/products/...` URLs
+  - The standalone collection links to [`console-product.html`](./console-product.html) for local Console Table product previews
 
 - **Dedicated Contact Us Page** ([`contact.html`](./contact.html) / [`templates/page.contact.json`](./templates/page.contact.json)):
   - Direct WhatsApp click cards for `+923204967079` and `+923004055876`
   - Inquiry form & workshop hours
 
 - **Shopping Cart** ([`cart.html`](./cart.html) / [`templates/cart.json`](./templates/cart.json)) & **Slide-in Cart Drawer**:
-  - Standalone preview cart with a subtotal and WhatsApp order handoff; Shopify uses its native cart and checkout.
+  - Plus/minus quantity controls, remove actions, live preview subtotal, and WhatsApp order handoff; Shopify uses its native cart and checkout.
 
 - **Dedicated Policy Pages**:
   - Shipping & Delivery Policy ([`shipping-policy.html`](./shipping-policy.html))
   - Refund & Return Policy ([`refund-policy.html`](./refund-policy.html))
   - Privacy Policy ([`privacy-policy.html`](./privacy-policy.html))
   - Terms of Service ([`terms-of-service.html`](./terms-of-service.html))
+  - Legal Notice ([`legal-notice.html`](./legal-notice.html) / [`templates/page.legal-notice.json`](./templates/page.legal-notice.json))
+  - Contact Information ([`contact-information.html`](./contact-information.html)); Contact Us form ([`contact.html`](./contact.html))
+  - To use the Shopify Legal Notice link, create a page with the handle `legal-notice` and assign the `page.legal-notice` template in Shopify Admin.
 
 ---
 
@@ -101,7 +115,7 @@ Open Shopify Theme Customizer (`Online Store > Customize`):
 
 The home page has a full-width hero banner, two scrolling announcement strips, a horizontally scrollable featured-product rail, craftsmanship highlights, and a single interactive product image that magnifies under the pointer (or on tap). A floating WhatsApp icon opens a direct chat, and the footer groups the store introduction, main menu, policies, and support information. The provided logo and banner are included in `assets/brand-logo.jpg` and `assets/home-hero.jpg`.
 
-To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product page uses the supplied Mini Coffee Table photos and its confirmed Rs. 5,500 price. Before publishing, create the Shopify product with handle `mini-coffee-table` and set its price and product images in Shopify Admin. Update the footer social profile links before publishing.
+To preview the standalone home page locally, run `python -m http.server 8000` from the repository root and open `http://localhost:8000/index.html`. The standalone product page uses the supplied Mini Coffee Table photos and its Rs. 6,000 selling price with a Rs. 7,000 compare-at price. Before publishing, create the Shopify product with handle `mini-coffee-table` and set its price and product images in Shopify Admin. Update the footer social profile links before publishing.
 
 ---
 

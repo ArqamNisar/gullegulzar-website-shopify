@@ -1,0 +1,133 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Muhammad Ahmed",
+            "rating": 5,
+            "title": "",
+            "content": "Excellent quality and beautiful design. Looks even better in person. Highly recommended!",
+            "date": ""
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Khan",
+            "rating": 5,
+            "title": "",
+            "content": "Very satisfied with the purchase. The table is stylish, sturdy, and perfect for my living room.",
+            "date": ""
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ali Raza",
+            "rating": 4,
+            "title": "",
+            "content": "Nice product with a lovely finish. Good value for money.",
+            "date": ""
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Noor",
+            "rating": 5,
+            "title": "",
+            "content": "Just loved it! Compact, elegant, and exactly what I was looking for.",
+            "date": ""
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Malik",
+            "rating": 5,
+            "title": "",
+            "content": "Amazing craftsmanship and premium look. Very happy with the quality.",
+            "date": ""
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Sana Tariq",
+            "rating": 4,
+            "title": "",
+            "content": "Beautiful mini coffee table. Fits perfectly in my space and looks great.",
+            "date": ""
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Iqbal",
+            "rating": 5,
+            "title": "",
+            "content": "Great product! The design is modern, and the quality exceeded my expectations.",
+            "date": ""
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Ali",
+            "rating": 5,
+            "title": "",
+            "content": "Worth every penny. Strong, stylish, and beautifully made.",
+            "date": ""
+          }
+        },
+        "review_9": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Hussain",
+            "rating": 4,
+            "title": "",
+            "content": "Really nice table with an attractive design. Satisfied with my purchase.",
+            "date": ""
+          }
+        },
+        "review_10": {
+          "type": "review",
+          "settings": {
+            "name": "Maryam Shah",
+            "rating": 5,
+            "title": "",
+            "content": "Excellent finishing and elegant appearance. Would definitely recommend it.",
+            "date": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5",
+        "review_6",
+        "review_7",
+        "review_8",
+        "review_9",
+        "review_10"
+      ]
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

@@ -1,19 +1,58 @@
-<div class="section-spacing" style="text-align: center; background: var(--color-bg-body); min-height: 60vh; display: flex; align-items: center;">
-  <div class="container">
-    <span class="subheading">Page Not Found</span>
-    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">404 - Space Not Found</h1>
-    <p style="color: var(--color-muted); max-width: 500px; margin: 0 auto 2.5rem auto;">
-      The furniture piece or page you are looking for may have moved or is temporarily unavailable.
-    </p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="/" class="btn btn-primary">Return Home</a>
-      <a href="/collections/all" class="btn btn-outline">Browse Collections</a>
-      <a href="https://wa.me/{{ settings.whatsapp_number_primary | default: '923204967079' }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-        {% render 'icon-whatsapp' %} Ask on WhatsApp
-      </a>
+{%- assign req_path = request.path | downcase -%}
+{%- assign is_policy_attempt = false -%}
+{%- if req_path contains 'policy' or req_path contains 'shipping' or req_path contains 'refund' or req_path contains 'return' or req_path contains 'privacy' or req_path contains 'terms' -%}
+  {%- assign is_policy_attempt = true -%}
+{%- endif -%}
+
+{%- if is_policy_attempt -%}
+  {%- assign target_policy_url = shop.shipping_policy.url | default: '/policies/shipping-policy' -%}
+  {%- if req_path contains 'refund' or req_path contains 'return' -%}
+    {%- assign target_policy_url = shop.refund_policy.url | default: '/policies/refund-policy' -%}
+  {%- elsif req_path contains 'privacy' -%}
+    {%- assign target_policy_url = shop.privacy_policy.url | default: '/policies/privacy-policy' -%}
+  {%- elsif req_path contains 'terms' -%}
+    {%- assign target_policy_url = shop.terms_of_service.url | default: '/policies/terms-of-service' -%}
+  {%- endif -%}
+
+  <div class="section-spacing" style="text-align: center; background: var(--color-bg-body); min-height: 60vh; display: flex; align-items: center;">
+    <div class="container" style="max-width: 650px;">
+      <span class="subheading">Store Policies</span>
+      <h1 style="font-size: 2.4rem; margin-bottom: 1rem;">Looking for our Policies?</h1>
+      <p style="color: var(--color-muted); margin-bottom: 2rem;">
+        You can find our full, official policy guidelines below. Click to view:
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="{{ shop.shipping_policy.url | default: '/policies/shipping-policy' }}" class="btn btn-primary btn-sm">Shipping Policy</a>
+        <a href="{{ shop.refund_policy.url | default: '/policies/refund-policy' }}" class="btn btn-outline btn-sm">Return & Refund Policy</a>
+        <a href="{{ shop.privacy_policy.url | default: '/policies/privacy-policy' }}" class="btn btn-outline btn-sm">Privacy Policy</a>
+        <a href="{{ shop.terms_of_service.url | default: '/policies/terms-of-service' }}" class="btn btn-outline btn-sm">Terms of Service</a>
+      </div>
+      <div>
+        <a href="/" class="btn btn-dark btn-sm">Return to Home</a>
+      </div>
     </div>
   </div>
-</div>
+  <script>
+    if (window.location.pathname !== '{{ target_policy_url }}') {
+      window.location.replace('{{ target_policy_url }}');
+    }
+  </script>
+{%- else -%}
+  <div class="section-spacing" style="text-align: center; background: var(--color-bg-body); min-height: 60vh; display: flex; align-items: center;">
+    <div class="container">
+      <span class="subheading">Page Not Found</span>
+      <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">404 - Space Not Found</h1>
+      <p style="color: var(--color-muted); max-width: 500px; margin: 0 auto 2.5rem auto;">
+        The furniture piece or page you are looking for may have moved or is temporarily unavailable.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn btn-primary">Return Home</a>
+        <a href="/collections/all" class="btn btn-outline">Browse Collections</a>
+        <a href="/pages/contact" class="btn btn-dark">Contact Customer Support</a>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {

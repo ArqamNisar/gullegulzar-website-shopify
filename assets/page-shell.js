@@ -48,8 +48,10 @@ document.querySelector('[data-store-header]')?.insertAdjacentHTML('beforebegin',
         <a class="mobile-nav-link" href="collections.html">Explore Collections</a>
         <a class="mobile-nav-link" href="product-mini-coffee.html">Mini Coffee Table</a>
         <a class="mobile-nav-link" href="contact.html">Contact Us</a>
+        <a class="mobile-nav-link" href="contact-information.html">Contact Information</a>
         <a class="mobile-nav-link" href="shipping-policy.html">Shipping Policy</a>
         <a class="mobile-nav-link" href="refund-policy.html">Return &amp; Refund Policy</a>
+        <a class="mobile-nav-link" href="legal-notice.html">Legal Notice</a>
         <a class="mobile-nav-link" href="privacy-policy.html">Privacy Policy</a>
         <a class="mobile-nav-link" href="terms-of-service.html">Terms &amp; Conditions</a>
       </nav>
@@ -89,8 +91,8 @@ document.querySelector('[data-store-footer]')?.insertAdjacentHTML('beforebegin',
             <li><a href="shipping-policy.html" class="footer-link">Shipping Policy</a></li>
             <li><a href="refund-policy.html" class="footer-link">Refund Policy</a></li>
             <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
-            <li><a href="terms-of-service.html" class="footer-link">Legal Notice</a></li>
-            <li><a href="contact.html" class="footer-link">Contact Information</a></li>
+            <li><a href="legal-notice.html" class="footer-link">Legal Notice</a></li>
+            <li><a href="contact-information.html" class="footer-link">Contact Information</a></li>
           </ul>
         </div>
         <div class="footer-column footer-help">

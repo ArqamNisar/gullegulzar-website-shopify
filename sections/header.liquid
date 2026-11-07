@@ -2,6 +2,10 @@
 {%- assign wa_primary_display = settings.whatsapp_number_primary_display | default: '+923204967079' -%}
 {%- assign wa_secondary = settings.whatsapp_number_secondary | default: '923004055876' -%}
 {%- assign wa_secondary_display = settings.whatsapp_number_secondary_display | default: '+923004055876' -%}
+{%- assign shipping_policy_url = shop.shipping_policy.url | default: '/policies/shipping-policy' -%}
+{%- assign refund_policy_url = shop.refund_policy.url | default: '/policies/refund-policy' -%}
+{%- assign privacy_policy_url = shop.privacy_policy.url | default: '/policies/privacy-policy' -%}
+{%- assign terms_policy_url = shop.terms_of_service.url | default: '/policies/terms-of-service' -%}
 
 <header class="site-header" role="banner">
   <div class="header-inner">
@@ -23,14 +27,14 @@
         <a href="/collections/all" class="nav-link">All Products</a>
 
         <div class="nav-item-dropdown">
-          <a href="/pages/shipping-policy" class="nav-link">
+          <a href="{{ shipping_policy_url }}" class="nav-link">
             Policies <span style="font-size: 0.75rem;">▾</span>
           </a>
           <div class="dropdown-menu">
-            <a href="/pages/shipping-policy" class="dropdown-item">Shipping & Delivery</a>
-            <a href="/pages/refund-policy" class="dropdown-item">Refund & Returns</a>
-            <a href="/pages/privacy-policy" class="dropdown-item">Privacy Policy</a>
-            <a href="/pages/terms-of-service" class="dropdown-item">Terms of Service</a>
+            <a href="{{ shipping_policy_url }}" class="dropdown-item">Shipping & Delivery</a>
+            <a href="{{ refund_policy_url }}" class="dropdown-item">Refund & Returns</a>
+            <a href="{{ privacy_policy_url }}" class="dropdown-item">Privacy Policy</a>
+            <a href="{{ terms_policy_url }}" class="dropdown-item">Terms of Service</a>
           </div>
         </div>
 
@@ -69,10 +73,10 @@
       <a href="/products/mini-coffee-table" class="mobile-nav-link">Mini Coffee Table</a>
       <a href="/collections/all" class="mobile-nav-link">Browse All Products</a>
       <a href="/pages/contact" class="mobile-nav-link">Contact Us</a>
-      <a href="/pages/shipping-policy" class="mobile-nav-link">Shipping Policy</a>
-      <a href="/pages/refund-policy" class="mobile-nav-link">Refund & Returns</a>
-      <a href="/pages/privacy-policy" class="mobile-nav-link">Privacy Policy</a>
-      <a href="/pages/terms-of-service" class="mobile-nav-link">Terms of Service</a>
+      <a href="{{ shipping_policy_url }}" class="mobile-nav-link">Shipping Policy</a>
+      <a href="{{ refund_policy_url }}" class="mobile-nav-link">Refund & Returns</a>
+      <a href="{{ privacy_policy_url }}" class="mobile-nav-link">Privacy Policy</a>
+      <a href="{{ terms_policy_url }}" class="mobile-nav-link">Terms of Service</a>
     </nav>
   </div>
 

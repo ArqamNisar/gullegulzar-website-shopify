@@ -7,7 +7,6 @@
   - price: {String} Price
   - compare_price: {String} Regular/Compare price
   - image_url: {String} Fallback image URL
-  - badge: {String} Optional badge text ("Bestseller", "New", "Luxury")
   - url: {String} Target product page URL
 {% endcomment %}
 
@@ -28,9 +27,13 @@
   {%- assign item_compare = blank -%}
 {%- endif -%}
 {%- assign item_url = url | default: product.url | default: "/pages/contact" -%}
+{%- assign item_image_url = image_url -%}
 {%- if product != blank -%}
   {%- assign item_price_numeric = product.price | divided_by: 100.0 -%}
   {%- assign item_compare_numeric = product.compare_at_price | divided_by: 100.0 -%}
+  {%- if item_image_url == blank and product.featured_image != blank -%}
+    {%- assign item_image_url = product.featured_image | image_url: width: 600 -%}
+  {%- endif -%}
 {%- else -%}
   {%- assign item_price_numeric = item_price | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
   {%- assign item_compare_numeric = item_compare | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
@@ -38,19 +41,11 @@
 {%- assign discount_amount = item_compare_numeric | minus: item_price_numeric -%}
 {%- assign discount_percent = discount_amount | times: 100.0 | divided_by: item_compare_numeric | round -%}
 
-<div class="product-card" data-product-title="{{ item_title }}" data-product-price="{{ item_price }}" data-product-image="{{ image_url | default: product.featured_image | image_url: width: 600 }}">
+<div class="product-card" data-product-title="{{ item_title }}" data-product-price="{{ item_price }}" data-product-image="{{ item_image_url }}">
   <div class="product-media">
-    {%- if item_compare_numeric > item_price_numeric and item_compare_numeric > 0 -%}
-      <span class="product-tag tag-gold">{{ discount_percent }}% OFF</span>
-    {%- elsif badge != blank -%}
-      <span class="product-tag tag-gold">{{ badge }}</span>
-    {%- endif -%}
-
     <a href="{{ item_url }}" aria-label="{{ item_title }}">
-      {%- if product.featured_image -%}
-        {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: item_title }}
-      {%- elsif image_url != blank -%}
-        <img src="{{ image_url }}" alt="{{ item_title }}" loading="lazy" width="600" height="600">
+      {%- if item_image_url != blank -%}
+        <img src="{{ item_image_url }}" alt="{{ item_title }}" loading="lazy" width="600" height="600">
       {%- else -%}
         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
       {%- endif -%}
@@ -81,7 +76,8 @@
     <div class="product-price-row">
       <span class="product-price">{{ item_price }}</span>
       {%- if item_compare_numeric > item_price_numeric and item_compare_numeric > 0 -%}
-        <span class="product-price-compare">{{ item_compare }}</span>
+        <span class="product-price-compare crossed-price-red">{{ item_compare }}</span>
+        <span class="badge-discount-percent">{{ discount_percent }}% OFF</span>
       {%- endif -%}
     </div>
 

@@ -1,5 +1,9 @@
 const previewSearchProducts = [
-  { title: 'Mini Coffee Table', category: 'Mini Coffee Table', price: 5500, compareAt: null, image: 'assets/mini-coffee.jpg', url: 'product-mini-coffee.html', badge: 'New' }
+  { title: 'Mini Coffee Table', category: 'Mini Coffee Table', price: 6000, compareAt: 7000, image: 'assets/mini-room.jpg', url: 'product-mini-coffee.html' },
+  { title: 'Gold Wheel Console Trolley', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-a2.jpg', url: 'console-product.html?handle=gold-wheel-console' },
+  { title: 'Black Top X-Frame Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-b.jpg', url: 'console-product.html?handle=black-xframe-console' },
+  { title: 'Sunburst Gold Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-c2.jpg', url: 'console-product.html?handle=sunburst-console-table' },
+  { title: 'White Top Lattice Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-d.jpg', url: 'console-product.html?handle=white-lattice-console' }
 ];
 
 const initializePreviewSearch = () => {
@@ -28,7 +32,6 @@ const initializePreviewSearch = () => {
     return `
       <article class="product-card">
         <div class="product-media">
-          <span class="product-tag tag-gold">${product.badge}</span>
           <a href="${product.url}" aria-label="${product.title}">
             <img src="${product.image}" alt="${product.title}" loading="lazy" width="700" height="700">
           </a>
@@ -38,7 +41,7 @@ const initializePreviewSearch = () => {
           <div class="product-category-hint">${product.category}</div>
           <h3 class="product-title"><a href="${product.url}">${product.title}</a></h3>
           <div class="product-rating" aria-label="Rated 5 out of 5">★★★★★ <span>(5.0)</span></div>
-          <div class="product-price-row"><span class="product-price">${formatPrice(product.price)}</span>${product.compareAt ? `<span class="product-price-compare">${formatPrice(product.compareAt)}</span>` : ''}</div>
+          <div class="product-price-row"><span class="product-price">${formatPrice(product.price)}</span>${product.compareAt ? `<span class="product-price-compare crossed-price-red">${formatPrice(product.compareAt)}</span><span class="badge-discount-percent">${Math.round(((product.compareAt - product.price) / product.compareAt) * 100)}% OFF</span>` : ''}</div>
           <a href="${product.url}" class="product-preview-link">View product <span aria-hidden="true">→</span></a>
         </div>
       </article>

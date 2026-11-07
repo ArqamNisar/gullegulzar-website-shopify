@@ -1,0 +1,98 @@
+{
+  "products": [
+    {
+      "handle": "mini-coffee-table",
+      "title": "Mini Coffee Table",
+      "description": "A graceful two-tier accent table with a warm gold-finish frame and light marble-look surfaces.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Coffee Table",
+      "price": "6000.00",
+      "compare_at_price": "7000.00",
+      "currency": "PKR",
+      "images": [
+        "mini-room.jpg",
+        "mini-coffee.jpg"
+      ],
+      "note": "Catalog reference only. Create and publish this product in Shopify Admin; theme ZIP files do not create Shopify catalog products."
+    },
+    {
+      "handle": "gold-wheel-console",
+      "title": "Gold Wheel Console Trolley",
+      "description": "A gold-finish serving trolley with a dark marble-look top, lower shelf, and statement wheel detailing.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Console Tables",
+      "price": "13000.00",
+      "compare_at_price": "15000.00",
+      "currency": "PKR",
+      "images": [
+        "console-a2.jpg",
+        "console-a.jpg"
+      ],
+      "specifications": [
+        "Two-tier trolley design with decorative wheel detailing",
+        "Dark marble-look top and lower shelf",
+        "Gold-finish frame"
+      ],
+      "template_suffix": "console"
+    },
+    {
+      "handle": "black-xframe-console",
+      "title": "Black Top X-Frame Console Table",
+      "description": "A striking console table with a dark marble-look top and a sculptural gold-finish crisscross frame.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Console Tables",
+      "price": "13000.00",
+      "compare_at_price": "15000.00",
+      "currency": "PKR",
+      "images": [
+        "console-b.jpg",
+        "console-b2.jpg"
+      ],
+      "specifications": [
+        "Sculptural crisscross X-frame design",
+        "Dark marble-look top",
+        "Gold-finish frame"
+      ],
+      "template_suffix": "console"
+    },
+    {
+      "handle": "sunburst-console-table",
+      "title": "Sunburst Gold Console Table",
+      "description": "A light marble-look top meets a sculptural gold-finish frame that fans into an elegant hourglass silhouette.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Console Tables",
+      "price": "13000.00",
+      "compare_at_price": "15000.00",
+      "currency": "PKR",
+      "images": [
+        "console-c2.jpg",
+        "console-c.jpg"
+      ],
+      "specifications": [
+        "Fan-shaped hourglass frame design",
+        "Light marble-look top",
+        "Gold-finish frame"
+      ],
+      "template_suffix": "console"
+    },
+    {
+      "handle": "white-lattice-console",
+      "title": "White Top Lattice Console Table",
+      "description": "A light marble-look top pairs with a gold-finish frame formed by intersecting geometric lines.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Console Tables",
+      "price": "13000.00",
+      "compare_at_price": "15000.00",
+      "currency": "PKR",
+      "images": [
+        "console-d.jpg"
+      ],
+      "specifications": [
+        "Intersecting geometric lattice frame",
+        "Light marble-look top",
+        "Gold-finish frame"
+      ],
+      "template_suffix": "console"
+    }
+  ]
+}
