@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Naila Arshad (Lahore)",
+            "rating": 5,
+            "title": "The ribbed gold styling is elite",
+            "content": "The vertical rods give it such an elite architectural look. Marble top is very thick and heavy.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Babar Azam (Karachi)",
+            "rating": 5,
+            "title": "Super luxurious nesting set",
+            "content": "Looks like it costs 30,000 PKR! Guests always compliment the ribbed gold styling.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Mariam Sohail (Islamabad)",
+            "rating": 5,
+            "title": "Heavy and stable",
+            "content": "Very solid on our hardwood floor with the included rubber glides.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Asim Munir (Rawalpindi)",
+            "rating": 4,
+            "title": "Very happy with quality",
+            "content": "Smooth polish on the marble and vibrant gold powder coat.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Kashif Mehmood (Faisalabad)",
+            "rating": 5,
+            "title": "Flawless delivery",
+            "content": "Safely arrived in Faisalabad without any damage. Excellent packing.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Yasir (Multan)",
+            "rating": 5,
+            "title": "A wonderful purchase",
+            "content": "Brought warmth and elegance to our living room corner.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

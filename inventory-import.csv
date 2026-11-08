@@ -1,14 +1,37 @@
-Handle,Title,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,SKU,Available
-mini-coffee-table,Mini Coffee Table,Title,Default Title,,,,,GG-MCT-001,15
-gold-wheel-console,Gold Wheel Console Trolley,Title,Default Title,,,,,GG-CON-001,15
-black-xframe-console,Black Top X-Frame Console Table,Title,Default Title,,,,,GG-CON-002,15
-sunburst-console-table,Sunburst Gold Console Table,Title,Default Title,,,,,GG-CON-003,15
-white-lattice-console,White Top Lattice Console Table,Title,Default Title,,,,,GG-CON-004,15
-fluted-pillar-center-table,Fluted Pillar Marble Center Table (CT1),Title,Default Title,,,,,GG-CT-001,15
-oval-ribbed-center-table,Oval Ribbed Cage Center Table (CT2),Title,Default Title,,,,,GG-CT-002,15
-stepped-multitier-center-table,Stepped Multi-Tier Marble Center Table (CT3),Title,Default Title,,,,,GG-CT-003,15
-geometric-spiral-center-table,Geometric Spiral Center Table (CT4),Title,Default Title,,,,,GG-CT-004,15
-birdcage-nesting-center-table-set,Birdcage 3-Piece Nesting Center Table Set (CTS1),Title,Default Title,,,,,GG-CTS-001,15
-bowed-cage-nesting-center-table-set,Spherical Bowed Cage 3-Piece Nesting Center Table Set (CTS2),Title,Default Title,,,,,GG-CTS-002,15
-crescent-nesting-center-table-set,Crescent Base 3-Piece Nesting Center Table Set (CTS3),Title,Default Title,,,,,GG-CTS-003,15
-hourglass-mini-coffee-table,Mini Coffee Table (MCT2) - Hourglass Fluted Pedestal Table,Title,Default Title,,,,,GG-MCT-002,15
+Handle,Title,Option1 Name,Option1 Value,SKU,HS Code,COO,Location,Available
+mini-coffee-table,Mini Coffee Table,Title,Default Title,GG-MCT-001,,PK,Gull e Gulzar Home Trolley,15
+gold-wheel-console,Gold Wheel Console Trolley,Title,Default Title,GG-CON-001,,PK,Gull e Gulzar Home Trolley,15
+black-xframe-console,Black Top X-Frame Console Table,Title,Default Title,GG-CON-002,,PK,Gull e Gulzar Home Trolley,15
+sunburst-console-table,Sunburst Gold Console Table,Title,Default Title,GG-CON-003,,PK,Gull e Gulzar Home Trolley,15
+white-lattice-console,White Top Lattice Console Table,Title,Default Title,GG-CON-004,,PK,Gull e Gulzar Home Trolley,15
+fluted-pillar-center-table,Fluted Pillar Marble Center Table (CT1),Title,Default Title,GG-CT-001,,PK,Gull e Gulzar Home Trolley,15
+oval-ribbed-center-table,Oval Ribbed Cage Center Table (CT2),Title,Default Title,GG-CT-002,,PK,Gull e Gulzar Home Trolley,15
+stepped-multitier-center-table,Stepped Multi-Tier Marble Center Table (CT3),Title,Default Title,GG-CT-003,,PK,Gull e Gulzar Home Trolley,15
+geometric-spiral-center-table,Geometric Spiral Center Table (CT4),Title,Default Title,GG-CT-004,,PK,Gull e Gulzar Home Trolley,15
+birdcage-nesting-center-table-set,Birdcage 3-Piece Nesting Center Table Set (CTS1),Title,Default Title,GG-CTS-001,,PK,Gull e Gulzar Home Trolley,15
+bowed-cage-nesting-center-table-set,Spherical Bowed Cage 3-Piece Nesting Center Table Set (CTS2),Title,Default Title,GG-CTS-002,,PK,Gull e Gulzar Home Trolley,15
+crescent-nesting-center-table-set,Crescent Base 3-Piece Nesting Center Table Set (CTS3),Title,Default Title,GG-CTS-003,,PK,Gull e Gulzar Home Trolley,15
+hourglass-mini-coffee-table,Mini Coffee Table (MCT2) - Hourglass Fluted Pedestal Table,Title,Default Title,GG-MCT-002,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns1,Hexagonal Geometric Nesting Table Set (NS1),Title,Default Title,GG-NS1-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns2,Minimalist Square Nesting Table Set (NS2),Title,Default Title,GG-NS2-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns3,Dual Arch Wireframe Nesting Table Set (NS3),Title,Default Title,GG-NS3-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns4,Compact Accent Nesting Table Set (NS4),Title,Default Title,GG-NS4-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns5,Cylindrical Ribbed Nesting Table Set (NS5),Title,Default Title,GG-NS5-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns6,Fluted Gold Nesting Table Set (NS6),Title,Default Title,GG-NS6-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns7,Architectural Cage Nesting Table Set (NS7),Title,Default Title,GG-NS7-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns8,Interlocking Ring Nesting Table Set (NS8),Title,Default Title,GG-NS8-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns9,Slim Profile Accent Nesting Table Set (NS9),Title,Default Title,GG-NS9-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns10,Radial Wireframe Nesting Table Set (NS10),Title,Default Title,GG-NS10-001,,PK,Gull e Gulzar Home Trolley,15
+nesting-table-set-ns11,Contemporary Hourglass Nesting Table Set (NS11),Title,Default Title,GG-NS11-001,,PK,Gull e Gulzar Home Trolley,15
+glass-nesting-table-set-nsg1,Tempered Glass Top Wood Nesting Table Set (NSG1),Title,Default Title,GG-NSG1-001,,PK,Gull e Gulzar Home Trolley,15
+table-set-ts1,Luxury Art Deco 2-Piece Marble Table Set (TS1),Title,Default Title,GG-TS1-001,,PK,Gull e Gulzar Home Trolley,15
+table-set-ts2,Curved Crescent Marble Table Set (TS2),Title,Default Title,GG-TS2-001,,PK,Gull e Gulzar Home Trolley,15
+table-set-ts4,Grand Fluted Pillar 2-Piece Table Set (TS4),Title,Default Title,GG-TS4-001,,PK,Gull e Gulzar Home Trolley,15
+table-set-ts5,Sculptural Multi-Tier Table Set (TS5),Title,Default Title,GG-TS5-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt1,Executive Stainless 3-Tier Rolling Tea Trolley (TT1),Title,Default Title,GG-TT1-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt2,Two-Tier Marble Top Serving Tea Trolley (TT2),Title,Default Title,GG-TT2-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt3,Arched Handle Mobile Tea Trolley (TT3),Title,Default Title,GG-TT3-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt4,Compact Rolling Beverage Tea Trolley (TT4),Title,Default Title,GG-TT4-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt5,Grand Triple-Tier Serving Tea Trolley (TT5),Title,Default Title,GG-TT5-001,,PK,Gull e Gulzar Home Trolley,15
+tea-trolley-tt6,Signature Wheel Designer Tea Trolley (TT6),Title,Default Title,GG-TT6-001,,PK,Gull e Gulzar Home Trolley,15
+glass-tea-trolley-ttg1,Tempered Glass Top Serving Tea Trolley (TTG1),Title,Default Title,GG-TTG1-001,,PK,Gull e Gulzar Home Trolley,15

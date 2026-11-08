@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Mohsin Raza (Lahore)",
+            "rating": 5,
+            "title": "Architectural arches look amazing",
+            "content": "The arch detail on the sides makes this set look like high-end Italian boutique furniture.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Hina Kashif (Islamabad)",
+            "rating": 5,
+            "title": "Gorgeous living room addition",
+            "content": "Matches our modern interior aesthetic perfectly. The marble reflects lighting beautifully.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Danish Rauf (Karachi)",
+            "rating": 5,
+            "title": "Heavy and balanced",
+            "content": "Does not tip over when putting full teapots on the edge. Very balanced base.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Sadia Munir (Rawalpindi)",
+            "rating": 4,
+            "title": "Very practical set",
+            "content": "Easy to move around when having guests over for chai. Love the color.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Ghani (Faisalabad)",
+            "rating": 5,
+            "title": "Top notch welding",
+            "content": "Smooth joints and seamless gold finish. Very impressed with the build.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Zoya Alvi (Sialkot)",
+            "rating": 5,
+            "title": "Great purchase",
+            "content": "Arrived securely packed. Highly recommend Gull e Gulzar.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Naila Arshad (Islamabad)",
+            "rating": 5,
+            "title": "Hospitality staple in our house",
+            "content": "We use this trolley every single day for afternoon tea and dinner service. The wheels roll like butter on carpet and marble.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Muhammad Ahmed (Lahore)",
+            "rating": 5,
+            "title": "Stainless steel quality is genuine",
+            "content": "Genuine thick stainless steel that does not rust or tarnish. Holds heavy ceramic tea sets without bending.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Amina Bashir (Karachi)",
+            "rating": 5,
+            "title": "Three spacious tiers",
+            "content": "Easily carries tea kettle, sugar pots, cups, and two plates of snacks all in one trip.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Hashmi (Rawalpindi)",
+            "rating": 4,
+            "title": "Very practical trolley",
+            "content": "Guardrails are very helpful to stop cups sliding off while rolling. Great purchase.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Hamid Raza (Gujranwala)",
+            "rating": 5,
+            "title": "Commercial grade durability",
+            "content": "Solid construction and clean welding. Best trolley in this price range.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Noor (Multan)",
+            "rating": 5,
+            "title": "Extremely satisfied",
+            "content": "Prompt WhatsApp order assistance and arrived fully protected.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

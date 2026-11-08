@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Siddiqui (Karachi)",
+            "rating": 5,
+            "title": "Clean lines and great stability",
+            "content": "The square silhouette fits snugly against our sofa arm. The marble is thick and premium.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Sana Tariq (Lahore)",
+            "rating": 5,
+            "title": "Unbelievable value for 10.5k",
+            "content": "Three marble tables for Rs. 10,500 is unbeatable in Pakistan right now. Beautiful finishing.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Waseem Akram (Islamabad)",
+            "rating": 5,
+            "title": "Prompt WhatsApp service",
+            "content": "Confirmed order through WhatsApp and arrived in Islamabad in 3 days. Very solid.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Rabia Imran (Rawalpindi)",
+            "rating": 4,
+            "title": "Lovely compact tables",
+            "content": "Fits nicely in our apartment living room without crowding the walkway.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Iqbal (Peshawar)",
+            "rating": 5,
+            "title": "Rock solid build",
+            "content": "No wobble on hard flooring or carpet. Gold coating has great adherence.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Noor (Multan)",
+            "rating": 5,
+            "title": "Delighted with Gull e Gulzar",
+            "content": "My second furniture set from them. Excellent customer satisfaction.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

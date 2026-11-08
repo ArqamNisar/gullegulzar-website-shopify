@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Omer Siddiqui (Karachi)",
+            "rating": 5,
+            "title": "Grand presence in the room",
+            "content": "The cage frame looks very premium and sturdy. Does not shake or rattle.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Amina Bashir (Lahore)",
+            "rating": 5,
+            "title": "Gorgeous nesting tables",
+            "content": "We use them beside our Chesterfield sofas. Matches the gold accents in our room.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Waleed Asif (Islamabad)",
+            "rating": 5,
+            "title": "Exceeded expectations",
+            "content": "Heavier than expected, which is great. Beautiful dark marble tops.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Sadaf Jamil (Rawalpindi)",
+            "rating": 4,
+            "title": "Very chic and functional",
+            "content": "Great for serving drinks to guests. Slides smoothly on the carpet.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Kamran Farooq (Faisalabad)",
+            "rating": 5,
+            "title": "Top tier Pakistani furniture",
+            "content": "Proof that Pakistani furniture makers can produce Italian luxury standards.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Rehman (Multan)",
+            "rating": 5,
+            "title": "Love the styling",
+            "content": "Everyone asks where I bought these from. 10/10 service.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

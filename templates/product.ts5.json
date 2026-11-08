@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Waleed Asif (Lahore)",
+            "rating": 5,
+            "title": "Artistic split-tier styling",
+            "content": "The split levels create wonderful depth in our lounge. Very stylish furniture.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Sadaf Jamil (Islamabad)",
+            "rating": 5,
+            "title": "Love the contrast",
+            "content": "The black marble against the gold framework is so striking. Smooth edges.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Qureshi (Karachi)",
+            "rating": 5,
+            "title": "Very sturdy tables",
+            "content": "Heavy enough that children running by cannot easily knock them over.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Farhan (Rawalpindi)",
+            "rating": 4,
+            "title": "Great value",
+            "content": "Very happy with the overall finish. Easy to clean.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Mehmood (Faisalabad)",
+            "rating": 5,
+            "title": "Excellent delivery",
+            "content": "Safely arrived within 3 days to Faisalabad in bubble wrap.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Khalid (Multan)",
+            "rating": 5,
+            "title": "Superb addition to our home",
+            "content": "Brought so much elegance to our drawing room. 5 stars.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

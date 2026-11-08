@@ -9,7 +9,7 @@
     </div>
 
     {%- assign featured_collection = section.settings.collection -%}
-    {%- assign max_products = section.settings.products_to_show | default: 12 -%}
+    {%- assign max_products = section.settings.products_to_show | default: 36 -%}
 
     {%- if featured_collection != blank and featured_collection.products_count > 0 -%}
       <div class="products-grid">
@@ -154,9 +154,9 @@
       "type": "range",
       "id": "products_to_show",
       "min": 4,
-      "max": 24,
+      "max": 48,
       "step": 1,
-      "default": 12,
+      "default": 36,
       "label": "Maximum products to show"
     },
     {

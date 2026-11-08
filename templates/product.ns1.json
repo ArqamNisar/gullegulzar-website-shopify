@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Hashmi (Lahore)",
+            "rating": 5,
+            "title": "Stunning hexagonal design",
+            "content": "The crisscross gold legs and black marble tops look spectacular in our drawing room. Very heavy and sturdy.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Malik (Karachi)",
+            "rating": 5,
+            "title": "Perfect for serving tea",
+            "content": "We separate these whenever guests come over. The hexagonal shape is very modern and practical.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Kamran Raza (Islamabad)",
+            "rating": 5,
+            "title": "Superb packaging & quality",
+            "content": "Delivered in wooden crate padding without a single dent. The gold finish has a warm matte glow.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Farhan (Rawalpindi)",
+            "rating": 4,
+            "title": "Very pleased with purchase",
+            "content": "Compact yet offers plenty of tabletop space when unnested. High-end look for Rs. 11,500.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Jamil (Faisalabad)",
+            "rating": 5,
+            "title": "Architectural masterpiece",
+            "content": "The symmetry of the gold wireframe is first-class. Highly recommended for modern Pakistani homes.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Butt (Multan)",
+            "rating": 5,
+            "title": "10/10 finish",
+            "content": "Glossy marble polish that is easy to wipe clean. Worth every rupee.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

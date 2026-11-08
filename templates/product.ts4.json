@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Tariq (Lahore)",
+            "rating": 5,
+            "title": "Grand architectural look",
+            "content": "The fluted columns match our drawing room consoles perfectly. Very grand aesthetic.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Ahmed (Karachi)",
+            "rating": 5,
+            "title": "Top notch finish",
+            "content": "Heavier than expected and very solid. Packaged safely for shipping.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Khan (Islamabad)",
+            "rating": 5,
+            "title": "Beautiful black marble",
+            "content": "The marble polish is mirror-smooth. Looks very regal.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Khurram Shahzad (Rawalpindi)",
+            "rating": 4,
+            "title": "Functional and stylish",
+            "content": "Slides under smoothly. Gives plenty of room to serve guests.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Malik (Peshawar)",
+            "rating": 5,
+            "title": "Gull e Gulzar quality is best",
+            "content": "Always dependable furniture quality and quick dispatch.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Hina Qasim (Multan)",
+            "rating": 5,
+            "title": "10/10 purchase",
+            "content": "Stunning in person. Highly recommended.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

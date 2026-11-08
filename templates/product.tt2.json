@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Meer (Karachi)",
+            "rating": 5,
+            "title": "Beautiful gold & marble trolley",
+            "content": "Matches our living room decor so nicely. The marble surfaces are easy to wipe clean after tea.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Suleman Shah (Lahore)",
+            "rating": 5,
+            "title": "Smooth wheels and solid handle",
+            "content": "Rolls smoothly from the kitchen to the drawing room. Very sturdy frame.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Malik (Islamabad)",
+            "rating": 5,
+            "title": "Guests love it",
+            "content": "Everyone comments on how stylish our tea trolley looks when we serve refreshments.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Mehmood (Faisalabad)",
+            "rating": 4,
+            "title": "Very good quality",
+            "content": "Solid build quality and fair price. Packaged securely.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Farzana Bilal (Rawalpindi)",
+            "rating": 5,
+            "title": "Exceptional value",
+            "content": "Very pleased with the purchase. Fast delivery across Punjab.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Shehroz Alam (Sialkot)",
+            "rating": 5,
+            "title": "Top tier finishing",
+            "content": "Gold finish is warm and lustrous. 5 stars for Gull e Gulzar.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

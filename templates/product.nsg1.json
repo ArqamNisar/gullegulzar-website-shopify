@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Muhammad Ahmed (Lahore)",
+            "rating": 5,
+            "title": "Classic wood & glass design",
+            "content": "Very traditional and elegant 4-piece nesting set. The circular side cutouts look fantastic.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Noman Tariq (Karachi)",
+            "rating": 5,
+            "title": "4 tables for 8.5k is unbelievable",
+            "content": "Four complete tables with tempered glass tops for 8,500 PKR. Incredible value.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Naila Arshad (Islamabad)",
+            "rating": 5,
+            "title": "Very practical for family gatherings",
+            "content": "We slide all 4 out whenever the extended family comes over for tea. Wipes clean easily.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Hashmi (Rawalpindi)",
+            "rating": 4,
+            "title": "Sturdy and well made",
+            "content": "The chrome support bars keep the wooden frame completely firm.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Saira Bano (Peshawar)",
+            "rating": 5,
+            "title": "Safely delivered with glass intact",
+            "content": "The glass tops arrived intact with protective corner padding. Highly satisfied.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Kamran Raza (Multan)",
+            "rating": 5,
+            "title": "Great classic look",
+            "content": "Rich dark walnut color looks very sophisticated in our lounge.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

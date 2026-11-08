@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Tariq (Lahore)",
+            "rating": 5,
+            "title": "The radial wire base is stunning",
+            "content": "Looks like an expensive designer showpiece. The gold angle bars catch the room light.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Mahnoor Khan (Islamabad)",
+            "rating": 5,
+            "title": "Sophisticated living room accent",
+            "content": "We styled these with a small vase and scented candle. Looks beautiful.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Murtaza (Karachi)",
+            "rating": 5,
+            "title": "Top quality Pakistani craftsmanship",
+            "content": "Strong welds, no rough edges, and the marble is heavy.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Hina Qasim (Rawalpindi)",
+            "rating": 4,
+            "title": "Very pleased",
+            "content": "Pulls out smoothly when guests visit. Very practical layout.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Mehmood (Gujranwala)",
+            "rating": 5,
+            "title": "Excellent finishing",
+            "content": "Everything from the packaging to the table itself was perfect.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Zahra (Multan)",
+            "rating": 5,
+            "title": "Worth every rupee",
+            "content": "Gull e Gulzar always provides premium luxury at reasonable prices.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

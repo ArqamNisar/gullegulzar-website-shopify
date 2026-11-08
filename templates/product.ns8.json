@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Khurram Shahzad (Rawalpindi)",
+            "rating": 5,
+            "title": "Modern circular ring base",
+            "content": "The interlocking ring base looks very modern. Gives an open airy feel to our small lounge.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Rabia Tahir (Lahore)",
+            "rating": 5,
+            "title": "Very practical 3-piece set",
+            "content": "We keep them layered in the corner and pull them out for movie nights and tea.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Tariq (Karachi)",
+            "rating": 5,
+            "title": "High quality marble",
+            "content": "The marble has a mirror polish and wipes clean in one swipe.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Saira Bano (Islamabad)",
+            "rating": 4,
+            "title": "Lovely tables",
+            "content": "Gold finish is warm and tasteful, not tacky yellow.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Malik (Multan)",
+            "rating": 5,
+            "title": "Secure packaging",
+            "content": "Well protected with polystyrene and corner guards. Fast delivery.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Adeel Hassan (Peshawar)",
+            "rating": 5,
+            "title": "Highly recommended",
+            "content": "Great value for money at Rs. 10,500.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Kamran Farooq (Faisalabad)",
+            "rating": 5,
+            "title": "Three full tiers are a lifesaver",
+            "content": "When we have 15-20 guests over, this 3-tier trolley holds everything from teacups to cakes and cutlery in one trip.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Mahnoor Khan (Islamabad)",
+            "rating": 5,
+            "title": "Majestic piece of furniture",
+            "content": "Looks so grand standing in our dining hall. The marble polish is mirror-like.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Babar Azam (Lahore)",
+            "rating": 5,
+            "title": "Very stable with locked brakes",
+            "content": "The wheel brakes work perfectly when serving hot tea to guests. No sliding.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Hashmi (Karachi)",
+            "rating": 4,
+            "title": "Top quality",
+            "content": "Heavy, well balanced, and looks very expensive. Worth every rupee.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Farzana Bilal (Rawalpindi)",
+            "rating": 5,
+            "title": "Fast dispatch",
+            "content": "Arrived within 3 days without any scratch. Excellent service.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Butt (Multan)",
+            "rating": 5,
+            "title": "10/10 recommendation",
+            "content": "Gull e Gulzar always provides top quality furniture.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

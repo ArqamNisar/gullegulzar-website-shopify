@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Mahnoor Khan (Islamabad)",
+            "rating": 5,
+            "title": "Pure white marble beauty",
+            "content": "The white marble top is bright, clean, and has gorgeous subtle grey veins. Gold base is solid.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Omer Siddiqui (Karachi)",
+            "rating": 5,
+            "title": "Crescent nesting saves space",
+            "content": "Our living room looks so much more spacious with this nested layout. Highly recommended.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Rabia Tahir (Lahore)",
+            "rating": 5,
+            "title": "Excellent quality",
+            "content": "Quality is outstanding. No sharp edges and very stable.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Akhtar (Rawalpindi)",
+            "rating": 4,
+            "title": "Very happy with the set",
+            "content": "Delivered on time in 4 days. Easy to wipe clean.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Murtaza (Faisalabad)",
+            "rating": 5,
+            "title": "Great value at 16k",
+            "content": "Fair price for two genuine marble tables. 5 stars.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Khalid (Multan)",
+            "rating": 5,
+            "title": "Looks like luxury showroom furniture",
+            "content": "Guests are always surprised by how affordable it was.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

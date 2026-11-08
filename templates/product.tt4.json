@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Siddiqui (Karachi)",
+            "rating": 5,
+            "title": "Great compact trolley at 9,000",
+            "content": "At Rs. 9,000 this is fantastic value. Fits easily through our narrow kitchen doorway.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Farah Deeba (Lahore)",
+            "rating": 5,
+            "title": "Lightweight and rolls like a charm",
+            "content": "Very easy to steer and rolls smoothly over our rugs. Love the gold color.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Noman Ali (Islamabad)",
+            "rating": 5,
+            "title": "Very practical for daily use",
+            "content": "We use it daily for afternoon tea and keeping breakfast items. Great build.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Khadija Bibi (Rawalpindi)",
+            "rating": 4,
+            "title": "Very satisfied",
+            "content": "Good quality and neat finishing. Prompt delivery.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Shahid Nawaz (Peshawar)",
+            "rating": 5,
+            "title": "Solid little trolley",
+            "content": "Handles heavy kettles without flexing. 5 stars.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Siddiqua (Multan)",
+            "rating": 5,
+            "title": "Super happy",
+            "content": "Delivered in 3 days. Clean and lovely design.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

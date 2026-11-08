@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Suleman Shah (Lahore)",
+            "rating": 5,
+            "title": "The stepped gold pipe detail is breathtaking",
+            "content": "The fluted stepped gold pipes look like something out of a luxury hotel lobby. Absolutely love this set.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Malik (Karachi)",
+            "rating": 5,
+            "title": "Thick heavy marble tops",
+            "content": "The black marble has so much depth and natural shine. The two tables look gorgeous together.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Kashif Mehmood (Islamabad)",
+            "rating": 5,
+            "title": "Crescent nesting works like a charm",
+            "content": "The smaller table tucks under smoothly to open up floor space. Solid construction.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Sadia Munir (Rawalpindi)",
+            "rating": 4,
+            "title": "Very high end",
+            "content": "Looks like an imported Turkish table set. Worth every rupee of Rs. 16,000.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Jamil (Faisalabad)",
+            "rating": 5,
+            "title": "Immaculate packaging",
+            "content": "Arrived in thick protective crates. Zero scratches on the gold or marble.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Meer (Multan)",
+            "rating": 5,
+            "title": "Complete living room upgrade",
+            "content": "Elevated our entire drawing room. Very happy with Gull e Gulzar.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

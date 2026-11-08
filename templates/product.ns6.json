@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Suleman Shah (Lahore)",
+            "rating": 5,
+            "title": "Art Deco luxury at its finest",
+            "content": "The fluted detail is immaculate. Adds so much character to our formal living room.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Meer (Karachi)",
+            "rating": 5,
+            "title": "Sturdy and spacious",
+            "content": "Even the smallest table comfortably holds two coffee mugs and a tray. Very satisfied.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Taimoor Shah (Islamabad)",
+            "rating": 5,
+            "title": "Great polish on the stone",
+            "content": "The dark marble has realistic white and gold veins that catch natural sunlight.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Farzana Bilal (Rawalpindi)",
+            "rating": 4,
+            "title": "Elegant and space efficient",
+            "content": "Nests together into one neat corner. Pulls out effortlessly.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Hamid Raza (Gujranwala)",
+            "rating": 5,
+            "title": "Superb craftsmanship",
+            "content": "Seamless gold coating and solid welding throughout.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Huma Rashid (Multan)",
+            "rating": 5,
+            "title": "Worth every rupee",
+            "content": "Gull e Gulzar always delivers high quality home furniture.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

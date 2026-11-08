@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Daniyal Aslam (Lahore)",
+            "rating": 5,
+            "title": "Cinched waist design is pure elegance",
+            "content": "The hourglass silhouette gives this set so much grace. Love the black marble tops.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Qureshi (Karachi)",
+            "rating": 5,
+            "title": "Perfect sofa companion",
+            "content": "Solid construction and zero wobble on marble floors. Highly recommended.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Fahad Alvi (Islamabad)",
+            "rating": 5,
+            "title": "Great value for money",
+            "content": "Three designer tables for Rs. 10,500 is a bargain. Arrived safely in Islamabad.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Nazia Pervez (Rawalpindi)",
+            "rating": 4,
+            "title": "Very happy with purchase",
+            "content": "Light enough to move easily, heavy enough to stay firm.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Salman Zafar (Faisalabad)",
+            "rating": 5,
+            "title": "Smooth finish and quick delivery",
+            "content": "Arrived within 3 days. Clean welding and flawless gold coat.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Siddiqua (Multan)",
+            "rating": 5,
+            "title": "Gorgeous in person",
+            "content": "Looks even better than in the photos. 10/10.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

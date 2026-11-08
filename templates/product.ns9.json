@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Shehroz Alam (Sialkot)",
+            "rating": 5,
+            "title": "Cute and very useful",
+            "content": "Placed one next to our accent armchair and one in the bedroom. Great value.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Akhtar (Lahore)",
+            "rating": 5,
+            "title": "Neat finishing at 7.5k",
+            "content": "Very fair price for a 2-piece marble set. Prompt WhatsApp customer service.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Ahmed (Karachi)",
+            "rating": 5,
+            "title": "Lightweight and sturdy",
+            "content": "Does not wobble at all. Perfect for a cup of green tea and mobile phone.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Khan (Islamabad)",
+            "rating": 4,
+            "title": "Minimalist style",
+            "content": "Matches our modern Scandinavian decor. Very satisfied.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Imran Qureshi (Faisalabad)",
+            "rating": 5,
+            "title": "Fast dispatch",
+            "content": "Delivered within 3 days. Very pleased with Gull e Gulzar.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Sadia Farhan (Multan)",
+            "rating": 5,
+            "title": "Excellent product",
+            "content": "Compact and elegant. Perfect for apartment living.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

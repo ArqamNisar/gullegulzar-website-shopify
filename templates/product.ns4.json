@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Noman Ali (Lahore)",
+            "rating": 5,
+            "title": "Best budget table set in Pakistan",
+            "content": "At Rs. 7,500 this is fantastic value. Compact, sturdy, and looks adorable beside my bed.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Farah Deeba (Karachi)",
+            "rating": 5,
+            "title": "Chic and lightweight",
+            "content": "Easy to move between my bedroom and lounge. The gold finish is very neat.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ali Raza (Islamabad)",
+            "rating": 5,
+            "title": "Great quality for price",
+            "content": "Well-welded frame and clean marble top. Packaged carefully.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Khadija Bibi (Multan)",
+            "rating": 4,
+            "title": "Very cute side tables",
+            "content": "Perfect size for a cup of coffee and a book. No assembly needed.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Adeel Tariq (Rawalpindi)",
+            "rating": 5,
+            "title": "Delighted with purchase",
+            "content": "Zero wobble and the gold coating is bright and shiny.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Shahid Nawaz (Peshawar)",
+            "rating": 5,
+            "title": "Prompt delivery",
+            "content": "Delivered to Peshawar within 4 days in bubble wrap. 5 stars.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

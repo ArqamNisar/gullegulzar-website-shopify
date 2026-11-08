@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Ahmed (Karachi)",
+            "rating": 5,
+            "title": "Great classic tea trolley",
+            "content": "The tempered glass with subtle floral prints and dark wood finish looks very traditional and elegant.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Muhammad Ahmed (Lahore)",
+            "rating": 5,
+            "title": "Outstanding value at Rs. 9,000",
+            "content": "9,000 PKR for a 3-tier glass and wood tea trolley is unbeatable. Arrived completely intact.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Naila Arshad (Islamabad)",
+            "rating": 5,
+            "title": "Very practical and rolls easily",
+            "content": "The steel guardrails keep all cups and teapot steady while pushing across the room.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Saira Bano (Rawalpindi)",
+            "rating": 4,
+            "title": "Lovely addition to our dining room",
+            "content": "Wipes clean with glass cleaner in seconds. Very solid build.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Hamid Raza (Gujranwala)",
+            "rating": 5,
+            "title": "Fast delivery",
+            "content": "Delivered within 3 days in wooden crating. Glass was flawless.",
+            "date": "September 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Khalid (Multan)",
+            "rating": 5,
+            "title": "Highly recommended",
+            "content": "Very pleased with Gull e Gulzar's quality and customer service.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}
