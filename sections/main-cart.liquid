@@ -22,6 +22,14 @@
               {%- assign cart_item_image = 'ct3-room.jpg' | asset_url -%}
             {%- elsif item.product.handle == 'geometric-spiral-center-table' or item.product.title contains 'Geometric Spiral' -%}
               {%- assign cart_item_image = 'ct4-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'birdcage-nesting-center-table-set' or item.product.title contains 'Birdcage' -%}
+              {%- assign cart_item_image = 'cts1-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'bowed-cage-nesting-center-table-set' or item.product.title contains 'Bowed Cage' -%}
+              {%- assign cart_item_image = 'cts2-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'crescent-nesting-center-table-set' or item.product.title contains 'Crescent' -%}
+              {%- assign cart_item_image = 'cts3-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'hourglass-mini-coffee-table' or item.product.title contains 'Hourglass' -%}
+              {%- assign cart_item_image = 'mct2-room.jpg' | asset_url -%}
             {%- elsif item.product.handle == 'gold-wheel-console' or item.product.title == 'Gold Wheel Console Trolley' -%}
               {%- assign cart_item_image = 'console-a2.jpg' | asset_url -%}
             {%- elsif item.product.handle == 'black-xframe-console' or item.product.title == 'Black Top X-Frame Console Table' -%}

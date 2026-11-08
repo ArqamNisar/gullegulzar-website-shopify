@@ -7,7 +7,11 @@ const previewSearchProducts = [
   { title: 'Fluted Pillar Marble Center Table (CT1)', category: 'Center Tables', price: 18500, compareAt: 21500, image: 'assets/ct1-room.jpg', url: 'product-ct1.html' },
   { title: 'Oval Ribbed Cage Center Table (CT2)', category: 'Center Tables', price: 16500, compareAt: 19000, image: 'assets/ct2-room.jpg', url: 'product-ct2.html' },
   { title: 'Stepped Multi-Tier Marble Center Table (CT3)', category: 'Center Tables', price: 16500, compareAt: 19000, image: 'assets/ct3-room.jpg', url: 'product-ct3.html' },
-  { title: 'Geometric Spiral Center Table (CT4)', category: 'Center Tables', price: 10500, compareAt: 12500, image: 'assets/ct4-room.jpg', url: 'product-ct4.html' }
+  { title: 'Geometric Spiral Center Table (CT4)', category: 'Center Tables', price: 10500, compareAt: 12500, image: 'assets/ct4-room.jpg', url: 'product-ct4.html' },
+  { title: 'Birdcage 3-Piece Nesting Center Table Set (CTS1)', category: 'Center Tables', price: 20500, compareAt: 24000, image: 'assets/cts1-room.jpg', url: 'product-cts1.html' },
+  { title: 'Spherical Bowed Cage 3-Piece Nesting Center Table Set (CTS2)', category: 'Center Tables', price: 20500, compareAt: 24000, image: 'assets/cts2-room.jpg', url: 'product-cts2.html' },
+  { title: 'Crescent Base 3-Piece Nesting Center Table Set (CTS3)', category: 'Center Tables', price: 16500, compareAt: 19500, image: 'assets/cts3-room.jpg', url: 'product-cts3.html' },
+  { title: 'Hourglass Fluted Mini Coffee Table (MCT2)', category: 'Coffee Table', price: 6000, compareAt: 7000, image: 'assets/mct2-room.jpg', url: 'product-mct2.html' }
 ];
 
 const initializePreviewSearch = () => {

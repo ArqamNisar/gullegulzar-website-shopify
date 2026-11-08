@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Waleed Asif (Lahore)",
+            "rating": 5,
+            "title": "Clean, minimal, and incredible value at 16.5k",
+            "content": "At Rs. 16,500 for a 3-piece marble table set, this is unbeatable value! Clean minimalist lines, very solid white marble tops, and the crescent base looks super modern.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Sadaf Jamil (Islamabad)",
+            "rating": 5,
+            "title": "Perfect for modern Scandinavian-style lounges",
+            "content": "If you love clean, uncluttered Scandinavian or contemporary decor, this table set is ideal. The satin gold finish is refined and understated.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Murtaza (Karachi)",
+            "rating": 5,
+            "title": "Lightweight enough to move around, sturdy enough to hold heavy trays",
+            "content": "The nesting stools slide out effortlessly when we have family over for tea. Highly practical and looks elegant.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Hina Qasim (Faisalabad)",
+            "rating": 4,
+            "title": "Very happy with the design",
+            "content": "Simple, chic, and functional. Arrived well boxed in wooden crates. The white marble is easy to wipe clean.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Danish Rauf (Gujranwala)",
+            "rating": 5,
+            "title": "Precision welding and smooth gold coating",
+            "content": "The joints are cleanly welded and the gold finish is even throughout. Very solid construction.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Nazia Pervez (Rawalpindi)",
+            "rating": 5,
+            "title": "Transforms the whole lounge",
+            "content": "We replaced our old bulky wooden coffee table with this 3-piece set and the room feels so much bigger and more modern now.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Hamid Raza (Multan)",
+            "rating": 5,
+            "title": "Delighted with Gull e Gulzar quality",
+            "content": "Second time ordering from Gull e Gulzar and once again they delivered excellence. Fast shipping and courteous delivery service.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

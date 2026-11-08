@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Siddiqua (Lahore)",
+            "rating": 5,
+            "title": "Cutest accent table ever!",
+            "content": "This hourglass table is so chic! Placed it right next to my reading chair in the bedroom. It easily holds my mug, lamp, and books. The cinched waist design is so stylish.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Hashmi (Karachi)",
+            "rating": 5,
+            "title": "Top value at Rs. 6,000",
+            "content": "At 6,000 PKR, this is a steal! Genuine heavy marble top and the pedestal base has zero wobble. Arrived securely packed to Clifton Karachi in 3 days.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Mariam Sohail (Islamabad)",
+            "rating": 5,
+            "title": "Architectural hourglass shape",
+            "content": "Looks like an expensive designer side table from an upscale boutique. The gold wireframe finish is warm and lustrous. Love it!",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Akhtar (Rawalpindi)",
+            "rating": 4,
+            "title": "Very sturdy and compact",
+            "content": "Small footprint makes it ideal for tight spaces. Solid build quality and beautiful marble top. Highly recommend.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Sadia Munir (Faisalabad)",
+            "rating": 5,
+            "title": "Flawless finish",
+            "content": "Everything from the smooth edge on the marble to the sturdy flared base is flawless. Ordered a second one for my sister!",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Ghani (Peshawar)",
+            "rating": 5,
+            "title": "Very happy with Gull e Gulzar",
+            "content": "Gull e Gulzar never compromises on finishing. Great communication via WhatsApp and smooth delivery.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Zahra (Multan)",
+            "rating": 5,
+            "title": "Perfect sofa side companion",
+            "content": "Fits right beside our couch armrest. Looks very luxurious with the marble top reflecting the room light.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

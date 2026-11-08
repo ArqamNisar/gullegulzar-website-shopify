@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Mahnoor Khan (Islamabad)",
+            "rating": 5,
+            "title": "The bowed cage silhouette is pure art",
+            "content": "The curved, bulbous cage design is so unique and sculptural! The white marble with subtle grey veins looks so fresh and bright against our beige rug.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Omer Siddiqui (Karachi)",
+            "rating": 5,
+            "title": "Crescent nesting base is genius",
+            "content": "The way the two side tables slide perfectly into the crescent cutouts of the main table is pure genius. Saves huge space in our apartment when we need floor room.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Rabia Tahir (Lahore)",
+            "rating": 5,
+            "title": "Premium quality marble & flawless gold finish",
+            "content": "I was searching for a 3-piece white marble set for months in DHA Lahore. Gull e Gulzar's quality is on par with imported Turkish furniture at half the price.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Khurram Shahzad (Rawalpindi)",
+            "rating": 5,
+            "title": "Solid, stable, and completely wobble-free",
+            "content": "The circular base rings have great balance. Even on thick carpet, none of the three tables wobble. The marble polish is water and stain resistant.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Yasir (Peshawar)",
+            "rating": 4,
+            "title": "Beautiful accent tables",
+            "content": "Very pleased with the purchase. The tables look even more luxurious in person than in pictures. WhatsApp customer support was very cooperative.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Shehroz Alam (Sialkot)",
+            "rating": 5,
+            "title": "Exceeded all expectations",
+            "content": "The bowed wire styling gives it such a high-end designer vibe. Quick 4-day delivery to Sialkot with flawless packaging.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Amina Bashir (Multan)",
+            "rating": 5,
+            "title": "Outstanding aesthetics",
+            "content": "Placed this in our formal drawing room and it draws compliments from everyone. Smooth edges, shiny white marble, and gorgeous gold.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

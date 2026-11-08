@@ -49,10 +49,22 @@ function getProductCartImage(title, currentImage = '') {
     'oval ribbed cage center table (ct3)': 'assets/ct3-room.jpg',
     'geometric spiral center table': 'assets/ct4-room.jpg',
     'geometric spiral center table (ct4)': 'assets/ct4-room.jpg',
+    'birdcage 3-piece nesting center table set': 'assets/cts1-room.jpg',
+    'birdcage 3-piece nesting center table set (cts1)': 'assets/cts1-room.jpg',
+    'spherical bowed cage 3-piece nesting center table set': 'assets/cts2-room.jpg',
+    'spherical bowed cage 3-piece nesting center table set (cts2)': 'assets/cts2-room.jpg',
+    'crescent base 3-piece nesting center table set': 'assets/cts3-room.jpg',
+    'crescent base 3-piece nesting center table set (cts3)': 'assets/cts3-room.jpg',
+    'hourglass fluted mini coffee table': 'assets/mct2-room.jpg',
+    'hourglass fluted mini coffee table (mct2)': 'assets/mct2-room.jpg',
     'ct1': 'assets/ct1-room.jpg',
     'ct2': 'assets/ct2-room.jpg',
     'ct3': 'assets/ct3-room.jpg',
-    'ct4': 'assets/ct4-room.jpg'
+    'ct4': 'assets/ct4-room.jpg',
+    'cts1': 'assets/cts1-room.jpg',
+    'cts2': 'assets/cts2-room.jpg',
+    'cts3': 'assets/cts3-room.jpg',
+    'mct2': 'assets/mct2-room.jpg'
   };
   const normalizedTitle = String(title || '').trim().toLocaleLowerCase();
   return productImages[normalizedTitle] || currentImage;

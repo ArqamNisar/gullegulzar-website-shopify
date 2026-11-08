@@ -27,11 +27,15 @@
           {%- assign ct2 = all_products['oval-ribbed-center-table'] -%}
           {%- assign ct3 = all_products['stepped-multitier-center-table'] -%}
           {%- assign ct4 = all_products['geometric-spiral-center-table'] -%}
+          {%- assign cts1 = all_products['birdcage-nesting-center-table-set'] -%}
+          {%- assign cts2 = all_products['bowed-cage-nesting-center-table-set'] -%}
+          {%- assign cts3 = all_products['crescent-nesting-center-table-set'] -%}
           {%- assign console_a = all_products['gold-wheel-console'] -%}
           {%- assign console_b = all_products['black-xframe-console'] -%}
           {%- assign console_c = all_products['sunburst-console-table'] -%}
           {%- assign console_d = all_products['white-lattice-console'] -%}
           {%- assign mini_product = all_products['mini-coffee-table'] -%}
+          {%- assign mct2 = all_products['hourglass-mini-coffee-table'] -%}
 
           {%- if ct1 != blank -%}
             {% render 'product-card', product: ct1, category: 'Center Tables', image_filename: 'ct1-room.jpg' %}
@@ -55,6 +59,24 @@
             {% render 'product-card', product: ct4, category: 'Center Tables', image_filename: 'ct4-room.jpg' %}
           {%- else -%}
             {% render 'product-card', title: 'Geometric Spiral Center Table', category: 'Center Tables', price: 'Rs. 10,500', compare_price: 'Rs. 12,500', image_filename: 'ct4-room.jpg', url: '/products/geometric-spiral-center-table' %}
+          {%- endif -%}
+
+          {%- if cts1 != blank -%}
+            {% render 'product-card', product: cts1, category: 'Center Tables', image_filename: 'cts1-room.jpg' %}
+          {%- else -%}
+            {% render 'product-card', title: 'Birdcage 3-Piece Nesting Center Table Set', category: 'Center Tables', price: 'Rs. 20,500', compare_price: 'Rs. 24,000', image_filename: 'cts1-room.jpg', url: '/products/birdcage-nesting-center-table-set' %}
+          {%- endif -%}
+
+          {%- if cts2 != blank -%}
+            {% render 'product-card', product: cts2, category: 'Center Tables', image_filename: 'cts2-room.jpg' %}
+          {%- else -%}
+            {% render 'product-card', title: 'Spherical Bowed Cage 3-Piece Nesting Center Table Set', category: 'Center Tables', price: 'Rs. 20,500', compare_price: 'Rs. 24,000', image_filename: 'cts2-room.jpg', url: '/products/bowed-cage-nesting-center-table-set' %}
+          {%- endif -%}
+
+          {%- if cts3 != blank -%}
+            {% render 'product-card', product: cts3, category: 'Center Tables', image_filename: 'cts3-room.jpg' %}
+          {%- else -%}
+            {% render 'product-card', title: 'Crescent Base 3-Piece Nesting Center Table Set', category: 'Center Tables', price: 'Rs. 16,500', compare_price: 'Rs. 19,500', image_filename: 'cts3-room.jpg', url: '/products/crescent-nesting-center-table-set' %}
           {%- endif -%}
 
           {%- if console_a != blank -%}
@@ -85,6 +107,12 @@
             {% render 'product-card', product: mini_product, category: 'Mini Coffee Table', image_filename: 'mini-room.jpg' %}
           {%- else -%}
             {% render 'product-card', title: 'Mini Coffee Table', category: 'Mini Coffee Table', price: 'Rs. 6,000', compare_price: 'Rs. 7,000', image_filename: 'mini-room.jpg', url: '/products/mini-coffee-table' %}
+          {%- endif -%}
+
+          {%- if mct2 != blank -%}
+            {% render 'product-card', product: mct2, category: 'Coffee Table', image_filename: 'mct2-room.jpg' %}
+          {%- else -%}
+            {% render 'product-card', title: 'Hourglass Fluted Mini Coffee Table', category: 'Coffee Table', price: 'Rs. 6,000', compare_price: 'Rs. 7,000', image_filename: 'mct2-room.jpg', url: '/products/hourglass-mini-coffee-table' %}
           {%- endif -%}
         </div>
       {%- endif -%}

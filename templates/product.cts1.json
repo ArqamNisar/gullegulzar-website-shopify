@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Suleman Shah (Lahore)",
+            "rating": 5,
+            "title": "Stunning 3-piece set for our main lounge",
+            "content": "This 3-piece birdcage set is absolutely magnificent! We have a spacious U-shaped sofa and the ability to pull out the two side tables when guests visit is wonderfully practical. The black marble is thick and glossy.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Huma Rashid (Islamabad)",
+            "rating": 5,
+            "title": "Luxurious birdcage design & solid weight",
+            "content": "The vertical gold struts give it such an airy yet grand aesthetic. The tables have substantial weight so they don't slide easily on wooden flooring. Well worth the price of 20,500.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Adeel Farooq (Karachi)",
+            "rating": 5,
+            "title": "Delivered safely across Pakistan with zero damage",
+            "content": "I was anxious about three marble tables traveling from Lahore to Karachi, but the crates and protective bubble wrap were outstanding. Not a single scratch. Highly impressed with Gull e Gulzar.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Farzana Bilal (Rawalpindi)",
+            "rating": 4,
+            "title": "Very elegant and versatile layout",
+            "content": "Love how versatile these are. Sometimes we keep them together as one layered center piece, and sometimes we place one beside the armchair. Very happy with the finish.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Tariq Mehmood (Faisalabad)",
+            "rating": 5,
+            "title": "Top-grade finishing and warm gold color",
+            "content": "The gold frame has a rich champagne tone, not that cheap brassy yellow. The marble polish is mirror-smooth. Exceptional value for a 3-piece designer set.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Zoya Alvi (Multan)",
+            "rating": 5,
+            "title": "Everyone asks where I bought this from!",
+            "content": "Every guest who comes to our living room asks where we got this table set. It instantly upgraded our entire room aesthetic. Highly recommended!",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Imran Qureshi (Peshawar)",
+            "rating": 5,
+            "title": "True luxury craftsmanship",
+            "content": "The symmetry of the vertical bars and the seamless welding is first class. Heavy marble tops and prompt delivery across Pakistan. 5 stars!",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

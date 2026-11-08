@@ -177,6 +177,90 @@
         "Open geometric design maximizing living room light and flow"
       ],
       "template_suffix": "ct4"
+    },
+    {
+      "handle": "birdcage-nesting-center-table-set",
+      "title": "Birdcage 3-Piece Nesting Center Table Set (CTS1)",
+      "description": "A grand 3-piece nesting center table set featuring a large circular main table flanked by two matching satellite nesting tables with black gold-veined marble and vertical gold birdcage steel frames.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "20500.00",
+      "compare_at_price": "24000.00",
+      "currency": "PKR",
+      "images": [
+        "cts1-room.jpg",
+        "cts1.jpg"
+      ],
+      "specifications": [
+        "3-piece nesting set: 1 large circular center table + 2 satellite companion tables",
+        "Polished black marble surfaces with delicate natural gold and white veining",
+        "Architectural vertical birdcage gold steel frames with reinforced circular bases",
+        "Flexible styling: nest neatly to save space or spread out for generous surface area"
+      ],
+      "template_suffix": "cts1"
+    },
+    {
+      "handle": "bowed-cage-nesting-center-table-set",
+      "title": "Spherical Bowed Cage 3-Piece Nesting Center Table Set (CTS2)",
+      "description": "A breathtaking 3-piece nesting center table set showcasing spherical bowed gold cage wireframe silhouettes and gleaming round white Carrara marble surfaces with a smart crescent nesting base.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "20500.00",
+      "compare_at_price": "24000.00",
+      "currency": "PKR",
+      "images": [
+        "cts2-room.jpg",
+        "cts2.jpg"
+      ],
+      "specifications": [
+        "3-piece nested ensemble: 1 large circular center table + 2 bowed satellite companion tables",
+        "Polished white Carrara-style marble tops with subtle grey veining",
+        "Sculptural spherical bowed cage gold wireframe design with curved ribs",
+        "Crescent cutout base allows the two satellite tables to nest smoothly under the main table"
+      ],
+      "template_suffix": "cts2"
+    },
+    {
+      "handle": "crescent-nesting-center-table-set",
+      "title": "Crescent Base 3-Piece Nesting Center Table Set (CTS3)",
+      "description": "An elegant minimalist 3-piece nesting center table set featuring clean white veined marble tops and satin gold semi-circular interlocking crescent base frames.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "16500.00",
+      "compare_at_price": "19500.00",
+      "currency": "PKR",
+      "images": [
+        "cts3-room.jpg",
+        "cts3.jpg"
+      ],
+      "specifications": [
+        "3-piece nesting set: 1 large round coffee table + 2 circular nesting side tables",
+        "Refined white marble surfaces with delicate natural veining",
+        "Minimalist crescent interlocking base frame for smooth nesting and fluid movement",
+        "Durable steel frame in satin gold finish with protective rubber floor pads"
+      ],
+      "template_suffix": "cts3"
+    },
+    {
+      "handle": "hourglass-mini-coffee-table",
+      "title": "Hourglass Fluted Mini Coffee Table (MCT2)",
+      "description": "A sculptural hourglass pedestal accent table featuring an architectural cinched-waist wireframe base and a smooth round polished marble top, styled for living rooms and bedroom corners.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Coffee Table",
+      "price": "6000.00",
+      "compare_at_price": "7000.00",
+      "currency": "PKR",
+      "images": [
+        "mct2-room.jpg",
+        "mct2.jpg"
+      ],
+      "specifications": [
+        "Sculptural hourglass cinched-waist fluted pedestal silhouette",
+        "Round polished marble surface with delicate veining",
+        "Precision-welded steel wireframe with weighted anti-tip circular ring base",
+        "Compact footprint ideal for sofa sides, reading nooks, or bedroom accents"
+      ],
+      "template_suffix": "mct2"
     }
   ]
 }
