@@ -1,57 +1,100 @@
-{%- assign mini_product = all_products['mini-coffee-table'] -%}
-{%- assign console_a = all_products['gold-wheel-console'] -%}
-{%- assign console_b = all_products['black-xframe-console'] -%}
-{%- assign console_c = all_products['sunburst-console-table'] -%}
-{%- assign console_d = all_products['white-lattice-console'] -%}
-
 <section class="section-spacing featured-products-section">
   <div class="container">
     <div class="section-heading-row">
       <div class="section-header">
         <span class="subheading">A little something special</span>
         <h2>{{ section.settings.heading | default: 'Featured Collection' }}</h2>
-        <p>{{ section.settings.description | default: 'Explore thoughtfully crafted tables for your home.' }}</p>
+        <p>{{ section.settings.description | default: 'Explore thoughtfully crafted tables and consoles for your home.' }}</p>
       </div>
     </div>
 
-    <div class="products-grid">
-      {%- if mini_product != blank -%}
-        {% render 'product-card', product: mini_product, category: 'Mini Coffee Table', image_filename: 'mini-room.jpg' %}
-      {%- else -%}
-        {% render 'product-card',
-          title: 'Mini Coffee Table',
-          category: 'Mini Coffee Table',
-          price: 'Rs. 6,000',
-          compare_price: 'Rs. 7,000',
-          image_filename: 'mini-room.jpg',
-          url: '/products/mini-coffee-table',
-        %}
-      {%- endif -%}
-      {%- if console_a != blank -%}
-        {% render 'product-card', product: console_a, category: 'Console Tables', image_filename: 'console-a2.jpg' %}
-      {%- else -%}
-        {% render 'product-card', title: 'Gold Wheel Console Trolley', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-a2.jpg', url: '/products/gold-wheel-console' %}
-      {%- endif -%}
-      {%- if console_b != blank -%}
-        {% render 'product-card', product: console_b, category: 'Console Tables', image_filename: 'console-b.jpg' %}
-      {%- else -%}
-        {% render 'product-card', title: 'Black Top X-Frame Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-b.jpg', url: '/products/black-xframe-console' %}
-      {%- endif -%}
-      {%- if console_c != blank -%}
-        {% render 'product-card', product: console_c, category: 'Console Tables', image_filename: 'console-c2.jpg' %}
-      {%- else -%}
-        {% render 'product-card', title: 'Sunburst Gold Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-c2.jpg', url: '/products/sunburst-console-table' %}
-      {%- endif -%}
-      {%- if console_d != blank -%}
-        {% render 'product-card', product: console_d, category: 'Console Tables', image_filename: 'console-d.jpg' %}
-      {%- else -%}
-        {% render 'product-card', title: 'White Top Lattice Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-d.jpg', url: '/products/white-lattice-console' %}
-      {%- endif -%}
-    </div>
+    {%- assign featured_collection = section.settings.collection -%}
+    {%- assign max_products = section.settings.products_to_show | default: 12 -%}
+
+    {%- if featured_collection != blank and featured_collection.products_count > 0 -%}
+      <div class="products-grid">
+        {%- for product in featured_collection.products limit: max_products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- elsif collections['all'] != blank and collections['all'].products_count > 0 -%}
+      <div class="products-grid">
+        {%- for product in collections['all'].products limit: max_products -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      {% comment %} Complete fallback displaying all 9 products {% endcomment %}
+      <div class="products-grid">
+        {%- assign ct1 = all_products['fluted-pillar-center-table'] -%}
+        {%- assign ct2 = all_products['oval-ribbed-center-table'] -%}
+        {%- assign ct3 = all_products['stepped-multitier-center-table'] -%}
+        {%- assign ct4 = all_products['geometric-spiral-center-table'] -%}
+        {%- assign console_a = all_products['gold-wheel-console'] -%}
+        {%- assign console_b = all_products['black-xframe-console'] -%}
+        {%- assign console_c = all_products['sunburst-console-table'] -%}
+        {%- assign console_d = all_products['white-lattice-console'] -%}
+        {%- assign mini_product = all_products['mini-coffee-table'] -%}
+
+        {%- if ct1 != blank -%}
+          {% render 'product-card', product: ct1, category: 'Center Tables', image_filename: 'ct1-room.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Fluted Pillar Marble Center Table', category: 'Center Tables', price: 'Rs. 18,500', compare_price: 'Rs. 21,500', image_filename: 'ct1-room.jpg', url: '/products/fluted-pillar-center-table' %}
+        {%- endif -%}
+
+        {%- if ct2 != blank -%}
+          {% render 'product-card', product: ct2, category: 'Center Tables', image_filename: 'ct2-room.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Oval Ribbed Cage Center Table', category: 'Center Tables', price: 'Rs. 16,500', compare_price: 'Rs. 19,000', image_filename: 'ct2-room.jpg', url: '/products/oval-ribbed-center-table' %}
+        {%- endif -%}
+
+        {%- if ct3 != blank -%}
+          {% render 'product-card', product: ct3, category: 'Center Tables', image_filename: 'ct3-room.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Stepped Multi-Tier Marble Center Table', category: 'Center Tables', price: 'Rs. 16,500', compare_price: 'Rs. 19,000', image_filename: 'ct3-room.jpg', url: '/products/stepped-multitier-center-table' %}
+        {%- endif -%}
+
+        {%- if ct4 != blank -%}
+          {% render 'product-card', product: ct4, category: 'Center Tables', image_filename: 'ct4-room.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Geometric Spiral Center Table', category: 'Center Tables', price: 'Rs. 10,500', compare_price: 'Rs. 12,500', image_filename: 'ct4-room.jpg', url: '/products/geometric-spiral-center-table' %}
+        {%- endif -%}
+
+        {%- if console_a != blank -%}
+          {% render 'product-card', product: console_a, category: 'Console Tables', image_filename: 'console-a2.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Gold Wheel Console Trolley', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-a2.jpg', url: '/products/gold-wheel-console' %}
+        {%- endif -%}
+
+        {%- if console_b != blank -%}
+          {% render 'product-card', product: console_b, category: 'Console Tables', image_filename: 'console-b.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Black Top X-Frame Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-b.jpg', url: '/products/black-xframe-console' %}
+        {%- endif -%}
+
+        {%- if console_c != blank -%}
+          {% render 'product-card', product: console_c, category: 'Console Tables', image_filename: 'console-c2.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Sunburst Gold Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-c2.jpg', url: '/products/sunburst-console-table' %}
+        {%- endif -%}
+
+        {%- if console_d != blank -%}
+          {% render 'product-card', product: console_d, category: 'Console Tables', image_filename: 'console-d.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'White Top Lattice Console Table', category: 'Console Tables', price: 'Rs. 13,000', compare_price: 'Rs. 15,000', image_filename: 'console-d.jpg', url: '/products/white-lattice-console' %}
+        {%- endif -%}
+
+        {%- if mini_product != blank -%}
+          {% render 'product-card', product: mini_product, category: 'Mini Coffee Table', image_filename: 'mini-room.jpg' %}
+        {%- else -%}
+          {% render 'product-card', title: 'Mini Coffee Table', category: 'Mini Coffee Table', price: 'Rs. 6,000', compare_price: 'Rs. 7,000', image_filename: 'mini-room.jpg', url: '/products/mini-coffee-table' %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
 
     <div class="section-cta">
       <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="btn btn-primary">
-        {{ section.settings.button_label | default: 'Explore Collections' }}
+        {{ section.settings.button_label | default: 'Explore All Collections' }}
         {% render 'icon-arrow' %}
       </a>
     </div>
@@ -72,13 +115,27 @@
       "type": "textarea",
       "id": "description",
       "label": "Description",
-      "default": "Meet the Mini Coffee Table, thoughtfully styled for everyday living."
+      "default": "Explore thoughtfully crafted tables and consoles for your home."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 24,
+      "step": 1,
+      "default": 12,
+      "label": "Maximum products to show"
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Explore Collections"
+      "default": "Explore All Collections"
     },
     {
       "type": "url",

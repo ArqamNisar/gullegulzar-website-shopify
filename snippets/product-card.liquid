@@ -12,7 +12,17 @@
 {% endcomment %}
 
 {%- assign item_title = title | default: product.title | default: "Luxury Designer Table" -%}
-{%- assign item_category = category | default: product.type | default: "Home Trolley" -%}
+{%- assign item_category = category | default: product.type -%}
+{%- if item_category == blank -%}
+  {%- if product.handle contains 'center-table' or product.title contains 'Center Table' -%}
+    {%- assign item_category = "Center Tables" -%}
+  {%- elsif product.handle contains 'console' or product.title contains 'Console' -%}
+    {%- assign item_category = "Console Tables" -%}
+  {%- else -%}
+    {%- assign item_category = "Coffee Table" -%}
+  {%- endif -%}
+{%- endif -%}
+
 {%- if price != blank -%}
   {%- assign item_price = price -%}
 {%- elsif product != blank -%}
@@ -20,6 +30,7 @@
 {%- else -%}
   {%- assign item_price = "Rs. 18,500" -%}
 {%- endif -%}
+
 {%- if compare_price != blank -%}
   {%- assign item_compare = compare_price -%}
 {%- elsif product.compare_at_price > product.price -%}
@@ -27,11 +38,13 @@
 {%- else -%}
   {%- assign item_compare = blank -%}
 {%- endif -%}
+
 {%- assign item_url = url | default: product.url | default: "/pages/contact" -%}
 {%- assign item_image_url = image_url -%}
 {%- if image_filename != blank -%}
   {%- assign item_image_url = image_filename | asset_url -%}
 {%- endif -%}
+
 {%- if product != blank -%}
   {%- assign item_price_numeric = product.price | divided_by: 100.0 -%}
   {%- assign item_compare_numeric = product.compare_at_price | divided_by: 100.0 -%}
@@ -42,6 +55,30 @@
   {%- assign item_price_numeric = item_price | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
   {%- assign item_compare_numeric = item_compare | remove: 'Rs.' | remove: 'Rs ' | remove: 'Rs' | remove: ',' | strip | plus: 0 -%}
 {%- endif -%}
+
+{%- if item_image_url == blank and product != blank -%}
+  {%- case product.handle -%}
+    {%- when 'fluted-pillar-center-table' -%}
+      {%- assign item_image_url = 'ct1-room.jpg' | asset_url -%}
+    {%- when 'oval-ribbed-center-table' -%}
+      {%- assign item_image_url = 'ct2-room.jpg' | asset_url -%}
+    {%- when 'stepped-multitier-center-table' -%}
+      {%- assign item_image_url = 'ct3-room.jpg' | asset_url -%}
+    {%- when 'geometric-spiral-center-table' -%}
+      {%- assign item_image_url = 'ct4-room.jpg' | asset_url -%}
+    {%- when 'gold-wheel-console' -%}
+      {%- assign item_image_url = 'console-a2.jpg' | asset_url -%}
+    {%- when 'black-xframe-console' -%}
+      {%- assign item_image_url = 'console-b.jpg' | asset_url -%}
+    {%- when 'sunburst-console-table' -%}
+      {%- assign item_image_url = 'console-c2.jpg' | asset_url -%}
+    {%- when 'white-lattice-console' -%}
+      {%- assign item_image_url = 'console-d.jpg' | asset_url -%}
+    {%- when 'mini-coffee-table' -%}
+      {%- assign item_image_url = 'mini-room.jpg' | asset_url -%}
+  {%- endcase -%}
+{%- endif -%}
+
 {%- assign discount_amount = item_compare_numeric | minus: item_price_numeric -%}
 {%- assign discount_percent = discount_amount | times: 100.0 | divided_by: item_compare_numeric | round -%}
 
@@ -74,7 +111,7 @@
       {% render 'icon-star' %}
       {% render 'icon-star' %}
       {% render 'icon-star' %}
-      <span>(5.0)</span>
+      <span>(4.9) · 6 reviews</span>
     </div>
 
     <div class="product-price-row">

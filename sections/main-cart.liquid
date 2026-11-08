@@ -14,6 +14,14 @@
             {%- assign cart_item_image = blank -%}
             {%- if item.product.handle == 'mini-coffee-table' or item.product.title == 'Mini Coffee Table' -%}
               {%- assign cart_item_image = 'mini-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'fluted-pillar-center-table' or item.product.title contains 'Fluted Pillar' -%}
+              {%- assign cart_item_image = 'ct1-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'oval-ribbed-center-table' or item.product.title contains 'Oval Ribbed' -%}
+              {%- assign cart_item_image = 'ct2-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'stepped-multitier-center-table' or item.product.title contains 'Stepped Multi' -%}
+              {%- assign cart_item_image = 'ct3-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'geometric-spiral-center-table' or item.product.title contains 'Geometric Spiral' -%}
+              {%- assign cart_item_image = 'ct4-room.jpg' | asset_url -%}
             {%- elsif item.product.handle == 'gold-wheel-console' or item.product.title == 'Gold Wheel Console Trolley' -%}
               {%- assign cart_item_image = 'console-a2.jpg' | asset_url -%}
             {%- elsif item.product.handle == 'black-xframe-console' or item.product.title == 'Black Top X-Frame Console Table' -%}

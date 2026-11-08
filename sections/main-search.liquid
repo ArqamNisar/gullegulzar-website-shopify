@@ -10,7 +10,7 @@
       <form class="search-main-form" action="{{ routes.search_url }}" method="get" role="search">
         <label class="visually-hidden" for="StoreSearchInput">Search products</label>
         <span class="search-input-icon" aria-hidden="true">{% render 'icon-search' %}</span>
-        <input id="StoreSearchInput" type="search" name="q" value="{{ search_query | escape }}" placeholder="Try “Mini Coffee Table”" autocomplete="off">
+        <input id="StoreSearchInput" type="search" name="q" value="{{ search_query | escape }}" placeholder="Try “Center Table”, “Console”, “Marble”..." autocomplete="off">
         <input type="hidden" name="type" value="product">
         <button class="btn btn-primary" type="submit">Search <span aria-hidden="true">→</span></button>
       </form>
@@ -18,6 +18,8 @@
       {%- unless search.performed -%}
         <div class="search-quick-links" aria-label="Popular searches">
           <span>Popular:</span>
+          <a href="{{ routes.search_url }}?q=center+table&type=product">Center Tables</a>
+          <a href="{{ routes.search_url }}?q=console+table&type=product">Console Tables</a>
           <a href="{{ routes.search_url }}?q=mini+coffee+table&type=product">Mini Coffee Table</a>
         </div>
       {%- endunless -%}
@@ -25,10 +27,10 @@
   </div>
 
   {%- if search.performed -%}
-    {%- assign mini_product_found = false -%}
+    {%- assign product_count = 0 -%}
     {%- for result in search.results -%}
-      {%- if result.object_type == 'product' and result.handle == 'mini-coffee-table' -%}
-        {%- assign mini_product_found = true -%}
+      {%- if result.object_type == 'product' -%}
+        {%- assign product_count = product_count | plus: 1 -%}
       {%- endif -%}
     {%- endfor -%}
     <section class="section-spacing search-results-section">
@@ -43,7 +45,7 @@
                 All products
               {%- endif -%}
             </h2>
-            <p id="SearchResultCount">{% if mini_product_found %}1 piece to explore{% else %}0 pieces to explore{% endif %}</p>
+            <p id="SearchResultCount">{{ product_count }} {% if product_count == 1 %}piece{% else %}pieces{% endif %} to explore</p>
           </div>
           {%- if search.sort_options.size > 1 -%}
             <label class="search-sort-control">
@@ -59,68 +61,71 @@
         </div>
 
         <div class="search-results-layout">
-          <aside class="search-filters">
-            <form id="SearchFiltersForm" class="search-filter-form" action="{{ routes.search_url }}" method="get">
-              <input type="hidden" name="q" value="{{ search_query | escape }}">
-              <input type="hidden" name="type" value="product">
+          {%- if search.filters.size > 0 -%}
+            <aside class="search-filters">
+              <form id="SearchFiltersForm" class="search-filter-form" action="{{ routes.search_url }}" method="get">
+                <input type="hidden" name="q" value="{{ search_query | escape }}">
+                <input type="hidden" name="type" value="product">
 
-              <div class="search-filter-heading">
-                <span class="search-filter-icon" aria-hidden="true">{% render 'icon-filter' %}</span>
-                <h2>Refine your search</h2>
-              </div>
+                <div class="search-filter-heading">
+                  <span class="search-filter-icon" aria-hidden="true">{% render 'icon-filter' %}</span>
+                  <h2>Refine your search</h2>
+                </div>
 
-              {%- for filter in search.filters -%}
-                <details class="search-filter-group" open>
-                  <summary>{{ filter.label | escape }} <span aria-hidden="true">+</span></summary>
-                  {%- case filter.type -%}
-                    {%- when 'list', 'boolean' -%}
-                      <div class="search-filter-options">
-                        {%- for filter_value in filter.values -%}
-                          <label class="search-filter-option">
-                            <input type="checkbox" name="{{ filter_value.param_name | escape }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked{% endif %} {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}>
-                            <span>{{ filter_value.label | escape }}</span>
-                            <small>{{ filter_value.count }}</small>
+                {%- for filter in search.filters -%}
+                  <details class="search-filter-group" open>
+                    <summary>{{ filter.label | escape }} <span aria-hidden="true">+</span></summary>
+                    {%- case filter.type -%}
+                      {%- when 'list', 'boolean' -%}
+                        <div class="search-filter-options">
+                          {%- for filter_value in filter.values -%}
+                            <label class="search-filter-option">
+                              <input type="checkbox" name="{{ filter_value.param_name | escape }}" value="{{ filter_value.value | escape }}" {% if filter_value.active %}checked{% endif %} {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}>
+                              <span>{{ filter_value.label | escape }}</span>
+                              <small>{{ filter_value.count }}</small>
+                            </label>
+                          {%- endfor -%}
+                        </div>
+                      {%- when 'price_range' -%}
+                        <div class="search-price-fields">
+                          <label>
+                            <span>Min (Rs.)</span>
+                            <input type="number" name="{{ filter.min_value.param_name | escape }}" min="0" step="500" placeholder="0" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
                           </label>
-                        {%- endfor -%}
-                      </div>
-                    {%- when 'price_range' -%}
-                      <div class="search-price-fields">
-                        <label>
-                          <span>Min (Rs.)</span>
-                          <input type="number" name="{{ filter.min_value.param_name | escape }}" min="0" step="500" placeholder="0" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-                        </label>
-                        <label>
-                          <span>Max (Rs.)</span>
-                          <input type="number" name="{{ filter.max_value.param_name | escape }}" min="0" step="500" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
-                        </label>
-                      </div>
-                  {%- endcase -%}
-                </details>
-              {%- endfor -%}
+                          <label>
+                            <span>Max (Rs.)</span>
+                            <input type="number" name="{{ filter.max_value.param_name | escape }}" min="0" step="500" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+                          </label>
+                        </div>
+                    {%- endcase -%}
+                  </details>
+                {%- endfor -%}
 
-              <div class="search-filter-actions">
-                <button class="btn btn-primary search-apply-button" type="submit">Apply filters <span aria-hidden="true">→</span></button>
-                <a class="search-clear-link" href="{{ routes.search_url }}?q={{ search_query | url_encode }}&type=product">Clear all filters</a>
+                <div class="search-filter-actions">
+                  <button class="btn btn-primary search-apply-button" type="submit">Apply filters <span aria-hidden="true">→</span></button>
+                  <a class="search-clear-link" href="{{ routes.search_url }}?q={{ search_query | url_encode }}&type=product">Clear all filters</a>
+                </div>
+              </form>
+            </aside>
+          {%- endif -%}
+
+          <div class="search-results-content" style="width: 100%;">
+            {%- if product_count > 0 -%}
+              <div class="products-grid search-products-grid">
+                {%- for result in search.results -%}
+                  {%- if result.object_type == 'product' -%}
+                    {% render 'product-card', product: result %}
+                  {%- endif -%}
+                {%- endfor -%}
               </div>
-            </form>
-          </aside>
-
-          <div class="search-results-content">
-            <div class="products-grid search-products-grid">
-              {%- for result in search.results -%}
-                {%- if result.object_type == 'product' and result.handle == 'mini-coffee-table' -%}
-                  {% render 'product-card', product: result %}
-                {%- endif -%}
-              {%- endfor -%}
-            </div>
-            {%- unless mini_product_found -%}
+            {%- else -%}
               <div class="search-empty-state">
                 <span class="search-empty-icon" aria-hidden="true">{% render 'icon-search' %}</span>
                 <h2>No pieces found just yet</h2>
-                <p>Try a different search, or clear a filter to see more of our collection.</p>
-                <a class="btn btn-outline" href="{{ routes.search_url }}">Browse all products</a>
+                <p>Try searching for “center table”, “console”, or “marble”.</p>
+                <a class="btn btn-primary" href="/collections/all">Browse all 9 products</a>
               </div>
-            {%- endunless -%}
+            {%- endif -%}
           </div>
         </div>
       </div>
@@ -133,6 +138,8 @@
           <h2>Browse by category</h2>
         </div>
         <div class="search-category-grid">
+          <a class="search-category-card" href="/collections/all"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Center Tables (4)</strong><span>Explore center tables <span aria-hidden="true">→</span></span></a>
+          <a class="search-category-card" href="/collections/all"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Console Tables (4)</strong><span>Explore console tables <span aria-hidden="true">→</span></span></a>
           <a class="search-category-card" href="/products/mini-coffee-table"><span class="search-category-icon" aria-hidden="true">{% render 'icon-craft' %}</span><strong>Mini Coffee Table</strong><span>Explore the design <span aria-hidden="true">→</span></span></a>
         </div>
       </div>
