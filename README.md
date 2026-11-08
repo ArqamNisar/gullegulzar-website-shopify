@@ -85,7 +85,7 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
   - Terms of Service ([`terms-of-service.html`](./terms-of-service.html))
   - Legal Notice ([`legal-notice.html`](./legal-notice.html) / [`templates/page.legal-notice.json`](./templates/page.legal-notice.json))
   - Contact Information ([`contact-information.html`](./contact-information.html)); Contact Us form ([`contact.html`](./contact.html))
-  - Create a Shopify page with the handle `legal-notice` and assign the `page.legal-notice` template for a normal page response. If the page is missing, the 404 template displays the notice content instead, although Shopify still returns a 404 status for that missing page.
+  - Create a Shopify page titled **Legal Notice** with the handle `legal-notice`, then assign the `page.legal-notice` template in Shopify Admin. The theme can render the page template only after this Page record exists; a 404-template fallback cannot create the page or change Shopify's 404 response.
 
 ---
 

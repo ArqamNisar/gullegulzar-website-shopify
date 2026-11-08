@@ -262,38 +262,87 @@ function initProductGallery() {
     if (!mainView || !mainImage || !thumbnails) return;
 
     let activeIndex = 0;
-    let swipeStartX = null;
-    let ignoreClickUntil = 0;
+    let track = null;
+    let trackBound = false;
 
     const getThumbs = () => [...thumbnails.querySelectorAll('.product-thumb-item')];
-    const selectPhoto = (nextIndex) => {
+    const syncSelection = (nextIndex, scrollThumbnail = false, moveTrack = true) => {
       const thumbs = getThumbs();
       if (!thumbs.length) return;
       activeIndex = (nextIndex + thumbs.length) % thumbs.length;
       const selectedThumb = thumbs[activeIndex];
       const newSrc = selectedThumb.dataset.imageSrc;
-      if (newSrc) mainImage.src = newSrc;
       const thumbnailImage = selectedThumb.querySelector('img');
+      if (track) {
+        const selectedImage = track.children[activeIndex];
+        if (selectedImage && moveTrack) {
+          track.scrollTo({ left: selectedImage.offsetLeft, behavior: 'smooth' });
+        }
+        [...track.children].forEach((image, index) => {
+          image.classList.toggle('is-active', index === activeIndex);
+        });
+      } else if (newSrc) {
+        mainImage.src = newSrc;
+      }
       if (thumbnailImage?.alt) mainImage.alt = thumbnailImage.alt;
       thumbs.forEach((thumb, index) => {
         const selected = index === activeIndex;
         thumb.classList.toggle('active', selected);
         thumb.setAttribute('aria-pressed', String(selected));
       });
-      selectedThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      if (scrollThumbnail) {
+        selectedThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      }
       if (previousButton) previousButton.hidden = thumbs.length < 2;
       if (nextButton) nextButton.hidden = thumbs.length < 2;
       mainView.classList.remove('is-zoomed');
     };
 
-    const refreshGallery = () => {
+    const refreshGallery = (rebuildTrack = false) => {
       const thumbs = getThumbs();
+      const mainImageThumb = thumbs.find((thumb) => thumb.dataset.imageSrc);
+      if (mainImageThumb && (rebuildTrack || !track || track.children.length !== thumbs.length)) {
+        if (!track) {
+          track = document.createElement('div');
+          track.className = 'product-main-track';
+          track.setAttribute('role', 'group');
+          track.setAttribute('aria-label', 'Swipe or scroll to view product photos');
+          mainView.insertBefore(track, mainView.firstChild);
+        }
+
+        const images = thumbs.map((thumb, index) => {
+          if (index === 0) return mainImage;
+          const thumbnailImage = thumb.querySelector('img');
+          const image = document.createElement('img');
+          image.src = thumb.dataset.imageSrc;
+          image.alt = thumbnailImage?.alt || `Product photo ${index + 1}`;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          image.width = mainImage.width;
+          image.height = mainImage.height;
+          return image;
+        });
+        track.replaceChildren(...images);
+        images.forEach((image, index) => image.classList.toggle('is-active', index === activeIndex));
+        track.scrollTo({ left: track.children[activeIndex]?.offsetLeft || 0 });
+      }
+      if (track && !trackBound) {
+        track.addEventListener('scroll', () => {
+          if (!track.clientWidth) return;
+          const index = Math.round(track.scrollLeft / track.clientWidth);
+          if (index !== activeIndex) syncSelection(index, false, false);
+        }, { passive: true });
+        trackBound = true;
+      }
+
       const selectedIndex = thumbs.findIndex((thumb) => thumb.classList.contains('active'));
       activeIndex = selectedIndex < 0 ? 0 : selectedIndex;
       const hasMultiplePhotos = thumbs.length > 1;
       if (previousButton) previousButton.hidden = !hasMultiplePhotos;
       if (nextButton) nextButton.hidden = !hasMultiplePhotos;
     };
+
+    const selectPhoto = (nextIndex) => syncSelection(nextIndex, true);
 
     thumbnails.addEventListener('click', (event) => {
       const thumb = event.target.closest('.product-thumb-item');
@@ -307,27 +356,7 @@ function initProductGallery() {
       event.preventDefault();
       selectPhoto(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
     });
-    mainView.addEventListener('pointerdown', (event) => {
-      if (event.pointerType === 'mouse') return;
-      swipeStartX = event.clientX;
-    });
-    mainView.addEventListener('pointerup', (event) => {
-      if (swipeStartX === null) return;
-      const deltaX = event.clientX - swipeStartX;
-      swipeStartX = null;
-      if (Math.abs(deltaX) < 40 || getThumbs().length < 2) return;
-      ignoreClickUntil = Date.now() + 400;
-      selectPhoto(activeIndex + (deltaX < 0 ? 1 : -1));
-    });
-    mainView.addEventListener('pointercancel', () => { swipeStartX = null; });
-    mainView.addEventListener('click', (event) => {
-      if (Date.now() < ignoreClickUntil) {
-        event.stopImmediatePropagation();
-        event.preventDefault();
-      }
-    }, true);
-
-    new MutationObserver(refreshGallery).observe(thumbnails, { childList: true });
+    new MutationObserver(() => refreshGallery(true)).observe(thumbnails, { childList: true });
     refreshGallery();
   });
 }
