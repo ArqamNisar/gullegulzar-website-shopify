@@ -35,7 +35,7 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 ## 🪑 Current Products
 
-The catalog includes the **Mini Coffee Table** at **Rs. 6,000 PKR** (compare-at price Rs. 7,000) and four Console Tables at **Rs. 13,000 PKR** each (compare-at price Rs. 15,000). The console products use `product.console.json` and include seven product photos across four designs. To create or update products in Shopify Admin, import [`product-import.csv`](./product-import.csv) from **Products > Import**. Product rows in the CSV are marked `active` and `TRUE` for publication on the Online Store. The CSV image links point to this repository's `main` branch, so push the included assets before importing. A theme ZIP does not import catalog products or publish them to the Online Store sales channel.
+The catalog includes the **Mini Coffee Table** at **Rs. 6,000 PKR** (compare-at price Rs. 7,000) and four Console Tables at **Rs. 13,000 PKR** each (compare-at price Rs. 15,000). The console products use `product.console.json` and include seven product photos across four designs. To create or update products in Shopify Admin, import [`product-import.csv`](./product-import.csv) from **Products > Import**. When updating existing products, enable Shopify's option to overwrite products with matching handles so the current prices and image order are applied. Product rows in the CSV are marked `active` and `TRUE` for publication on the Online Store. The CSV image links point to this repository's `main` branch. A theme ZIP does not import catalog products, update their prices/media, or publish them to the Online Store sales channel.
 
 ---
 
@@ -85,7 +85,7 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
   - Terms of Service ([`terms-of-service.html`](./terms-of-service.html))
   - Legal Notice ([`legal-notice.html`](./legal-notice.html) / [`templates/page.legal-notice.json`](./templates/page.legal-notice.json))
   - Contact Information ([`contact-information.html`](./contact-information.html)); Contact Us form ([`contact.html`](./contact.html))
-  - To use the Shopify Legal Notice link, create a page with the handle `legal-notice` and assign the `page.legal-notice` template in Shopify Admin.
+  - Create a Shopify page with the handle `legal-notice` and assign the `page.legal-notice` template for a normal page response. If the page is missing, the 404 template displays the notice content instead, although Shopify still returns a 404 status for that missing page.
 
 ---
 

@@ -2484,6 +2484,7 @@ body::-webkit-scrollbar,
   border-radius: var(--radius-lg);
   background: #f3eee4;
   cursor: zoom-in;
+  touch-action: pan-y;
 }
 
 .product-main-image:focus-visible {
@@ -2552,6 +2553,12 @@ body::-webkit-scrollbar,
   margin-top: 0.85rem;
   overflow-x: auto;
   padding: 2px 2px 0.35rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) transparent;
 }
 
 .product-thumb-item {
@@ -2564,6 +2571,58 @@ body::-webkit-scrollbar,
   background: #f3eee4;
   cursor: pointer;
   transition: var(--transition);
+  scroll-snap-align: start;
+}
+
+.product-gallery-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  padding: 0;
+  color: var(--color-heading);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 43, 32, 0.14);
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.product-gallery-arrow:hover {
+  color: #fff;
+  background: var(--color-heading);
+}
+
+.product-gallery-arrow:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.product-gallery-arrow[hidden] {
+  display: none;
+}
+
+.product-gallery-arrow svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.product-gallery-arrow--previous {
+  left: 0.75rem;
+}
+
+.product-gallery-arrow--next {
+  right: 0.75rem;
 }
 
 .product-thumb-item:hover,
@@ -3534,6 +3593,15 @@ body::-webkit-scrollbar,
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+.shop-cart-item-image {
+  flex: 0 0 80px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: #f3eee4;
 }
 
 .shop-cart-item-info {

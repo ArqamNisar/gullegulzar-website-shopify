@@ -68,15 +68,6 @@ async function loadConsoleProduct() {
     thumbnail.width = 240;
     thumbnail.height = 240;
     button.append(thumbnail);
-    button.addEventListener('click', () => {
-      mainImage.src = imagePath;
-      mainImage.alt = `${product.title}, photo ${index + 1}`;
-      thumbnails.querySelectorAll('.product-thumb-item').forEach((item) => {
-        const selected = item === button;
-        item.classList.toggle('active', selected);
-        item.setAttribute('aria-pressed', String(selected));
-      });
-    });
     thumbnails.append(button);
   });
 

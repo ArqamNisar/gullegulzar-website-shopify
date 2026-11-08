@@ -34,6 +34,18 @@ function formatPriceAmount(amount) {
   return `Rs. ${Math.round(amount).toLocaleString('en-PK')}`;
 }
 
+function getProductCartImage(title, currentImage = '') {
+  const productImages = {
+    'mini coffee table': 'assets/mini-room.jpg',
+    'gold wheel console trolley': 'assets/console-a2.jpg',
+    'black top x-frame console table': 'assets/console-b.jpg',
+    'sunburst gold console table': 'assets/console-c2.jpg',
+    'white top lattice console table': 'assets/console-d.jpg'
+  };
+  const normalizedTitle = String(title || '').trim().toLocaleLowerCase();
+  return productImages[normalizedTitle] || currentImage;
+}
+
 /* --------------------------------------------------------------------------
    Header Scroll Behavior
    -------------------------------------------------------------------------- */
@@ -159,30 +171,27 @@ function initZoomableImages() {
 
       setZoomOrigin(event);
       zoomable.classList.add('is-zoomed');
-      zoomable.setAttribute('aria-pressed', 'true');
     });
 
     zoomable.addEventListener('pointerleave', (event) => {
       if (event.pointerType !== 'mouse') return;
 
       zoomable.classList.remove('is-zoomed');
-      zoomable.setAttribute('aria-pressed', 'false');
     });
 
     zoomable.addEventListener('click', (event) => {
+      if (event.target.closest('button')) return;
       if (event.detail === 0 || !window.matchMedia('(hover: none)').matches) return;
 
       setZoomOrigin(event);
-      const isZoomed = zoomable.classList.toggle('is-zoomed');
-      zoomable.setAttribute('aria-pressed', String(isZoomed));
+      zoomable.classList.toggle('is-zoomed');
     });
 
     zoomable.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
 
       event.preventDefault();
-      const isZoomed = zoomable.classList.toggle('is-zoomed');
-      zoomable.setAttribute('aria-pressed', String(isZoomed));
+      zoomable.classList.toggle('is-zoomed');
     });
   });
 }
@@ -244,22 +253,82 @@ function initFAQAccordion() {
    Product Gallery Thumbnails
    -------------------------------------------------------------------------- */
 function initProductGallery() {
-  const thumbs = document.querySelectorAll('.product-thumb-item');
-  const mainImage = document.querySelector('#product-main-image');
+  document.querySelectorAll('.product-gallery').forEach((gallery) => {
+    const mainView = gallery.querySelector('.product-main-image');
+    const mainImage = mainView?.querySelector('#product-main-image');
+    const thumbnails = gallery.querySelector('.product-thumbs');
+    const previousButton = mainView?.querySelector('[data-gallery-prev]');
+    const nextButton = mainView?.querySelector('[data-gallery-next]');
+    if (!mainView || !mainImage || !thumbnails) return;
 
-  if (!thumbs.length || !mainImage) return;
+    let activeIndex = 0;
+    let swipeStartX = null;
+    let ignoreClickUntil = 0;
 
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener('click', () => {
-      thumbs.forEach((t) => t.classList.remove('active'));
-      thumb.classList.add('active');
-      thumbs.forEach((t) => t.setAttribute('aria-pressed', String(t === thumb)));
+    const getThumbs = () => [...thumbnails.querySelectorAll('.product-thumb-item')];
+    const selectPhoto = (nextIndex) => {
+      const thumbs = getThumbs();
+      if (!thumbs.length) return;
+      activeIndex = (nextIndex + thumbs.length) % thumbs.length;
+      const selectedThumb = thumbs[activeIndex];
+      const newSrc = selectedThumb.dataset.imageSrc;
+      if (newSrc) mainImage.src = newSrc;
+      const thumbnailImage = selectedThumb.querySelector('img');
+      if (thumbnailImage?.alt) mainImage.alt = thumbnailImage.alt;
+      thumbs.forEach((thumb, index) => {
+        const selected = index === activeIndex;
+        thumb.classList.toggle('active', selected);
+        thumb.setAttribute('aria-pressed', String(selected));
+      });
+      selectedThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      if (previousButton) previousButton.hidden = thumbs.length < 2;
+      if (nextButton) nextButton.hidden = thumbs.length < 2;
+      mainView.classList.remove('is-zoomed');
+    };
 
-      const newSrc = thumb.getAttribute('data-image-src');
-      if (newSrc) {
-        mainImage.src = newSrc;
-      }
+    const refreshGallery = () => {
+      const thumbs = getThumbs();
+      const selectedIndex = thumbs.findIndex((thumb) => thumb.classList.contains('active'));
+      activeIndex = selectedIndex < 0 ? 0 : selectedIndex;
+      const hasMultiplePhotos = thumbs.length > 1;
+      if (previousButton) previousButton.hidden = !hasMultiplePhotos;
+      if (nextButton) nextButton.hidden = !hasMultiplePhotos;
+    };
+
+    thumbnails.addEventListener('click', (event) => {
+      const thumb = event.target.closest('.product-thumb-item');
+      if (!thumb || !thumbnails.contains(thumb)) return;
+      selectPhoto(getThumbs().indexOf(thumb));
     });
+    previousButton?.addEventListener('click', () => selectPhoto(activeIndex - 1));
+    nextButton?.addEventListener('click', () => selectPhoto(activeIndex + 1));
+    mainView.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      selectPhoto(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    mainView.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse') return;
+      swipeStartX = event.clientX;
+    });
+    mainView.addEventListener('pointerup', (event) => {
+      if (swipeStartX === null) return;
+      const deltaX = event.clientX - swipeStartX;
+      swipeStartX = null;
+      if (Math.abs(deltaX) < 40 || getThumbs().length < 2) return;
+      ignoreClickUntil = Date.now() + 400;
+      selectPhoto(activeIndex + (deltaX < 0 ? 1 : -1));
+    });
+    mainView.addEventListener('pointercancel', () => { swipeStartX = null; });
+    mainView.addEventListener('click', (event) => {
+      if (Date.now() < ignoreClickUntil) {
+        event.stopImmediatePropagation();
+        event.preventDefault();
+      }
+    }, true);
+
+    new MutationObserver(refreshGallery).observe(thumbnails, { childList: true });
+    refreshGallery();
   });
 }
 
@@ -351,7 +420,7 @@ function initCartDrawer() {
 
         return `
           <div class="cart-drawer-item">
-            <img src="${item.image}" alt="${item.title}" class="cart-drawer-item-img">
+            <img src="${getProductCartImage(item.title, item.image)}" alt="${item.title}" class="cart-drawer-item-img">
             <div class="cart-drawer-item-info">
               <h5 class="cart-drawer-item-title">${item.title}</h5>
               <div class="cart-drawer-item-variant">${item.variant || 'Standard Custom Finish'}</div>

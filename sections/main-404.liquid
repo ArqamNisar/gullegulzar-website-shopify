@@ -1,10 +1,16 @@
 {%- assign req_path = request.path | downcase -%}
+{%- assign is_legal_attempt = false -%}
+{%- if req_path contains 'legal-notice' -%}
+  {%- assign is_legal_attempt = true -%}
+{%- endif -%}
 {%- assign is_policy_attempt = false -%}
 {%- if req_path contains 'policy' or req_path contains 'shipping' or req_path contains 'refund' or req_path contains 'return' or req_path contains 'privacy' or req_path contains 'terms' -%}
   {%- assign is_policy_attempt = true -%}
 {%- endif -%}
 
-{%- if is_policy_attempt -%}
+{%- if is_legal_attempt -%}
+  {% render 'legal-notice-content' %}
+{%- elsif is_policy_attempt -%}
   {%- assign target_policy_url = shop.shipping_policy.url | default: '/policies/shipping-policy' -%}
   {%- if req_path contains 'refund' or req_path contains 'return' -%}
     {%- assign target_policy_url = shop.refund_policy.url | default: '/policies/refund-policy' -%}

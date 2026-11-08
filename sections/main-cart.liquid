@@ -11,8 +11,22 @@
       <form action="{{ routes.cart_url }}" method="post" id="cart">
         <div style="background: #FFFFFF; border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 1.5rem; margin-bottom: 2rem;">
           {%- for item in cart.items -%}
+            {%- assign cart_item_image = blank -%}
+            {%- if item.product.handle == 'mini-coffee-table' or item.product.title == 'Mini Coffee Table' -%}
+              {%- assign cart_item_image = 'mini-room.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'gold-wheel-console' or item.product.title == 'Gold Wheel Console Trolley' -%}
+              {%- assign cart_item_image = 'console-a2.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'black-xframe-console' or item.product.title == 'Black Top X-Frame Console Table' -%}
+              {%- assign cart_item_image = 'console-b.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'sunburst-console-table' or item.product.title == 'Sunburst Gold Console Table' -%}
+              {%- assign cart_item_image = 'console-c2.jpg' | asset_url -%}
+            {%- elsif item.product.handle == 'white-lattice-console' or item.product.title == 'White Top Lattice Console Table' -%}
+              {%- assign cart_item_image = 'console-d.jpg' | asset_url -%}
+            {%- elsif item.image != blank -%}
+              {%- assign cart_item_image = item.image | image_url: width: 240 -%}
+            {%- endif -%}
             <div class="shop-cart-item">
-              <img src="{{ item.image | image_url: width: 120 }}" alt="{{ item.title }}" style="width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm);">
+              <img class="shop-cart-item-image" src="{{ cart_item_image }}" alt="{{ item.product.title | escape }}" width="80" height="80" loading="lazy">
               <div class="shop-cart-item-info">
                 <h4>{{ item.product.title }}</h4>
                 {%- unless item.variant.title == 'Default Title' -%}<div class="shop-cart-item-variant">{{ item.variant.title }}</div>{%- endunless -%}

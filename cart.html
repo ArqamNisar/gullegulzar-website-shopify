@@ -63,7 +63,7 @@
         const row = document.createElement('article');
         row.className = 'cart-page-item';
         const image = document.createElement('img');
-        image.src = item.image || 'assets/mini-coffee.jpg';
+        image.src = getProductCartImage(item.title, item.image) || 'assets/mini-coffee.jpg';
         image.alt = item.title || 'Mini Coffee Table';
         image.loading = 'lazy';
         const details = document.createElement('div');

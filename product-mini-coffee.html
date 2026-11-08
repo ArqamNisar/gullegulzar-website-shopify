@@ -6,7 +6,7 @@
     <title>Mini Coffee Table | Gull e Gulzar Home Trolley</title>
     <meta name="description" content="Shop the Mini Coffee Table from Gull e Gulzar Home Trolley with a round two-tier silhouette, warm gold-finish frame, and light marble-look tops. Free delivery across Pakistan.">
     <link rel="icon" type="image/jpeg" href="assets/brand-logo.jpg">
-    <link rel="stylesheet" href="assets/theme.css?v=20">
+    <link rel="stylesheet" href="assets/theme.css?v=21">
   </head>
   <body class="product-page">
     <div data-store-header></div>
@@ -22,8 +22,14 @@
           <div class="product-detail-layout product-detail-card">
             <!-- Gallery Column -->
             <div class="product-gallery">
-              <div class="product-main-view product-main-image" data-zoom-image tabindex="0" role="button" aria-label="Move pointer over product photo to magnify" aria-pressed="false">
+              <div class="product-main-view product-main-image" data-zoom-image tabindex="0" role="group" aria-label="Product photo gallery. Use the arrow keys to change photos.">
                 <img id="product-main-image" src="assets/mini-room.jpg" alt="Mini Coffee Table styled with books and decor in a living room" fetchpriority="high" width="1376" height="768">
+                <button type="button" class="product-gallery-arrow product-gallery-arrow--previous" data-gallery-prev aria-label="Show previous product photo" hidden>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button type="button" class="product-gallery-arrow product-gallery-arrow--next" data-gallery-next aria-label="Show next product photo" hidden>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
                 <span class="product-image-hint" aria-hidden="true">Hover to explore details</span>
               </div>
               <div class="product-thumbs" aria-label="Product photos">
@@ -346,7 +352,7 @@
       </dialog>
     </main>
     <div data-store-footer></div>
-    <script src="assets/theme.js?v=18"></script>
+    <script src="assets/theme.js?v=19"></script>
     <script src="assets/page-shell.js?v=15"></script>
   </body>
 </html>
