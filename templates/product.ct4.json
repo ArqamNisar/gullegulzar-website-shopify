@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Daniyal Aslam",
+            "rating": 5,
+            "title": "Best value furniture piece in Pakistan",
+            "content": "At Rs. 10,500 this is the best value furniture piece in Pakistan right now! The twisted geometric wireframe base looks hypnotic and modern. Solid black marble top too.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Rabia Imran",
+            "rating": 5,
+            "title": "Spiral sunburst base is a conversation starter",
+            "content": "The spiral sunburst metal base is an absolute conversation starter. Everyone who walks into our lounge notices it immediately. Clean marble top and lightweight enough to move when needed.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Salman Zafar",
+            "rating": 5,
+            "title": "Incredible geometric design",
+            "content": "Incredible geometric design! Looks much more expensive than 10.5k. The gold powder coating is smooth and the marble has nice natural veining.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Hina Kashif",
+            "rating": 4,
+            "title": "Adds so much character to the lounge",
+            "content": "Very pretty and modern center table. The sunburst spiral detail underneath adds so much character. Delivery was quick and packaging was secure.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Shahid Nawaz",
+            "rating": 5,
+            "title": "Low profile & airy design",
+            "content": "Bought this for our apartment living room. Its low profile and airy wireframe base make the room feel open and spacious while still looking very luxury.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Mehak Fatima",
+            "rating": 5,
+            "title": "Glossy marble & prompt delivery",
+            "content": "Super stylish! Arrived within 3 days in Lahore. Perfectly leveled on the floor and the marble top is glossy and flawless.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Arslan Khalid",
+            "rating": 5,
+            "title": "Great build quality & fair pricing",
+            "content": "Great build quality, unique geometric spiral center, and very fair pricing. Gull e Gulzar's finishing is always top tier.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

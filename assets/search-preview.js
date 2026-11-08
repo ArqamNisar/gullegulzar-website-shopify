@@ -3,7 +3,11 @@ const previewSearchProducts = [
   { title: 'Gold Wheel Console Trolley', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-a2.jpg', url: 'console-product.html?handle=gold-wheel-console' },
   { title: 'Black Top X-Frame Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-b.jpg', url: 'console-product.html?handle=black-xframe-console' },
   { title: 'Sunburst Gold Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-c2.jpg', url: 'console-product.html?handle=sunburst-console-table' },
-  { title: 'White Top Lattice Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-d.jpg', url: 'console-product.html?handle=white-lattice-console' }
+  { title: 'White Top Lattice Console Table', category: 'Console Tables', price: 13000, compareAt: 15000, image: 'assets/console-d.jpg', url: 'console-product.html?handle=white-lattice-console' },
+  { title: 'Fluted Pillar Marble Center Table (CT1)', category: 'Center Tables', price: 18500, compareAt: 21500, image: 'assets/ct1-room.jpg', url: 'product-ct1.html' },
+  { title: 'Stepped Multi-Tier Marble Center Table (CT2)', category: 'Center Tables', price: 16500, compareAt: 19000, image: 'assets/ct2-room.jpg', url: 'product-ct2.html' },
+  { title: 'Oval Ribbed Cage Center Table (CT3)', category: 'Center Tables', price: 16500, compareAt: 19000, image: 'assets/ct3-room.jpg', url: 'product-ct3.html' },
+  { title: 'Geometric Spiral Center Table (CT4)', category: 'Center Tables', price: 10500, compareAt: 12500, image: 'assets/ct4-room.jpg', url: 'product-ct4.html' }
 ];
 
 const initializePreviewSearch = () => {

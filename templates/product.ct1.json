@@ -1,0 +1,101 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Tariq",
+            "rating": 5,
+            "title": "Majestic architectural center table",
+            "content": "Absolutely majestic center table. The fluted gold pillars at the four corners give it such an architectural, luxurious look. The black marble surface is heavy and gorgeous with realistic gold and white veins. Came safely delivered in Lahore within 4 days.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Dr. Naila Arshad",
+            "rating": 5,
+            "title": "Elevated our entire drawing room",
+            "content": "We placed this in our main drawing room between our 8-seater sofa set and it completely elevated the entire room. The double-tier storage is very practical for holding coffee table albums and trays. 10/10 craftsmanship.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Zubair Ahmed",
+            "rating": 5,
+            "title": "Top-notch quality & secure packing",
+            "content": "Top-notch quality. I was a bit worried about shipping a marble table to Karachi, but the packaging had thick corner guards and bubble wrap. Perfectly intact. Finish of the gold frame is smooth and matte-brushed.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Saira Bano",
+            "rating": 4,
+            "title": "Very solid build & heavy marble",
+            "content": "Very solid build and lovely aesthetics. Slightly heavier than I expected which is actually great because it doesn't wobble at all on the carpet. Highly recommended!",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Kamran Farooq",
+            "rating": 5,
+            "title": "Italian luxury look at fair price",
+            "content": "Gull e Gulzar never disappoints. The fluted pillar detailing looks like high-end imported Italian furniture. The price of Rs. 18,500 is completely justified for this level of quality.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Madiha Javed",
+            "rating": 5,
+            "title": "Helpful customer service & stunning table",
+            "content": "Ordered via WhatsApp after speaking with their team. Very helpful customer service and delivery was on time. The table is stunning in real life!",
+            "date": "October 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Siddiqui",
+            "rating": 5,
+            "title": "Flawless finish",
+            "content": "Everything from the polish on the marble to the sturdy gold frame is flawless. Fits perfectly in our living room.",
+            "date": "September 2026"
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "name": "Anam Waqas",
+            "rating": 4,
+            "title": "Beautiful contrast",
+            "content": "Elegant design and very stable. Beautiful contrast between the dark veined top and the warm gold rods.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

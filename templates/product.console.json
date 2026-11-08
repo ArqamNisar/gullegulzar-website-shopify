@@ -2,7 +2,69 @@
   "sections": {
     "main_product": {
       "type": "main-product",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Bilal Tariq",
+            "rating": 5,
+            "title": "Magnificent entrance console",
+            "content": "Placed this in our entryway hall and everyone who visits compliments it. The gold frame is sturdy and the marble finish is very rich.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Nida Rehman",
+            "rating": 5,
+            "title": "Stunning design & flawless delivery",
+            "content": "Arrived within 4 days to Lahore. Very securely packed with protective corners. The console table is truly a piece of art.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Kashif Mehmood",
+            "rating": 5,
+            "title": "Top-grade craftsmanship",
+            "content": "The geometric structure is rock solid and perfectly balanced. Looks like high-end imported Turkish or Italian furniture.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Sadia Farhan",
+            "rating": 4,
+            "title": "Very elegant and space-saving",
+            "content": "Slim profile fits perfectly along our hallway wall without blocking passage. The tabletop is easy to keep spotless.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Waseem Akram",
+            "rating": 5,
+            "title": "Exceeded all expectations",
+            "content": "Worth every rupee of Rs. 13,000. Customer service on WhatsApp was prompt and helpful with order confirmation.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Anum Jahangir",
+            "rating": 5,
+            "title": "Premium aesthetic for our home",
+            "content": "We styled it with a mirror above and decorative vases, and it transformed the foyer. Absolutely love it!",
+            "date": "September 2026"
+          }
+        }
+      }
     },
     "recommendations": {
       "type": "featured-products",

@@ -93,6 +93,90 @@
         "Gold-finish frame"
       ],
       "template_suffix": "console"
+    },
+    {
+      "handle": "fluted-pillar-center-table",
+      "title": "Fluted Pillar Marble Center Table (CT1)",
+      "description": "A grand double-tier center table featuring deep black veined marble surfaces framed by vertical fluted gold pillar rods for an opulent architectural presence.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "18500.00",
+      "compare_at_price": "21500.00",
+      "currency": "PKR",
+      "images": [
+        "ct1-room.jpg",
+        "ct1.jpg"
+      ],
+      "specifications": [
+        "Two-tier rectangular center table with spacious lower shelf",
+        "Rich black gold-veined polished marble surfaces",
+        "Architectural vertical fluted gold steel pillars",
+        "Handcrafted durable metal frame with anti-scratch floor protectors"
+      ],
+      "template_suffix": "ct1"
+    },
+    {
+      "handle": "stepped-multitier-center-table",
+      "title": "Stepped Multi-Tier Marble Center Table (CT2)",
+      "description": "A modern split-level center table with stepped black marble shelves and sleek gold vertical railings, creating an artistic multi-tier display.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "16500.00",
+      "compare_at_price": "19000.00",
+      "currency": "PKR",
+      "images": [
+        "ct2-room.jpg",
+        "ct2.jpg"
+      ],
+      "specifications": [
+        "Asymmetrical stepped multi-tier layout for versatile display and storage",
+        "Polished black marble surfaces with delicate gold-toned veining",
+        "Slender vertical gold-finish railings with reinforced base",
+        "Rust-resistant warm champagne gold powder-coated finish"
+      ],
+      "template_suffix": "ct2"
+    },
+    {
+      "handle": "oval-ribbed-center-table",
+      "title": "Oval Ribbed Cage Center Table (CT3)",
+      "description": "An exquisite pill-shaped oval center table wrapped in a curved gold cage frame with twin tiers of lustrous dark marble.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "16500.00",
+      "compare_at_price": "19000.00",
+      "currency": "PKR",
+      "images": [
+        "ct3-room.jpg",
+        "ct3.jpg"
+      ],
+      "specifications": [
+        "Soft pill-shaped oval capsule silhouette",
+        "Dual-tier layout with inset dark veined marble surfaces",
+        "Sculptural curved vertical fluted gold cage frame",
+        "Smooth rounded edges ideal for contemporary living rooms"
+      ],
+      "template_suffix": "ct3"
+    },
+    {
+      "handle": "geometric-spiral-center-table",
+      "title": "Geometric Spiral Center Table (CT4)",
+      "description": "A captivating low-profile center table showcasing a striking twisted spiral sunburst metal base beneath a premium black marble tabletop.",
+      "vendor": "Gull e Gulzar Home Trolley",
+      "product_type": "Center Tables",
+      "price": "10500.00",
+      "compare_at_price": "12500.00",
+      "currency": "PKR",
+      "images": [
+        "ct4-room.jpg",
+        "ct4.jpg"
+      ],
+      "specifications": [
+        "Distinctive twisted spiral helix wireframe centerpiece",
+        "Premium polished black marble top with natural veining",
+        "Sleek gold-finish rectangular frame silhouette",
+        "Open geometric design maximizing living room light and flow"
+      ],
+      "template_suffix": "ct4"
     }
   ]
 }

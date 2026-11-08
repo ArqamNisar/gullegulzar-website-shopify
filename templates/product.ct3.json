@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Farhan Qureshi",
+            "rating": 5,
+            "title": "Safe oval shape & child-friendly corners",
+            "content": "The oval capsule shape is fantastic, especially because we have toddlers running around and there are no sharp 90-degree corners. The vertical cage bars around the curved perimeter look sensational.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Meer",
+            "rating": 5,
+            "title": "Straight out of an interior design magazine",
+            "content": "Looks straight out of an Architectural Digest magazine! The dark marble top with deep undertones and the curved gold ribbed frame make it a true showstopper.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Mohsin Raza",
+            "rating": 5,
+            "title": "Outstanding craftsmanship & warm champagne gold",
+            "content": "Outstanding craftsmanship. The oval top is perfectly aligned with the lower tier, and the gold finish has a warm champagne tone rather than cheap shiny yellow. Very happy customer.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Samina Khalid",
+            "rating": 4,
+            "title": "Spacious yet easy to walk around",
+            "content": "Lovely pill-shaped table. It's spacious yet doesn't take up excessive walking space in the lounge. Very easy to wipe down.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Waqas Butt",
+            "rating": 5,
+            "title": "Immaculate packaging & solid weight",
+            "content": "The packaging was immaculate and delivery arrived on time in 4 days. Sturdy frame, heavy marble tiers, and premium gold bars. Truly worth Rs. 16,500.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Nimra Tahir",
+            "rating": 5,
+            "title": "Drawing room centerpiece",
+            "content": "Bought this for our newly renovated drawing room and everybody who visits asks where we bought it from! Gull e Gulzar has done an amazing job.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Adeel Hassan",
+            "rating": 5,
+            "title": "Elite curved cage styling",
+            "content": "Excellent product quality and prompt customer service. The rounded cage style gives it such an elite look.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

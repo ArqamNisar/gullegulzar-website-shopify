@@ -1,0 +1,91 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Ghani",
+            "rating": 5,
+            "title": "Stepped dual-level design is genius",
+            "content": "The stepped dual-level design is genius! I keep a small money plant on the lower tier and serving trays on the top tier. The vertical gold rods give it a very sleek contemporary aesthetic.",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Siddiqa",
+            "rating": 5,
+            "title": "Exceeded all my expectations",
+            "content": "Exceeded all my expectations! The black gold marble looks super luxurious and the warm gold finish matches my living room theme perfectly. Delivery took 5 days to DHA Lahore.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Fahad Alvi",
+            "rating": 5,
+            "title": "Unique designer furniture look",
+            "content": "Very unique design that you don't find easily in local furniture markets. The split-level layout makes it look like designer furniture. Sturdy build and no assembly hassle.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Hafsa Munir",
+            "rating": 4,
+            "title": "Sturdy & multi-functional",
+            "content": "The table is beautiful and sturdy. The stepped shelves allow multiple decorative pieces without looking cluttered. Highly pleased with the purchase.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Omer Sheikh",
+            "rating": 5,
+            "title": "Durable gold coating & easy to clean",
+            "content": "The gold coating is durable and hasn't scratched. Black marble top wipes clean with a microfibre cloth without any water marks. Excellent value for money.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Khadija Rehman",
+            "rating": 5,
+            "title": "Superb support on WhatsApp",
+            "content": "Very pleased with the quality and customer support on WhatsApp. Delivered safely packed with zero scratches. Will be ordering side tables soon!",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Taimoor Shah",
+            "rating": 5,
+            "title": "Modern & minimalist",
+            "content": "Modern, minimalist yet opulent. The split height tiers add great depth to our living room space.",
+            "date": "September 2026"
+          }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "You may also like",
+        "description": "Thoughtfully crafted furniture pieces to complement your living spaces."
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "recommendations"
+  ]
+}

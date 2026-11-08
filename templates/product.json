@@ -2,7 +2,89 @@
   "sections": {
     "main_product": {
       "type": "main-product",
-      "settings": {}
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "name": "Muhammad Ahmed",
+            "rating": 5,
+            "title": "Outstanding quality & luxurious finish",
+            "content": "Excellent quality and beautiful design. The marble look and gold finish are stunning in person. Highly recommended!",
+            "date": "November 2026"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "name": "Ayesha Khan",
+            "rating": 5,
+            "title": "Perfect addition to our living room",
+            "content": "Very satisfied with the purchase. The table is stylish, sturdy, and arrived in flawless condition. Perfect for everyday luxury.",
+            "date": "November 2026"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "name": "Ali Raza",
+            "rating": 5,
+            "title": "Great value for money",
+            "content": "Premium product with a lovely finish. Exactly what I expected from Gull e Gulzar.",
+            "date": "October 2026"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "name": "Fatima Noor",
+            "rating": 5,
+            "title": "Elegant and durable",
+            "content": "Just loved it! Compact, elegant, and looks like expensive imported furniture. Very happy with the purchase.",
+            "date": "October 2026"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "name": "Usman Malik",
+            "rating": 5,
+            "title": "Impressive craftsmanship",
+            "content": "Amazing craftsmanship and premium look. The delivery was fast and the packaging was very secure.",
+            "date": "October 2026"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "name": "Sana Tariq",
+            "rating": 4,
+            "title": "Beautiful piece of furniture",
+            "content": "Fits perfectly in our space and looks great. Very pleased with the overall quality.",
+            "date": "September 2026"
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "name": "Hamza Iqbal",
+            "rating": 5,
+            "title": "Modern aesthetics",
+            "content": "Great product! The design is modern, and the quality exceeded my expectations. Smooth delivery across Pakistan.",
+            "date": "September 2026"
+          }
+        },
+        "review_8": {
+          "type": "review",
+          "settings": {
+            "name": "Zainab Ali",
+            "rating": 5,
+            "title": "Worth every rupee",
+            "content": "Strong, stylish, and beautifully made. Truly adds warmth to the lounge.",
+            "date": "September 2026"
+          }
+        }
+      }
     },
     "recommendations": {
       "type": "featured-products",

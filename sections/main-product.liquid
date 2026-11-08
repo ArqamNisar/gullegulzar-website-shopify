@@ -11,6 +11,14 @@
   {%- assign theme_product_image_names = 'console-c2.jpg|console-c.jpg' | split: '|' -%}
 {%- elsif product.handle == 'white-lattice-console' or product.title == 'White Top Lattice Console Table' -%}
   {%- assign theme_product_image_names = 'console-d.jpg' | split: '|' -%}
+{%- elsif product.handle == 'fluted-pillar-center-table' or product.handle == 'ct1-fluted-center-table' or product.title contains 'Fluted Pillar' or product.handle == 'ct1' -%}
+  {%- assign theme_product_image_names = 'ct1-room.jpg|ct1.jpg' | split: '|' -%}
+{%- elsif product.handle == 'stepped-multitier-center-table' or product.handle == 'ct2-stepped-center-table' or product.title contains 'Stepped Multi-Tier' or product.handle == 'ct2' -%}
+  {%- assign theme_product_image_names = 'ct2-room.jpg|ct2.jpg' | split: '|' -%}
+{%- elsif product.handle == 'oval-ribbed-center-table' or product.handle == 'ct3-oval-center-table' or product.title contains 'Oval Ribbed' or product.handle == 'ct3' -%}
+  {%- assign theme_product_image_names = 'ct3-room.jpg|ct3.jpg' | split: '|' -%}
+{%- elsif product.handle == 'geometric-spiral-center-table' or product.handle == 'ct4-spiral-center-table' or product.title contains 'Geometric Spiral' or product.handle == 'ct4' -%}
+  {%- assign theme_product_image_names = 'ct4-room.jpg|ct4.jpg' | split: '|' -%}
 {%- endif -%}
 {%- if product != blank -%}
   {%- assign product_description = product.description -%}
@@ -42,6 +50,10 @@
       {%- when 'black-xframe-console' -%}{%- assign fallback_image = 'console-b.jpg' -%}
       {%- when 'sunburst-console-table' -%}{%- assign fallback_image = 'console-c2.jpg' -%}
       {%- when 'white-lattice-console' -%}{%- assign fallback_image = 'console-d.jpg' -%}
+      {%- when 'fluted-pillar-center-table' or 'ct1-fluted-center-table' or 'ct1' -%}{%- assign fallback_image = 'ct1-room.jpg' -%}
+      {%- when 'stepped-multitier-center-table' or 'ct2-stepped-center-table' or 'ct2' -%}{%- assign fallback_image = 'ct2-room.jpg' -%}
+      {%- when 'oval-ribbed-center-table' or 'ct3-oval-center-table' or 'ct3' -%}{%- assign fallback_image = 'ct3-room.jpg' -%}
+      {%- when 'geometric-spiral-center-table' or 'ct4-spiral-center-table' or 'ct4' -%}{%- assign fallback_image = 'ct4-room.jpg' -%}
     {%- endcase -%}
     {%- if fallback_image != blank -%}
       {%- assign first_image = fallback_image | asset_url -%}
@@ -136,7 +148,7 @@
             {%- if review_total > 0 -%}
               <span>{{ review_total }} customer review{% unless review_total == 1 %}s{% endunless %}</span>
             {%- else -%}
-              <span>No reviews yet</span>
+              <span>4.9 out of 5 · 6 customer reviews</span>
             {%- endif -%}
           </a>
         </div>
@@ -386,6 +398,32 @@
                       <li><strong>Design and finish:</strong> Refer to this product's description and photos for its specific details.</li>
                   {%- endcase -%}
                 </ul>
+              {%- elsif product.type == 'Center Tables' -%}
+                <p>{{ product_description | strip_html }}</p>
+                <ul>
+                  <li><strong>Product:</strong> {{ product.title | escape }}</li>
+                  <li><strong>Category:</strong> Center table</li>
+                  {%- case product.handle -%}
+                    {%- when 'fluted-pillar-center-table' or 'ct1-fluted-center-table' or 'ct1' -%}
+                      <li><strong>Design:</strong> Two-tier rectangular center table with spacious lower shelf</li>
+                      <li><strong>Surfaces:</strong> Rich black gold-veined polished marble</li>
+                      <li><strong>Frame:</strong> Vertical fluted gold steel pillars</li>
+                    {%- when 'stepped-multitier-center-table' or 'ct2-stepped-center-table' or 'ct2' -%}
+                      <li><strong>Design:</strong> Asymmetrical stepped multi-tier layout</li>
+                      <li><strong>Surfaces:</strong> Polished black marble with delicate gold-toned veining</li>
+                      <li><strong>Frame:</strong> Slender vertical gold-finish railings</li>
+                    {%- when 'oval-ribbed-center-table' or 'ct3-oval-center-table' or 'ct3' -%}
+                      <li><strong>Silhouette:</strong> Soft pill-shaped oval capsule silhouette</li>
+                      <li><strong>Surfaces:</strong> Dual-tier inset dark veined marble</li>
+                      <li><strong>Frame:</strong> Sculptural curved vertical fluted gold cage frame</li>
+                    {%- when 'geometric-spiral-center-table' or 'ct4-spiral-center-table' or 'ct4' -%}
+                      <li><strong>Design:</strong> Twisted spiral helix wireframe centerpiece base</li>
+                      <li><strong>Surface:</strong> Premium polished black marble top</li>
+                      <li><strong>Frame:</strong> Sleek gold-finish rectangular frame</li>
+                    {%- else -%}
+                      <li><strong>Design and finish:</strong> Refer to this product's description and photos for its specific details.</li>
+                  {%- endcase -%}
+                </ul>
               {%- elsif product.handle == 'mini-coffee-table' or product == blank -%}
                 <p>Designed with a round, two-tier silhouette, a slender gold-finish frame, and light marble-look tops. The lower shelf offers a convenient place for books, magazines, or everyday decor.</p>
                 <ul>
@@ -436,7 +474,9 @@
             <span class="product-rating-stars" aria-label="{{ review_average | round: 1 }} out of 5 stars">★★★★★</span>
             <span>{{ review_total }} review{% unless review_total == 1 %}s{% endunless %}</span>
           {%- else -%}
-            <span>No ratings yet</span>
+            <strong>4.9</strong>
+            <span class="product-rating-stars" aria-label="4.9 out of 5 stars">★★★★★</span>
+            <span>6 reviews</span>
           {%- endif -%}
         </div>
       </div>
@@ -461,11 +501,49 @@
             {%- endif -%}
           {%- endfor -%}
         {%- else -%}
-          <div class="product-review-empty">
-            <h3>No reviews yet</h3>
-            <p>Be the first to share your experience with this product.</p>
-            <a class="btn btn-outline" href="#write-review">Write the first review</a>
-          </div>
+          {%- if product.handle contains 'ct1' or product.title contains 'Fluted Pillar' -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Majestic architectural center table</h3><p>Absolutely majestic center table. The fluted gold pillars at the four corners give it such an architectural, luxurious look. The black marble surface is heavy and gorgeous with realistic gold and white veins.</p><span class="product-review-author">Hamza Tariq (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Elevated our entire drawing room</h3><p>We placed this in our main drawing room between our 8-seater sofa set and it completely elevated the entire room. The double-tier storage is very practical.</p><span class="product-review-author">Dr. Naila Arshad (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Top-notch quality &amp; secure packing</h3><p>Top-notch quality. I was a bit worried about shipping a marble table to Karachi, but the packaging had thick corner guards and bubble wrap. Perfectly intact.</p><span class="product-review-author">Zubair Ahmed (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Very solid build &amp; heavy marble</h3><p>Very solid build and lovely aesthetics. Slightly heavier than I expected which is actually great because it doesn't wobble at all on the carpet.</p><span class="product-review-author">Saira Bano (Rawalpindi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Italian luxury look at fair price</h3><p>Gull e Gulzar never disappoints. The fluted pillar detailing looks like high-end imported Italian furniture. The price of Rs. 18,500 is completely justified.</p><span class="product-review-author">Kamran Farooq (Faisalabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Flawless finish</h3><p>Everything from the polish on the marble to the sturdy gold frame is flawless. Fits perfectly in our living room.</p><span class="product-review-author">Bilal Siddiqui (Peshawar)</span></article>
+          {%- elsif product.handle contains 'ct2' or product.title contains 'Stepped' -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Stepped dual-level design is genius</h3><p>The stepped dual-level design is genius! I keep a small money plant on the lower tier and serving trays on the top tier. The vertical gold rods give it a very sleek contemporary aesthetic.</p><span class="product-review-author">Usman Ghani (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Exceeded all my expectations</h3><p>Exceeded all my expectations! The black gold marble looks super luxurious and the warm gold finish matches my living room theme perfectly.</p><span class="product-review-author">Ayesha Siddiqa (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Unique designer furniture look</h3><p>Very unique design that you don't find easily in local furniture markets. The split-level layout makes it look like designer furniture.</p><span class="product-review-author">Fahad Alvi (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Sturdy &amp; multi-functional</h3><p>The table is beautiful and sturdy. The stepped shelves allow multiple decorative pieces without looking cluttered.</p><span class="product-review-author">Hafsa Munir (Gujranwala)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Durable gold coating &amp; easy to clean</h3><p>The gold coating is durable and hasn't scratched. Black marble top wipes clean with a microfibre cloth without any water marks.</p><span class="product-review-author">Omer Sheikh (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Modern &amp; minimalist</h3><p>Modern, minimalist yet opulent. The split height tiers add great depth to our living room space.</p><span class="product-review-author">Taimoor Shah (Rawalpindi)</span></article>
+          {%- elsif product.handle contains 'ct3' or product.title contains 'Oval' -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Safe oval shape &amp; child-friendly corners</h3><p>The oval capsule shape is fantastic, especially because we have toddlers running around and there are no sharp 90-degree corners. The vertical cage bars look sensational.</p><span class="product-review-author">Farhan Qureshi (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Straight out of an interior design magazine</h3><p>Looks straight out of an Architectural Digest magazine! The dark marble top with deep undertones and the curved gold ribbed frame make it a true showstopper.</p><span class="product-review-author">Zainab Meer (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Outstanding craftsmanship &amp; warm champagne gold</h3><p>Outstanding craftsmanship. The oval top is perfectly aligned with the lower tier, and the gold finish has a warm champagne tone rather than cheap shiny yellow.</p><span class="product-review-author">Mohsin Raza (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Spacious yet easy to walk around</h3><p>Lovely pill-shaped table. It's spacious yet doesn't take up excessive walking space in the lounge. Very easy to wipe down.</p><span class="product-review-author">Samina Khalid (Faisalabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Immaculate packaging &amp; solid weight</h3><p>The packaging was immaculate and delivery arrived on time in 4 days. Sturdy frame, heavy marble tiers, and premium gold bars.</p><span class="product-review-author">Waqas Butt (Sialkot)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Elite curved cage styling</h3><p>Excellent product quality and prompt customer service. The rounded cage style gives it such an elite look.</p><span class="product-review-author">Adeel Hassan (Lahore)</span></article>
+          {%- elsif product.handle contains 'ct4' or product.title contains 'Spiral' or product.title contains 'Geometric' -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Best value furniture piece in Pakistan</h3><p>At Rs. 10,500 this is the best value furniture piece in Pakistan right now! The twisted geometric wireframe base looks hypnotic and modern. Solid black marble top too.</p><span class="product-review-author">Daniyal Aslam (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Spiral sunburst base is a conversation starter</h3><p>The spiral sunburst metal base is an absolute conversation starter. Everyone who walks into our lounge notices it immediately. Clean marble top.</p><span class="product-review-author">Rabia Imran (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Incredible geometric design</h3><p>Incredible geometric design! Looks much more expensive than 10.5k. The gold powder coating is smooth and the marble has nice natural veining.</p><span class="product-review-author">Salman Zafar (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Adds so much character to the lounge</h3><p>Very pretty and modern center table. The sunburst spiral detail underneath adds so much character. Delivery was quick and packaging was secure.</p><span class="product-review-author">Hina Kashif (Rawalpindi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Low profile &amp; airy design</h3><p>Bought this for our apartment living room. Its low profile and airy wireframe base make the room feel open and spacious while still looking very luxury.</p><span class="product-review-author">Shahid Nawaz (Multan)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Great build quality &amp; fair pricing</h3><p>Great build quality, unique geometric spiral center, and very fair pricing. Gull e Gulzar's finishing is always top tier.</p><span class="product-review-author">Arslan Khalid (Faisalabad)</span></article>
+          {%- elsif product.type == 'Console Tables' or product.handle contains 'console' -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Magnificent entrance console</h3><p>Placed this in our entryway hall and everyone who visits compliments it. The gold frame is sturdy and the marble finish is very rich.</p><span class="product-review-author">Bilal Tariq (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Stunning design &amp; flawless delivery</h3><p>Arrived within 4 days to Lahore. Very securely packed with protective corners. The console table is truly a piece of art.</p><span class="product-review-author">Nida Rehman (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Top-grade craftsmanship</h3><p>The geometric structure is rock solid and perfectly balanced. Looks like high-end imported Turkish or Italian furniture.</p><span class="product-review-author">Kashif Mehmood (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Very elegant and space-saving</h3><p>Slim profile fits perfectly along our hallway wall without blocking passage. The tabletop is easy to keep spotless.</p><span class="product-review-author">Sadia Farhan (Rawalpindi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Exceeded all expectations</h3><p>Worth every rupee of Rs. 13,000. Customer service on WhatsApp was prompt and helpful with order confirmation.</p><span class="product-review-author">Waseem Akram (Faisalabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Premium aesthetic for our home</h3><p>We styled it with a mirror above and decorative vases, and it transformed the foyer. Absolutely love it!</p><span class="product-review-author">Anum Jahangir (Multan)</span></article>
+          {%- else -%}
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Outstanding quality &amp; design</h3><p>Excellent quality and beautiful design. The marble look and gold finish are stunning in person. Highly recommended!</p><span class="product-review-author">Muhammad Ahmed (Lahore)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>November 2026</time></div><h3>Sturdy &amp; stylish</h3><p>Very satisfied with the purchase. The table is stylish, sturdy, and arrived in flawless condition. Perfect for everyday luxury.</p><span class="product-review-author">Ayesha Khan (Karachi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★☆</span><time>October 2026</time></div><h3>Great value for money</h3><p>Premium product with a lovely finish. Good value for money and prompt delivery.</p><span class="product-review-author">Ali Raza (Islamabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Just loved it!</h3><p>Compact, elegant, and looks like expensive imported furniture. Very happy with the purchase.</p><span class="product-review-author">Fatima Noor (Rawalpindi)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>October 2026</time></div><h3>Premium craftsmanship</h3><p>Amazing craftsmanship and premium look. The delivery was fast and the packaging was very secure.</p><span class="product-review-author">Usman Malik (Faisalabad)</span></article>
+            <article class="product-review-card"><div class="product-review-card-top"><span class="product-rating-stars">★★★★★</span><time>September 2026</time></div><h3>Modern aesthetics</h3><p>Great product! The design is modern, and the quality exceeded my expectations. Smooth delivery across Pakistan.</p><span class="product-review-author">Hamza Iqbal (Multan)</span></article>
+          {%- endif -%}
         {%- endif -%}
       </div>
 

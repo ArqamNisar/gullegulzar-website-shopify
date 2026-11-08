@@ -35,7 +35,13 @@ All contact numbers on the website automatically redirect users to WhatsApp:
 
 ## 🪑 Current Products
 
-The catalog includes the **Mini Coffee Table** at **Rs. 6,000 PKR** (compare-at price Rs. 7,000) and four Console Tables at **Rs. 13,000 PKR** each (compare-at price Rs. 15,000). The console products use `product.console.json` and include seven product photos across four designs. To create or update products in Shopify Admin, import [`product-import.csv`](./product-import.csv) from **Products > Import**. When updating existing products, enable Shopify's option to overwrite products with matching handles so the current prices and image order are applied. Product rows in the CSV are marked `active` and `TRUE` for publication on the Online Store. The CSV image links point to this repository's `main` branch. A theme ZIP does not import catalog products, update their prices/media, or publish them to the Online Store sales channel.
+The catalog includes the **Mini Coffee Table** at **Rs. 6,000 PKR** (compare-at price Rs. 7,000), four **Console Tables** at **Rs. 13,000 PKR** each (compare-at price Rs. 15,000), and four **Center Tables**:
+- **Fluted Pillar Marble Center Table (CT1)**: **Rs. 18,500 PKR** (compare-at price Rs. 21,500)
+- **Stepped Multi-Tier Marble Center Table (CT2)**: **Rs. 16,500 PKR** (compare-at price Rs. 19,000)
+- **Oval Ribbed Cage Center Table (CT3)**: **Rs. 16,500 PKR** (compare-at price Rs. 19,000)
+- **Geometric Spiral Center Table (CT4)**: **Rs. 10,500 PKR** (compare-at price Rs. 12,500)
+
+The center tables use individual Shopify template suffixes (`ct1`, `ct2`, `ct3`, `ct4`) with custom customer reviews pre-configured in their template blocks. To create or update products in Shopify Admin, import [`product-import.csv`](./product-import.csv) from **Products > Import**. When updating existing products, enable Shopify's option to overwrite products with matching handles so the current prices and image order are applied. Product rows in the CSV are marked `active` and `TRUE` for publication on the Online Store. The CSV image links point to this repository's `main` branch. A theme ZIP does not import catalog products, update their prices/media, or publish them to the Online Store sales channel.
 
 ---
 
@@ -47,14 +53,14 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
   - Announcement bar with direct phone/WhatsApp links
   - Sticky glassmorphic header with navigation and mobile drawer
   - Hero banner with headline, CTA buttons, and trust highlights
-  - Featured products including the Mini Coffee Table and four Console Tables
+  - Featured products including the Mini Coffee Table, four Console Tables, and four Center Tables
   - Furniture quality highlights and a zoomable lifestyle photo of the table
   - Luxury footer with quick links, policies, and contact cards
 
 - **Catalog & Collections Page** ([`collections.html`](./collections.html) / [`templates/collection.json`](./templates/collection.json)):
-  - The Mini Coffee Table and four Console Table designs, each with a product listing
+  - The Mini Coffee Table, four Console Table designs, and four Center Table models, each with a rich product listing
 
-- **Product Pages** ([`product-mini-coffee.html`](./product-mini-coffee.html), [`console-product.html`](./console-product.html) / [`sections/main-product.liquid`](./sections/main-product.liquid)):
+- **Product Pages** ([`product-mini-coffee.html`](./product-mini-coffee.html), [`product-ct1.html`](./product-ct1.html), [`product-ct2.html`](./product-ct2.html), [`product-ct3.html`](./product-ct3.html), [`product-ct4.html`](./product-ct4.html), [`console-product.html`](./console-product.html) / [`sections/main-product.liquid`](./sections/main-product.liquid)):
   - Two-photo gallery with zoom and thumbnail switching
   - Use the Mini Coffee Table product page as the design and content reference for every new product page
   - Use the product-in-use or styled photo as the primary image when available; keep clean product-only photos as secondary images
@@ -64,12 +70,12 @@ The project contains fully modular Shopify 2.0 sections and dedicated standalone
   - Bundle totals use the listed per-piece price; no bundle discount is applied unless configured by the store
   - Customer review form and summary; only display reviews supplied for that product rather than reusing another product's feedback
   - Customer review submission handoff to WhatsApp and review blocks for publishing moderated feedback
-  - The Mini Coffee Table uses the `mini-coffee` Shopify template suffix for its supplied reviews; new products use the standard `product` template without inheriting those reviews
+  - The Mini Coffee Table uses the `mini-coffee` Shopify template suffix for its supplied reviews; Center Tables use `ct1`, `ct2`, `ct3`, and `ct4` suffixes with bespoke reviews
   - Shopify product form with native Add to Cart and Buy Now actions when the Shopify product exists
   - Product reference data is included in [`assets/products.json`](./assets/products.json); Shopify theme ZIP uploads do not create catalog products
-  - Product cards and galleries for the five included product handles use the theme's bundled images, so their display does not depend on Shopify product media URLs resolving
+  - Product cards and galleries for all included product handles use the theme's bundled images, so their display does not depend on Shopify product media URLs resolving
   - Console Table Shopify product pages use the `console` template suffix; their imported handles create the individual `/products/...` URLs
-  - The standalone collection links to [`console-product.html`](./console-product.html) for local Console Table product previews
+  - The standalone collection links to dedicated product pages ([`product-ct1.html`](./product-ct1.html), [`product-ct2.html`](./product-ct2.html), [`product-ct3.html`](./product-ct3.html), [`product-ct4.html`](./product-ct4.html)) and [`console-product.html`](./console-product.html) for local product previews
 
 - **Dedicated Contact Us Page** ([`contact.html`](./contact.html) / [`templates/page.contact.json`](./templates/page.contact.json)):
   - Direct WhatsApp click cards for `+923204967079` and `+923004055876`

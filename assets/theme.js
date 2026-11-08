@@ -40,7 +40,19 @@ function getProductCartImage(title, currentImage = '') {
     'gold wheel console trolley': 'assets/console-a2.jpg',
     'black top x-frame console table': 'assets/console-b.jpg',
     'sunburst gold console table': 'assets/console-c2.jpg',
-    'white top lattice console table': 'assets/console-d.jpg'
+    'white top lattice console table': 'assets/console-d.jpg',
+    'fluted pillar marble center table': 'assets/ct1-room.jpg',
+    'fluted pillar marble center table (ct1)': 'assets/ct1-room.jpg',
+    'stepped multi-tier marble center table': 'assets/ct2-room.jpg',
+    'stepped multi-tier marble center table (ct2)': 'assets/ct2-room.jpg',
+    'oval ribbed cage center table': 'assets/ct3-room.jpg',
+    'oval ribbed cage center table (ct3)': 'assets/ct3-room.jpg',
+    'geometric spiral center table': 'assets/ct4-room.jpg',
+    'geometric spiral center table (ct4)': 'assets/ct4-room.jpg',
+    'ct1': 'assets/ct1-room.jpg',
+    'ct2': 'assets/ct2-room.jpg',
+    'ct3': 'assets/ct3-room.jpg',
+    'ct4': 'assets/ct4-room.jpg'
   };
   const normalizedTitle = String(title || '').trim().toLocaleLowerCase();
   return productImages[normalizedTitle] || currentImage;
