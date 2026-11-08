@@ -7,6 +7,7 @@
   - price: {String} Price
   - compare_price: {String} Regular/Compare price
   - image_url: {String} Fallback image URL
+  - image_filename: {String} Theme asset filename for the product image
   - url: {String} Target product page URL
 {% endcomment %}
 
@@ -28,6 +29,9 @@
 {%- endif -%}
 {%- assign item_url = url | default: product.url | default: "/pages/contact" -%}
 {%- assign item_image_url = image_url -%}
+{%- if image_filename != blank -%}
+  {%- assign item_image_url = image_filename | asset_url -%}
+{%- endif -%}
 {%- if product != blank -%}
   {%- assign item_price_numeric = product.price | divided_by: 100.0 -%}
   {%- assign item_compare_numeric = product.compare_at_price | divided_by: 100.0 -%}
